@@ -1,0 +1,674 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF57E9071D13B5CB004D2AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */; };
+		FF57E9091D13B5CB004D2AE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9081D13B5CB004D2AE1 /* ViewController.swift */; };
+		FF57E90B1D13B5CB004D2AE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */; };
+		FF57E90E1D13B5CB004D2AE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF57E90C1D13B5CB004D2AE1 /* Main.storyboard */; };
+		FF57E9191D13B5CB004D2AE1 /* TetraVexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9181D13B5CB004D2AE1 /* TetraVexUITests.swift */; };
+		FF57E92B1D13B5E0004D2AE1 /* TetraVexKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FF57E92A1D13B5E0004D2AE1 /* TetraVexKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF57E9321D13B5E0004D2AE1 /* TetraVexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF57E9281D13B5E0004D2AE1 /* TetraVexKit.framework */; };
+		FF57E9391D13B5E0004D2AE1 /* TetraVexKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9381D13B5E0004D2AE1 /* TetraVexKitTests.swift */; };
+		FF57E93D1D13B5E0004D2AE1 /* TetraVexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF57E9281D13B5E0004D2AE1 /* TetraVexKit.framework */; };
+		FF57E93E1D13B5E0004D2AE1 /* TetraVexKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF57E9281D13B5E0004D2AE1 /* TetraVexKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF57E9471D13B943004D2AE1 /* PieceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9461D13B943004D2AE1 /* PieceModel.swift */; };
+		FF57E94B1D1447F9004D2AE1 /* TetraVexBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E94A1D1447F9004D2AE1 /* TetraVexBoardModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF57E9151D13B5CB004D2AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF57E8FB1D13B5CB004D2AE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF57E9021D13B5CB004D2AE1;
+			remoteInfo = TetraVex;
+		};
+		FF57E9331D13B5E0004D2AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF57E8FB1D13B5CB004D2AE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF57E9271D13B5E0004D2AE1;
+			remoteInfo = TetraVexKit;
+		};
+		FF57E9351D13B5E0004D2AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF57E8FB1D13B5CB004D2AE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF57E9021D13B5CB004D2AE1;
+			remoteInfo = TetraVex;
+		};
+		FF57E93B1D13B5E0004D2AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF57E8FB1D13B5CB004D2AE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF57E9271D13B5E0004D2AE1;
+			remoteInfo = TetraVexKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FF57E9421D13B5E0004D2AE1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF57E93E1D13B5E0004D2AE1 /* TetraVexKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FF57E9031D13B5CB004D2AE1 /* TetraVex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TetraVex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF57E9081D13B5CB004D2AE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF57E90D1D13B5CB004D2AE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF57E90F1D13B5CB004D2AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF57E9141D13B5CB004D2AE1 /* TetraVexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TetraVexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF57E9181D13B5CB004D2AE1 /* TetraVexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetraVexUITests.swift; sourceTree = "<group>"; };
+		FF57E91A1D13B5CB004D2AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF57E9281D13B5E0004D2AE1 /* TetraVexKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TetraVexKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF57E92A1D13B5E0004D2AE1 /* TetraVexKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TetraVexKit.h; sourceTree = "<group>"; };
+		FF57E92C1D13B5E0004D2AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF57E9311D13B5E0004D2AE1 /* TetraVexKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TetraVexKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF57E9381D13B5E0004D2AE1 /* TetraVexKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetraVexKitTests.swift; sourceTree = "<group>"; };
+		FF57E93A1D13B5E0004D2AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF57E9461D13B943004D2AE1 /* PieceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceModel.swift; sourceTree = "<group>"; };
+		FF57E94A1D1447F9004D2AE1 /* TetraVexBoardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TetraVexBoardModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF57E9001D13B5CB004D2AE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF57E93D1D13B5E0004D2AE1 /* TetraVexKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E9111D13B5CB004D2AE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E9241D13B5E0004D2AE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E92E1D13B5E0004D2AE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF57E9321D13B5E0004D2AE1 /* TetraVexKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF57E8FA1D13B5CB004D2AE1 = {
+			isa = PBXGroup;
+			children = (
+				FF57E9051D13B5CB004D2AE1 /* TetraVex */,
+				FF57E9171D13B5CB004D2AE1 /* TetraVexUITests */,
+				FF57E9291D13B5E0004D2AE1 /* TetraVexKit */,
+				FF57E9371D13B5E0004D2AE1 /* TetraVexKitTests */,
+				FF57E9041D13B5CB004D2AE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF57E9041D13B5CB004D2AE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E9031D13B5CB004D2AE1 /* TetraVex.app */,
+				FF57E9141D13B5CB004D2AE1 /* TetraVexUITests.xctest */,
+				FF57E9281D13B5E0004D2AE1 /* TetraVexKit.framework */,
+				FF57E9311D13B5E0004D2AE1 /* TetraVexKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF57E9051D13B5CB004D2AE1 /* TetraVex */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */,
+				FF57E9081D13B5CB004D2AE1 /* ViewController.swift */,
+				FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */,
+				FF57E90C1D13B5CB004D2AE1 /* Main.storyboard */,
+				FF57E90F1D13B5CB004D2AE1 /* Info.plist */,
+			);
+			path = TetraVex;
+			sourceTree = "<group>";
+		};
+		FF57E9171D13B5CB004D2AE1 /* TetraVexUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E9181D13B5CB004D2AE1 /* TetraVexUITests.swift */,
+				FF57E91A1D13B5CB004D2AE1 /* Info.plist */,
+			);
+			path = TetraVexUITests;
+			sourceTree = "<group>";
+		};
+		FF57E9291D13B5E0004D2AE1 /* TetraVexKit */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E92A1D13B5E0004D2AE1 /* TetraVexKit.h */,
+				FF57E9461D13B943004D2AE1 /* PieceModel.swift */,
+				FF57E94A1D1447F9004D2AE1 /* TetraVexBoardModel.swift */,
+				FF57E92C1D13B5E0004D2AE1 /* Info.plist */,
+			);
+			path = TetraVexKit;
+			sourceTree = "<group>";
+		};
+		FF57E9371D13B5E0004D2AE1 /* TetraVexKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E9381D13B5E0004D2AE1 /* TetraVexKitTests.swift */,
+				FF57E93A1D13B5E0004D2AE1 /* Info.plist */,
+			);
+			path = TetraVexKitTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FF57E9251D13B5E0004D2AE1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF57E92B1D13B5E0004D2AE1 /* TetraVexKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FF57E9021D13B5CB004D2AE1 /* TetraVex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF57E91D1D13B5CB004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVex" */;
+			buildPhases = (
+				FF57E8FF1D13B5CB004D2AE1 /* Sources */,
+				FF57E9001D13B5CB004D2AE1 /* Frameworks */,
+				FF57E9011D13B5CB004D2AE1 /* Resources */,
+				FF57E9421D13B5E0004D2AE1 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF57E93C1D13B5E0004D2AE1 /* PBXTargetDependency */,
+			);
+			name = TetraVex;
+			productName = TetraVex;
+			productReference = FF57E9031D13B5CB004D2AE1 /* TetraVex.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF57E9131D13B5CB004D2AE1 /* TetraVexUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF57E9201D13B5CB004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexUITests" */;
+			buildPhases = (
+				FF57E9101D13B5CB004D2AE1 /* Sources */,
+				FF57E9111D13B5CB004D2AE1 /* Frameworks */,
+				FF57E9121D13B5CB004D2AE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF57E9161D13B5CB004D2AE1 /* PBXTargetDependency */,
+			);
+			name = TetraVexUITests;
+			productName = TetraVexUITests;
+			productReference = FF57E9141D13B5CB004D2AE1 /* TetraVexUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		FF57E9271D13B5E0004D2AE1 /* TetraVexKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF57E93F1D13B5E0004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexKit" */;
+			buildPhases = (
+				FF57E9231D13B5E0004D2AE1 /* Sources */,
+				FF57E9241D13B5E0004D2AE1 /* Frameworks */,
+				FF57E9251D13B5E0004D2AE1 /* Headers */,
+				FF57E9261D13B5E0004D2AE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TetraVexKit;
+			productName = TetraVexKit;
+			productReference = FF57E9281D13B5E0004D2AE1 /* TetraVexKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FF57E9301D13B5E0004D2AE1 /* TetraVexKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF57E9431D13B5E0004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexKitTests" */;
+			buildPhases = (
+				FF57E92D1D13B5E0004D2AE1 /* Sources */,
+				FF57E92E1D13B5E0004D2AE1 /* Frameworks */,
+				FF57E92F1D13B5E0004D2AE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF57E9341D13B5E0004D2AE1 /* PBXTargetDependency */,
+				FF57E9361D13B5E0004D2AE1 /* PBXTargetDependency */,
+			);
+			name = TetraVexKitTests;
+			productName = TetraVexKitTests;
+			productReference = FF57E9311D13B5E0004D2AE1 /* TetraVexKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF57E8FB1D13B5CB004D2AE1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Marco Benzi Tobar";
+				TargetAttributes = {
+					FF57E9021D13B5CB004D2AE1 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					FF57E9131D13B5CB004D2AE1 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = FF57E9021D13B5CB004D2AE1;
+					};
+					FF57E9271D13B5E0004D2AE1 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					FF57E9301D13B5E0004D2AE1 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = FF57E9021D13B5CB004D2AE1;
+					};
+				};
+			};
+			buildConfigurationList = FF57E8FE1D13B5CB004D2AE1 /* Build configuration list for PBXProject "TetraVex" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF57E8FA1D13B5CB004D2AE1;
+			productRefGroup = FF57E9041D13B5CB004D2AE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF57E9021D13B5CB004D2AE1 /* TetraVex */,
+				FF57E9131D13B5CB004D2AE1 /* TetraVexUITests */,
+				FF57E9271D13B5E0004D2AE1 /* TetraVexKit */,
+				FF57E9301D13B5E0004D2AE1 /* TetraVexKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF57E9011D13B5CB004D2AE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF57E90B1D13B5CB004D2AE1 /* Assets.xcassets in Resources */,
+				FF57E90E1D13B5CB004D2AE1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E9121D13B5CB004D2AE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E9261D13B5E0004D2AE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E92F1D13B5E0004D2AE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF57E8FF1D13B5CB004D2AE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF57E9091D13B5CB004D2AE1 /* ViewController.swift in Sources */,
+				FF57E9071D13B5CB004D2AE1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E9101D13B5CB004D2AE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF57E9191D13B5CB004D2AE1 /* TetraVexUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E9231D13B5E0004D2AE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF57E9471D13B943004D2AE1 /* PieceModel.swift in Sources */,
+				FF57E94B1D1447F9004D2AE1 /* TetraVexBoardModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF57E92D1D13B5E0004D2AE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF57E9391D13B5E0004D2AE1 /* TetraVexKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF57E9161D13B5CB004D2AE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF57E9021D13B5CB004D2AE1 /* TetraVex */;
+			targetProxy = FF57E9151D13B5CB004D2AE1 /* PBXContainerItemProxy */;
+		};
+		FF57E9341D13B5E0004D2AE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF57E9271D13B5E0004D2AE1 /* TetraVexKit */;
+			targetProxy = FF57E9331D13B5E0004D2AE1 /* PBXContainerItemProxy */;
+		};
+		FF57E9361D13B5E0004D2AE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF57E9021D13B5CB004D2AE1 /* TetraVex */;
+			targetProxy = FF57E9351D13B5E0004D2AE1 /* PBXContainerItemProxy */;
+		};
+		FF57E93C1D13B5E0004D2AE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF57E9271D13B5E0004D2AE1 /* TetraVexKit */;
+			targetProxy = FF57E93B1D13B5E0004D2AE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF57E90C1D13B5CB004D2AE1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF57E90D1D13B5CB004D2AE1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF57E91B1D13B5CB004D2AE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF57E91C1D13B5CB004D2AE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FF57E91E1D13B5CB004D2AE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = TetraVex/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FF57E91F1D13B5CB004D2AE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = TetraVex/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FF57E9211D13B5CB004D2AE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TetraVexUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVexUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TetraVex;
+			};
+			name = Debug;
+		};
+		FF57E9221D13B5CB004D2AE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TetraVexUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVexUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TetraVex;
+			};
+			name = Release;
+		};
+		FF57E9401D13B5E0004D2AE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = TetraVexKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVexKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FF57E9411D13B5E0004D2AE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = TetraVexKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVexKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FF57E9441D13B5E0004D2AE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TetraVexKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVexKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TetraVex.app/Contents/MacOS/TetraVex";
+			};
+			name = Debug;
+		};
+		FF57E9451D13B5E0004D2AE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TetraVexKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVexKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TetraVex.app/Contents/MacOS/TetraVex";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF57E8FE1D13B5CB004D2AE1 /* Build configuration list for PBXProject "TetraVex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF57E91B1D13B5CB004D2AE1 /* Debug */,
+				FF57E91C1D13B5CB004D2AE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF57E91D1D13B5CB004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF57E91E1D13B5CB004D2AE1 /* Debug */,
+				FF57E91F1D13B5CB004D2AE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FF57E9201D13B5CB004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF57E9211D13B5CB004D2AE1 /* Debug */,
+				FF57E9221D13B5CB004D2AE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FF57E93F1D13B5E0004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF57E9401D13B5E0004D2AE1 /* Debug */,
+				FF57E9411D13B5E0004D2AE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FF57E9431D13B5E0004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF57E9441D13B5E0004D2AE1 /* Debug */,
+				FF57E9451D13B5E0004D2AE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF57E8FB1D13B5CB004D2AE1 /* Project object */;
+}
