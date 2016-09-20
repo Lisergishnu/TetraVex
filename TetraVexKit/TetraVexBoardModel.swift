@@ -12,6 +12,7 @@ class TetraVexBoardModel {
     
     // MARK: - Properties
     var board : [[PieceModel?]]
+    var startedPlaying : Bool = false
     
     // MARK: - Initializer
     init(width: Int, height: Int) {
@@ -58,6 +59,9 @@ class TetraVexBoardModel {
         }
         
         board[x][y] = piece
+        if startedPlaying == false {
+            startedPlaying = true
+        }
         return true
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PieceModel {
+struct PieceModel {
     
     // MARK: - Properties
     var topValue : Int

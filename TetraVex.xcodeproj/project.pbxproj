@@ -19,6 +19,8 @@
 		FF57E93E1D13B5E0004D2AE1 /* TetraVexKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF57E9281D13B5E0004D2AE1 /* TetraVexKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF57E9471D13B943004D2AE1 /* PieceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9461D13B943004D2AE1 /* PieceModel.swift */; };
 		FF57E94B1D1447F9004D2AE1 /* TetraVexBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E94A1D1447F9004D2AE1 /* TetraVexBoardModel.swift */; };
+		FF57E94D1D14B411004D2AE1 /* PuzzleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E94C1D14B411004D2AE1 /* PuzzleGenerator.swift */; };
+		FFCEB9A71D91C19E00C3514D /* PieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCEB9A61D91C19E00C3514D /* PieceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		FF57E93A1D13B5E0004D2AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF57E9461D13B943004D2AE1 /* PieceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceModel.swift; sourceTree = "<group>"; };
 		FF57E94A1D1447F9004D2AE1 /* TetraVexBoardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TetraVexBoardModel.swift; sourceTree = "<group>"; };
+		FF57E94C1D14B411004D2AE1 /* PuzzleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleGenerator.swift; sourceTree = "<group>"; };
+		FFCEB9A61D91C19E00C3514D /* PieceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 			children = (
 				FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */,
 				FF57E9081D13B5CB004D2AE1 /* ViewController.swift */,
+				FFCEB9A61D91C19E00C3514D /* PieceView.swift */,
 				FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */,
 				FF57E90C1D13B5CB004D2AE1 /* Main.storyboard */,
 				FF57E90F1D13B5CB004D2AE1 /* Info.plist */,
@@ -169,6 +174,7 @@
 				FF57E92A1D13B5E0004D2AE1 /* TetraVexKit.h */,
 				FF57E9461D13B943004D2AE1 /* PieceModel.swift */,
 				FF57E94A1D1447F9004D2AE1 /* TetraVexBoardModel.swift */,
+				FF57E94C1D14B411004D2AE1 /* PuzzleGenerator.swift */,
 				FF57E92C1D13B5E0004D2AE1 /* Info.plist */,
 			);
 			path = TetraVexKit;
@@ -356,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFCEB9A71D91C19E00C3514D /* PieceView.swift in Sources */,
 				FF57E9091D13B5CB004D2AE1 /* ViewController.swift in Sources */,
 				FF57E9071D13B5CB004D2AE1 /* AppDelegate.swift in Sources */,
 			);
@@ -374,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF57E9471D13B943004D2AE1 /* PieceModel.swift in Sources */,
+				FF57E94D1D14B411004D2AE1 /* PuzzleGenerator.swift in Sources */,
 				FF57E94B1D1447F9004D2AE1 /* TetraVexBoardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,6 +651,7 @@
 				FF57E91F1D13B5CB004D2AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF57E9201D13B5CB004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexUITests" */ = {
 			isa = XCConfigurationList;
@@ -651,6 +660,7 @@
 				FF57E9221D13B5CB004D2AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF57E93F1D13B5E0004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexKit" */ = {
 			isa = XCConfigurationList;
@@ -659,6 +669,7 @@
 				FF57E9411D13B5E0004D2AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF57E9431D13B5E0004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVexKitTests" */ = {
 			isa = XCConfigurationList;
@@ -667,6 +678,7 @@
 				FF57E9451D13B5E0004D2AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

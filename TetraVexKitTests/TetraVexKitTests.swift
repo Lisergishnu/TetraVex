@@ -21,6 +21,28 @@ class TetraVexKitTests: XCTestCase {
         super.tearDown()
     }
     
+    func testPuzzleGeneration() {
+        let puzzle = PuzzleGenerator(width: 2, height: 2, rangeOfNumbers: 1...9)
+        let board = TetraVexBoardModel(width: 2, height: 2)
+        
+        let a = puzzle.solvedBoard[0][0]
+        let b = puzzle.solvedBoard[0][1]
+        let c = puzzle.solvedBoard[1][0]
+        let d = puzzle.solvedBoard[1][1]
+        
+        XCTAssert(board.startedPlaying == false)
+        
+        board.addPieceToBoard(a, x: 0, y: 0)
+        var r = board.addPieceToBoard(b, x: 0, y: 1)
+        XCTAssert(r == true)
+        r = board.addPieceToBoard(c, x: 1, y: 0)
+        XCTAssert(r == true)
+        r = board.addPieceToBoard(d, x: 1, y: 1)
+        XCTAssert(r == true)
+        XCTAssert(board.isCompleted())
+        XCTAssert(board.startedPlaying == true)
+    }
+    
     func testPiecePlacement() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
