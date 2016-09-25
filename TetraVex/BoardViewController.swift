@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BoardViewController.swift
 //  TetraVex
 //
 //  Created by Marco Benzi Tobar on 17-06-16.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class BoardViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
