@@ -13,15 +13,15 @@ class PieceView : NSView {
     var pieceModel : PieceModel?
     var isBeingDragged : Bool = false
     
-    func drawStringCenteredAt(center: NSPoint, str: NSString, attribs: [String: AnyObject]?) {
-        let b = str.boundingRectWithSize(NSSize(width: 300,height: 300), options: NSStringDrawingOptions.OneShot, attributes: attribs)
+    func drawStringCenteredAt(_ center: NSPoint, str: NSString, attribs: [String: AnyObject]?) {
+        let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSStringDrawingOptions.oneShot, attributes: attribs)
         var dCenter = center
         dCenter.x = center.x - b.width/2
         dCenter.y = center.y - b.height/2
-        str.drawAtPoint(dCenter, withAttributes: attribs)
+        str.draw(at: dCenter, withAttributes: attribs)
     }
     
-    override func drawRect(dirtyRect: NSRect) {
+    override func draw(_ dirtyRect: NSRect) {
         if (pieceModel != nil) {
             let pathRect = NSInsetRect(self.bounds, 5, 5)
             let path = NSBezierPath(roundedRect: pathRect, xRadius: 2, yRadius: 2)
@@ -31,25 +31,25 @@ class PieceView : NSView {
             shadow.shadowBlurRadius = 1
             
             if isBeingDragged {
-                shadow.shadowColor = NSColor.secondarySelectedControlColor()
+                shadow.shadowColor = NSColor.secondarySelectedControlColor
                 shadow.shadowOffset = NSSize(width: 5, height: -5)
                 shadow.set()
             }
             
             
-            NSColor.windowBackgroundColor().setFill()
-            NSColor.windowFrameTextColor().setStroke();
+            NSColor.windowBackgroundColor.setFill()
+            NSColor.windowFrameTextColor.setStroke();
             path.fill()
             
             NSGraphicsContext.saveGraphicsState()
-            NSColor.windowFrameColor().setStroke()
-            NSBezierPath.strokeLineFromPoint(
-                pathRect.origin,
-                toPoint: NSPoint(x: pathRect.maxX, y: pathRect.maxY)
+            NSColor.windowFrameColor.setStroke()
+            NSBezierPath.strokeLine(
+                from: pathRect.origin,
+                to: NSPoint(x: pathRect.maxX, y: pathRect.maxY)
             )
-            NSBezierPath.strokeLineFromPoint(
-                NSPoint(x:pathRect.minX,y:pathRect.maxY),
-                toPoint: NSPoint(x: pathRect.maxX, y: pathRect.minY)
+            NSBezierPath.strokeLine(
+                from: NSPoint(x:pathRect.minX,y:pathRect.maxY),
+                to: NSPoint(x: pathRect.maxX, y: pathRect.minY)
             )
             
             NSGraphicsContext.restoreGraphicsState()
@@ -59,7 +59,7 @@ class PieceView : NSView {
             let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = NSCenterTextAlignment
             
-            shadow.shadowColor = NSColor.tertiaryLabelColor()
+            shadow.shadowColor = NSColor.tertiaryLabelColor
             shadow.shadowOffset = NSSize(width: 1.5, height: -1.5)
             shadow.shadowBlurRadius = 1
             
@@ -77,7 +77,7 @@ class PieceView : NSView {
             let attribs : [String:AnyObject] =
                 [NSShadowAttributeName:shadow,
                  NSFontAttributeName:font!,
-                 NSStrokeColorAttributeName:NSColor.labelColor(),
+                 NSStrokeColorAttributeName:NSColor.labelColor,
                  NSParagraphStyleAttributeName:paragraphStyle]
             
             var s = NSString(format: "%d", pieceModel!.topValue)

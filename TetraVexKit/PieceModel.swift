@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct PieceModel {
+public struct PieceModel {
     
     // MARK: - Properties
-    var topValue : Int
-    var leftValue : Int
-    var bottomValue : Int
-    var rightValue : Int
+    public var topValue : Int
+    public var leftValue : Int
+    public var bottomValue : Int
+    public var rightValue : Int
     
     // MARK: - Initializer
-    init(top: Int, left: Int, bottom: Int, right: Int) {
+    public init(top: Int, left: Int, bottom: Int, right: Int) {
         topValue = top
         leftValue = left
         bottomValue = bottom

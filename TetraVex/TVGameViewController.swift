@@ -7,9 +7,12 @@
 //
 
 import Cocoa
+import TetraVexKit
 
-class BoardViewController: NSViewController {
+class TVGameViewController: NSViewController {
 
+    var solvedBoard : [[PieceModel]]? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +24,9 @@ class BoardViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
+    
+    func newBoard(_ width: Int, height: Int) {
+        
+    }
 }
 

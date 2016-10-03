@@ -8,19 +8,19 @@
 
 import Foundation
 
-class TetraVexBoardModel {
+open class TetraVexBoardModel {
     
     // MARK: - Properties
-    var board : [[PieceModel?]]
-    var startedPlaying : Bool = false
+    open var board : [[PieceModel?]]
+    open var startedPlaying : Bool = false
     
     // MARK: - Initializer
-    init(width: Int, height: Int) {
-        board = Array(count: width, repeatedValue: Array(count:height, repeatedValue: nil))
+    public init(width: Int, height: Int) {
+        board = Array(repeating: Array(repeating: nil, count: height), count: width)
     }
     
     // MARK: - Board manipulation
-    func addPieceToBoard(piece: PieceModel, x: Int, y: Int) -> Bool {
+    open func addPieceToBoard(_ piece: PieceModel, x: Int, y: Int) -> Bool {
         if !(0 ... board.count-1 ~= x && 0 ... board[0].count-1 ~= y) {
             return false
         }

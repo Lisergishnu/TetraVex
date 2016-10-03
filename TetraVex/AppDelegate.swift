@@ -7,20 +7,26 @@
 //
 
 import Cocoa
+import TetraVexKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    
+    var currentGamePieces : [[PieceModel]]?
+    
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-
+    func startNewGame(_ width: Int, height: Int, digits: Int) {
+        let pg = PuzzleGenerator(width: width, height: height, rangeOfNumbers: 1...digits)
+        currentGamePieces = pg.solvedBoard
+        
+    }
 }
 

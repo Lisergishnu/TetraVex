@@ -10,30 +10,30 @@ import Foundation
 
 extension Int
 {
-    static func random(range: Range<Int> ) -> Int
+    public static func random(_ range: Range<Int> ) -> Int
     {
         var offset = 0
         
-        if range.startIndex < 0   // allow negative ranges
+        if range.lowerBound < 0   // allow negative ranges
         {
-            offset = abs(range.startIndex)
+            offset = abs(range.lowerBound)
         }
         
-        let mini = UInt32(range.startIndex + offset)
-        let maxi = UInt32(range.endIndex   + offset)
+        let mini = UInt32(range.lowerBound + offset)
+        let maxi = UInt32(range.upperBound   + offset)
         
         return Int(mini + arc4random_uniform(maxi - mini)) - offset
     }
 }
 
-class PuzzleGenerator {
+open class PuzzleGenerator {
     
     // MARK: - Properties
-    var solvedBoard : [[PieceModel]]
+    open var solvedBoard : [[PieceModel]]
     
     // MARK: - Initialization
-    init(width: Int, height: Int, rangeOfNumbers: Range<Int>) {
-        solvedBoard = Array(count: width, repeatedValue: Array(count: width, repeatedValue: PieceModel(top: 0, left: 0, bottom: 0, right: 0)))
+    public init(width: Int, height: Int, rangeOfNumbers: Range<Int>) {
+        solvedBoard = Array(repeating: Array(repeating: PieceModel(top: 0, left: 0, bottom: 0, right: 0), count: width), count: width)
         
         for i in 0..<width {
             for j in 0..<height {

@@ -91,16 +91,16 @@
                                                     <menuItem title="2x2" id="9IC-7A-Dw3">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="3x3" state="on" id="ATe-2X-gcT">
+                                                    <menuItem title="3x3" id="ATe-2X-gcT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="4x4" state="on" id="yX0-ml-wJT">
+                                                    <menuItem title="4x4" id="yX0-ml-wJT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="5x5" state="on" id="EyW-xQ-58S">
+                                                    <menuItem title="5x5" id="EyW-xQ-58S">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="6x6" state="on" id="PwG-Rp-dGx">
+                                                    <menuItem title="6x6" id="PwG-Rp-dGx">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
                                                 </items>
@@ -182,27 +182,18 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Board View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="BoardViewController" customModule="TetraVex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="TVGameViewController" customModule="TetraVex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480.5" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqX-qR-OKt">
-                                <rect key="frame" x="20" y="170" width="80" height="80"/>
-                                <buttonCell key="cell" type="square" title="Round Rect" bezelStyle="shadowlessSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rBG-GA-GSu">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                        </subviews>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75.25" y="691"/>
         </scene>
     </scenes>
 </document>
