@@ -11,14 +11,14 @@ import TetraVexKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
     var currentGameModel : TVGameModel = TVGameModel()
     var currentGamePieces : [[PieceModel]]?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
@@ -145,7 +145,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     //MARK: - Game actions
-    /* 
+    /*
      * Friendly reminder, First Responder actions in Xcode 8, Swift 3
      * have to be described as:
      *      functionNameWithSender:

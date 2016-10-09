@@ -12,6 +12,21 @@ import TetraVexKit
 class PieceView : NSView {
     var pieceModel : PieceModel?
     var isBeingDragged : Bool = false
+    var lastDraggedPosition : NSPoint = NSPoint()
+    
+    // MARK: - Dragging operations
+    override func mouseDown(with event: NSEvent) {
+        isBeingDragged = true
+        lastDraggedPosition = self.convert(event.locationInWindow, to: nil)
+        NSCursor.closedHand().push()
+    }
+    
+    override func mouseUp(with event: NSEvent) {
+        isBeingDragged = false
+        NSCursor.pop()
+    }
+    
+    // MARK: - Drawing operations
     
     func drawStringCenteredAt(_ center: NSPoint, str: NSString, attribs: [String: AnyObject]?) {
         let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSStringDrawingOptions.oneShot, attributes: attribs)

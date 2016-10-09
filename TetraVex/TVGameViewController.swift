@@ -10,7 +10,7 @@ import Cocoa
 import TetraVexKit
 
 class TVGameViewController: NSViewController {
-
+    
     var solvedBoard : [[PieceModel]]? = nil
     @IBOutlet weak var boardAreaBox: NSBox!
     @IBOutlet weak var templatePieceView: PieceView!
@@ -20,10 +20,10 @@ class TVGameViewController: NSViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
     
@@ -34,16 +34,16 @@ class TVGameViewController: NSViewController {
         let topY = boardAreaBox.frame.origin.y + boardAreaBox.frame.height
         
         let newBox = CGRect(x: boardAreaBox.frame.origin.x,
-            y: topY - (ph)*CGFloat(height),
-            width: pw*CGFloat(width),
-            height: ph*CGFloat(height))
+                            y: topY - (ph)*CGFloat(height),
+                            width: pw*CGFloat(width),
+                            height: ph*CGFloat(height))
         boardAreaBox.frame = newBox
         
         /* Generate and shuffle new pieces */
         /* Also delete previous pieces */
-            for pv in currentPiecesOnBoard {
-                pv.removeFromSuperview()
-            }
+        for pv in currentPiecesOnBoard {
+            pv.removeFromSuperview()
+        }
         if ((solvedBoard) != nil) {
             for i in 0..<width {
                 for j in 0..<height {
