@@ -49,6 +49,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setBoardSize(width: 6, height: 6)
     }
     
+    //MARK: - Changing range of digits
+    func setNumberOfDigits(num :Int) {
+        currentGameModel.currentNumberDigits = num
+    }
+    
+    func setNumberOfDigitsTo6(sender: Any?) {
+        setNumberOfDigits(num: 5)
+    }
+    
+    func setNumberOfDigitsTo7(sender: Any?) {
+        setNumberOfDigits(num: 6)
+    }
+    
+    func setNumberOfDigitsTo8(sender: Any?) {
+        setNumberOfDigits(num: 7)
+    }
+    
+    func setNumberOfDigitsTo9(sender: Any?) {
+        setNumberOfDigits(num: 8)
+    }
+    
+    func setNumberOfDigitsTo10(sender: Any?) {
+        setNumberOfDigits(num: 9)
+    }
+    
     //MARK: - Game actions
     /* 
      * Friendly reminder, First Responder actions in Xcode 8, Swift 3
@@ -57,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * in the Interface Builder.
      */
     func newGame(sender: Any?) {
-        let pg = PuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 1...currentGameModel.currentNumberDigits)
+        let pg = PuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
         currentGamePieces = pg.solvedBoard
         let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
         pv.solvedBoard = currentGamePieces

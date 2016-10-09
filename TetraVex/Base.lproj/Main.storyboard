@@ -127,18 +127,33 @@
                                                 <items>
                                                     <menuItem title="6" id="aZ8-AV-EFH">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setNumberOfDigitsTo6WithSender:" target="Ady-hI-5gd" id="lmp-k3-h6e"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="7" id="mgC-2O-8Qy">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setNumberOfDigitsTo7WithSender:" target="Ady-hI-5gd" id="Pmc-iH-LlV"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="8" id="U10-NZ-p72">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setNumberOfDigitsTo8WithSender:" target="Ady-hI-5gd" id="uto-Ab-DGv"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="9" id="XgI-Wp-zq1">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setNumberOfDigitsTo9WithSender:" target="Ady-hI-5gd" id="DEN-BC-dTQ"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="10" id="d6n-Bm-fvg">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setNumberOfDigitsTo10WithSender:" target="Ady-hI-5gd" id="9ef-ey-BLI"/>
+                                                        </connections>
                                                     </menuItem>
                                                 </items>
                                             </menu>
