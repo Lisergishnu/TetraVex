@@ -24,15 +24,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     /* 
-     * Friendly reminder, actions in Xcode 8, Swift 3 have to be described as:
+     * Friendly reminder, First Responder actions in Xcode 8, Swift 3
+     * have to be described as:
      *      functionNameWithSender:
      * in the Interface Builder.
      */
-    @IBAction func newGame(sender: Any?) {
+    func newGame(sender: Any?) {
         let pg = PuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 1...currentGameModel.currentNumberDigits)
         currentGamePieces = pg.solvedBoard
-        let sb = NSStoryboard(name: "Main", bundle: nil)
-        let pv : TVGameViewController = sb.instantiateController(withIdentifier: "MainGameViewController") as! TVGameViewController
+        let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
         pv.solvedBoard = currentGamePieces
         pv.newBoard(2, height: 2)
     }

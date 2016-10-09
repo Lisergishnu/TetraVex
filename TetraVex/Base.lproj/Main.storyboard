@@ -9,7 +9,7 @@
         <scene sceneID="JPo-4y-FX3">
             <objects>
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
-                    <menu key="mainMenu" title="Main Menu" systemMenu="main" autoenablesItems="NO" id="AYu-sK-qS6">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
                             <menuItem title="TetraVex" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -79,7 +79,7 @@
                             </menuItem>
                             <menuItem title="Options" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Options" systemMenu="window" autoenablesItems="NO" id="Td7-aD-5lo">
+                                <menu key="submenu" title="Options" systemMenu="window" id="Td7-aD-5lo">
                                     <items>
                                         <menuItem title="Timer" id="5kc-yX-i21">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -206,7 +206,7 @@
                     </view>
                     <connections>
                         <outlet property="BoardAreaBox" destination="ea9-8B-qd3" id="j7L-6n-scb"/>
-                        <outlet property="templatePieceView" destination="s9g-zA-QnV" id="KD0-9w-D1i"/>
+                        <outlet property="templatePieceView" destination="s9g-zA-QnV" id="6oo-rw-sMC"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
