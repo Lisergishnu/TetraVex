@@ -12,7 +12,7 @@ import TetraVexKit
 class TVGameViewController: NSViewController {
 
     var solvedBoard : [[PieceModel]]? = nil
-    @IBOutlet weak var BoardAreaBox: NSBox!
+    @IBOutlet weak var boardAreaBox: NSBox!
     @IBOutlet weak var templatePieceView: PieceView!
     
     override func viewDidLoad() {
@@ -30,15 +30,13 @@ class TVGameViewController: NSViewController {
     func newBoard(_ width: Int, height: Int) {
         let pw  = templatePieceView.frame.width
         let ph  = templatePieceView.frame.height
-        let topY = BoardAreaBox.frame.origin.y + BoardAreaBox.frame.height
+        let topY = boardAreaBox.frame.origin.y + boardAreaBox.frame.height
         
-        let newBox = CGRect(x: BoardAreaBox.frame.origin.x,
+        let newBox = CGRect(x: boardAreaBox.frame.origin.x,
             y: topY - (ph)*CGFloat(height),
             width: pw*CGFloat(width),
             height: ph*CGFloat(height))
-        BoardAreaBox.frame = newBox
-        
-        
+        boardAreaBox.frame = newBox
     }
 }
 

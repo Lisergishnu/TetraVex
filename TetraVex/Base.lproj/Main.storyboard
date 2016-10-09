@@ -205,7 +205,7 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="BoardAreaBox" destination="ea9-8B-qd3" id="j7L-6n-scb"/>
+                        <outlet property="boardAreaBox" destination="ea9-8B-qd3" id="PsU-m2-1Q4"/>
                         <outlet property="templatePieceView" destination="s9g-zA-QnV" id="6oo-rw-sMC"/>
                     </connections>
                 </viewController>
