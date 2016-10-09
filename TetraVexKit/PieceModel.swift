@@ -23,4 +23,16 @@ public struct PieceModel {
         bottomValue = bottom
         rightValue = right
     }
+    
+    // MARK: - Operations
+    public static func == (left: PieceModel, right: PieceModel) -> Bool {
+        return  (left.topValue == right.topValue) &&
+                (left.bottomValue == right.bottomValue) &&
+                (left.leftValue == right.leftValue) &&
+                (left.rightValue == right.rightValue)
+    }
+    
+    public static func != (left: PieceModel, right: PieceModel) -> Bool {
+        return !(left == right)
+    }
 }

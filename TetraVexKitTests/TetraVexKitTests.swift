@@ -22,7 +22,7 @@ class TetraVexKitTests: XCTestCase {
     }
     
     func testPuzzleGeneration() {
-        let puzzle = PuzzleGenerator(width: 2, height: 2, rangeOfNumbers: 1...9)
+        let puzzle = PuzzleGenerator(width: 2, height: 2, rangeOfNumbers: 0...9)
         let board = TetraVexBoardModel(width: 2, height: 2)
         
         let a = puzzle.solvedBoard[0][0]
@@ -31,6 +31,7 @@ class TetraVexKitTests: XCTestCase {
         let d = puzzle.solvedBoard[1][1]
         
         XCTAssert(board.startedPlaying == false)
+        XCTAssert(a != b && a != c && a != d && b != c && b != d && c != d)
         
         board.addPieceToBoard(a, x: 0, y: 0)
         var r = board.addPieceToBoard(b, x: 0, y: 1)
