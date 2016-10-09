@@ -8,10 +8,14 @@
 
 import Foundation
 
-open class TVGameModel {
-    open var currentTime = 0
-    open var score = 0
-    open var currentNumberDigits = 9
-    open var boardWidth = 2
-    open var boardHeight = 2
+public struct TVGameModel {
+    public var currentTime = 0
+    public var score = 0
+    public var currentNumberDigits = 9
+    public var boardWidth = 2
+    public var boardHeight = 2
+    
+    public init() {
+        
+    }
 }

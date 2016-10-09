@@ -12,6 +12,8 @@ import TetraVexKit
 class TVGameViewController: NSViewController {
 
     var solvedBoard : [[PieceModel]]? = nil
+    @IBOutlet weak var BoardAreaBox: NSBox!
+    @IBOutlet weak var templatePieceView: PieceView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,10 @@ class TVGameViewController: NSViewController {
     }
     
     func newBoard(_ width: Int, height: Int) {
+        let pw : Int = Int(templatePieceView.intrinsicContentSize.width)
+        let ph : Int = Int(templatePieceView.intrinsicContentSize.height)
         
+        BoardAreaBox.setFrameSize(NSSize(width: pw*width, height: ph*height))
     }
 }
 

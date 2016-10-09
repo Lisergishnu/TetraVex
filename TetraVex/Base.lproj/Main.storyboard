@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
-                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" autoenablesItems="NO" id="AYu-sK-qS6">
                         <items>
                             <menuItem title="TetraVex" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -60,7 +61,7 @@
                                     <items>
                                         <menuItem title="New Game" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                                <action selector="newGameWithSender:" target="Ady-hI-5gd" id="YOd-Hg-Uqi"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="High Scores..." id="d7n-2w-6N8">
@@ -78,7 +79,7 @@
                             </menuItem>
                             <menuItem title="Options" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Options" systemMenu="window" id="Td7-aD-5lo">
+                                <menu key="submenu" title="Options" systemMenu="window" autoenablesItems="NO" id="Td7-aD-5lo">
                                     <items>
                                         <menuItem title="Timer" id="5kc-yX-i21">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -161,7 +162,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="TetraVex" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="-61"/>
+            <point key="canvasLocation" x="-148" y="-182"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -184,17 +185,29 @@
         <!--Game View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="TVGameViewController" customModule="TetraVex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainGameViewController" id="XfG-lQ-9wD" customClass="TVGameViewController" customModule="TetraVex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-8B-qd3">
+                                <rect key="frame" x="20" y="160" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="09x-xe-D5e">
+                                    <rect key="frame" x="1" y="1" width="88" height="88"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </box>
                             <customView identifier="TemplatePieceView" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="PieceView" customModule="TetraVex" customModuleProvider="target">
-                                <rect key="frame" x="20" y="168" width="82" height="82"/>
+                                <rect key="frame" x="265" y="160" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="BoardAreaBox" destination="ea9-8B-qd3" id="j7L-6n-scb"/>
+                        <outlet property="templatePieceView" destination="s9g-zA-QnV" id="KD0-9w-D1i"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

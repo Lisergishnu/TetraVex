@@ -12,7 +12,7 @@ import TetraVexKit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
+    var currentGameModel : TVGameModel = TVGameModel()
     var currentGamePieces : [[PieceModel]]?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -23,10 +23,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-    func startNewGame(_ width: Int, height: Int, digits: Int) {
-        let pg = PuzzleGenerator(width: width, height: height, rangeOfNumbers: 1...digits)
+    /* 
+     * Friendly reminder, actions in Xcode 8, Swift 3 have to be described as:
+     *      functionNameWithSender:
+     * in the Interface Builder.
+     */
+    @IBAction func newGame(sender: Any?) {
+        let pg = PuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 1...currentGameModel.currentNumberDigits)
         currentGamePieces = pg.solvedBoard
-        
+        let sb = NSStoryboard(name: "Main", bundle: nil)
+        let pv : TVGameViewController = sb.instantiateController(withIdentifier: "MainGameViewController") as! TVGameViewController
+        pv.solvedBoard = currentGamePieces
+        pv.newBoard(2, height: 2)
     }
 }
 
