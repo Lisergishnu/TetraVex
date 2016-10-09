@@ -22,7 +22,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
+    
+    //MARK: - Resizing board
+    func setBoardSize(width: Int, height: Int) {
+        currentGameModel.boardWidth = width
+        currentGameModel.boardHeight = height
+    }
+    
+    func setBoardTo2x2(sender: Any?) {
+        setBoardSize(width: 2, height: 2)
+    }
+    
+    func setBoardTo3x3(sender: Any?) {
+        setBoardSize(width: 3, height: 3)
+    }
+    
+    func setBoardTo4x4(sender: Any?) {
+        setBoardSize(width: 4, height: 4)
+    }
+    
+    func setBoardTo5x5(sender: Any?) {
+        setBoardSize(width: 5, height: 5)
+    }
+    
+    func setBoardTo6x6(sender: Any?) {
+        setBoardSize(width: 6, height: 6)
+    }
+    
+    //MARK: - Game actions
     /* 
      * Friendly reminder, First Responder actions in Xcode 8, Swift 3
      * have to be described as:
@@ -34,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         currentGamePieces = pg.solvedBoard
         let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
         pv.solvedBoard = currentGamePieces
-        pv.newBoard(2, height: 2)
+        pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
     }
 }
 

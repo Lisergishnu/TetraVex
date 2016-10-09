@@ -90,18 +90,33 @@
                                                 <items>
                                                     <menuItem title="2x2" id="9IC-7A-Dw3">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setBoardTo2x2WithSender:" target="Ady-hI-5gd" id="CqI-EE-e6D"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="3x3" id="ATe-2X-gcT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setBoardTo3x3WithSender:" target="Ady-hI-5gd" id="HDl-18-LC0"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="4x4" id="yX0-ml-wJT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setBoardTo4x4WithSender:" target="Ady-hI-5gd" id="zX4-NT-lgA"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="5x5" id="EyW-xQ-58S">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setBoardTo5x5WithSender:" target="Ady-hI-5gd" id="hJP-Xn-5o0"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="6x6" id="PwG-Rp-dGx">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="setBoardTo6x6WithSender:" target="Ady-hI-5gd" id="sKy-Qw-RlH"/>
+                                                        </connections>
                                                     </menuItem>
                                                 </items>
                                             </menu>
@@ -162,7 +177,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="TetraVex" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-148" y="-182"/>
+            <point key="canvasLocation" x="-363" y="425"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
