@@ -10,7 +10,7 @@ import Foundation
 
 extension Int
 {
-    public static func random(_ range: Range<Int> ) -> Int
+    public static func random(_ range: ClosedRange<Int> ) -> Int
     {
         var offset = 0
         
@@ -32,7 +32,7 @@ open class PuzzleGenerator {
     open var solvedBoard : [[PieceModel]]
     
     // MARK: - Initialization
-    public init(width: Int, height: Int, rangeOfNumbers: Range<Int>) {
+    public init(width: Int, height: Int, rangeOfNumbers: ClosedRange<Int>) {
         solvedBoard = Array(repeating: Array(repeating: PieceModel(top: 0, left: 0, bottom: 0, right: 0), count: width), count: width)
         
         for i in 0..<width {
