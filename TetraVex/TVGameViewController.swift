@@ -28,6 +28,7 @@ class TVGameViewController: NSViewController {
     }
     
     func newBoard(_ width: Int, height: Int) {
+        /* Resize board outline */
         let pw  = templatePieceView.frame.width
         let ph  = templatePieceView.frame.height
         let topY = boardAreaBox.frame.origin.y + boardAreaBox.frame.height
@@ -37,6 +38,9 @@ class TVGameViewController: NSViewController {
             width: pw*CGFloat(width),
             height: ph*CGFloat(height))
         boardAreaBox.frame = newBox
+        
+        /* Generate and shuffle new pieces */
+        
     }
 }
 

@@ -31,22 +31,57 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func setBoardTo2x2(sender: Any?) {
         setBoardSize(width: 2, height: 2)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        sm?.item(withTitle: "2x2")?.state = 1
+        sm?.item(withTitle: "3x3")?.state = 0
+        sm?.item(withTitle: "4x4")?.state = 0
+        sm?.item(withTitle: "5x5")?.state = 0
+        sm?.item(withTitle: "6x6")?.state = 0
     }
     
     func setBoardTo3x3(sender: Any?) {
         setBoardSize(width: 3, height: 3)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        sm?.item(withTitle: "2x2")?.state = 0
+        sm?.item(withTitle: "3x3")?.state = 1
+        sm?.item(withTitle: "4x4")?.state = 0
+        sm?.item(withTitle: "5x5")?.state = 0
+        sm?.item(withTitle: "6x6")?.state = 0
     }
     
     func setBoardTo4x4(sender: Any?) {
         setBoardSize(width: 4, height: 4)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        sm?.item(withTitle: "2x2")?.state = 0
+        sm?.item(withTitle: "3x3")?.state = 0
+        sm?.item(withTitle: "4x4")?.state = 1
+        sm?.item(withTitle: "5x5")?.state = 0
+        sm?.item(withTitle: "6x6")?.state = 0
     }
     
     func setBoardTo5x5(sender: Any?) {
         setBoardSize(width: 5, height: 5)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        sm?.item(withTitle: "2x2")?.state = 0
+        sm?.item(withTitle: "3x3")?.state = 0
+        sm?.item(withTitle: "4x4")?.state = 0
+        sm?.item(withTitle: "5x5")?.state = 1
+        sm?.item(withTitle: "6x6")?.state = 0
     }
     
     func setBoardTo6x6(sender: Any?) {
         setBoardSize(width: 6, height: 6)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        sm?.item(withTitle: "2x2")?.state = 0
+        sm?.item(withTitle: "3x3")?.state = 0
+        sm?.item(withTitle: "4x4")?.state = 0
+        sm?.item(withTitle: "5x5")?.state = 0
+        sm?.item(withTitle: "6x6")?.state = 1
     }
     
     //MARK: - Changing range of digits

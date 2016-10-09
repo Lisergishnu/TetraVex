@@ -88,7 +88,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Size" id="VVl-Eb-5Ha">
                                                 <items>
-                                                    <menuItem title="2x2" id="9IC-7A-Dw3">
+                                                    <menuItem title="2x2" state="on" id="9IC-7A-Dw3">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo2x2WithSender:" target="Ady-hI-5gd" id="CqI-EE-e6D"/>
@@ -149,7 +149,7 @@
                                                             <action selector="setNumberOfDigitsTo9WithSender:" target="Ady-hI-5gd" id="DEN-BC-dTQ"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="10" id="d6n-Bm-fvg">
+                                                    <menuItem title="10" state="on" id="d6n-Bm-fvg">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo10WithSender:" target="Ady-hI-5gd" id="9ef-ey-BLI"/>
