@@ -159,7 +159,7 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aOC-h8-jqT"/>
-                                        <menuItem title="Numbers" id="fH6-js-PJf">
+                                        <menuItem title="Numbers" state="on" id="fH6-js-PJf">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem title="Letters" id="img-Li-R8j">
@@ -230,7 +230,7 @@
                             </box>
                             <customView identifier="TemplatePieceView" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="PieceView" customModule="TetraVex" customModuleProvider="target">
                                 <rect key="frame" x="265" y="160" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
                         </subviews>
                     </view>

@@ -182,9 +182,9 @@
 				FF57E92A1D13B5E0004D2AE1 /* TetraVexKit.h */,
 				FF57E9461D13B943004D2AE1 /* PieceModel.swift */,
 				FF57E94A1D1447F9004D2AE1 /* TetraVexBoardModel.swift */,
+				FFFBBB251D9983D70089C4EF /* TVGameModel.swift */,
 				FF57E94C1D14B411004D2AE1 /* PuzzleGenerator.swift */,
 				FF57E92C1D13B5E0004D2AE1 /* Info.plist */,
-				FFFBBB251D9983D70089C4EF /* TVGameModel.swift */,
 			);
 			path = TetraVexKit;
 			sourceTree = "<group>";

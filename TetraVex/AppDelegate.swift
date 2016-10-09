@@ -91,22 +91,57 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func setNumberOfDigitsTo6(sender: Any?) {
         setNumberOfDigits(num: 5)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        sm?.item(withTitle: "6")?.state = 1
+        sm?.item(withTitle: "7")?.state = 0
+        sm?.item(withTitle: "8")?.state = 0
+        sm?.item(withTitle: "9")?.state = 0
+        sm?.item(withTitle: "10")?.state = 0
     }
     
     func setNumberOfDigitsTo7(sender: Any?) {
         setNumberOfDigits(num: 6)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        sm?.item(withTitle: "6")?.state = 0
+        sm?.item(withTitle: "7")?.state = 1
+        sm?.item(withTitle: "8")?.state = 0
+        sm?.item(withTitle: "9")?.state = 0
+        sm?.item(withTitle: "10")?.state = 0
     }
     
     func setNumberOfDigitsTo8(sender: Any?) {
         setNumberOfDigits(num: 7)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        sm?.item(withTitle: "6")?.state = 0
+        sm?.item(withTitle: "7")?.state = 0
+        sm?.item(withTitle: "8")?.state = 1
+        sm?.item(withTitle: "9")?.state = 0
+        sm?.item(withTitle: "10")?.state = 0
     }
     
     func setNumberOfDigitsTo9(sender: Any?) {
         setNumberOfDigits(num: 8)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        sm?.item(withTitle: "6")?.state = 0
+        sm?.item(withTitle: "7")?.state = 0
+        sm?.item(withTitle: "8")?.state = 0
+        sm?.item(withTitle: "9")?.state = 1
+        sm?.item(withTitle: "10")?.state = 0
     }
     
     func setNumberOfDigitsTo10(sender: Any?) {
         setNumberOfDigits(num: 9)
+        let sm = NSApplication.shared().mainMenu?
+            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        sm?.item(withTitle: "6")?.state = 0
+        sm?.item(withTitle: "7")?.state = 0
+        sm?.item(withTitle: "8")?.state = 0
+        sm?.item(withTitle: "9")?.state = 0
+        sm?.item(withTitle: "10")?.state = 1
     }
     
     //MARK: - Game actions
