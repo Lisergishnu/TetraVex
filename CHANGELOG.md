@@ -2,6 +2,8 @@
 Here I will update any noteworthy changes to the TetraVex project.
 
 ## [Unreleased]
+
+## [0.1.0] - 2016-10-10
 ### Added
 - Pretty basic board and pieces..
 - Game allows for board sizes from 2x2 to 6x6.
