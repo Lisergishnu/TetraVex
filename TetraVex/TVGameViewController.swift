@@ -75,6 +75,9 @@ class TVGameViewController: NSViewController {
             if boardModel!.addPieceToBoard(pv.pieceModel!, x: i, y: j) {
                 pv.frame.origin.x = CGFloat(i)*pv.frame.width + boardAreaBox.frame.origin.x
                 pv.frame.origin.y = CGFloat(j)*pv.frame.height + boardAreaBox.frame.origin.y
+            } else {
+                pv.frame.origin.x = templatePieceView.frame.origin.x + CGFloat(Int.random(0...100))
+                pv.frame.origin.y = templatePieceView.frame.origin.y - CGFloat(Int.random(0...100))
             }
         }
     }

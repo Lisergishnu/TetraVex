@@ -12,11 +12,15 @@ open class TetraVexBoardModel {
     
     // MARK: - Properties
     open var board : [[PieceModel?]]
+    open var boardWidth : Int = 0
+    open var boardHeight : Int = 0
     open var startedPlaying : Bool = false
     
     // MARK: - Initializer
     public init(width: Int, height: Int) {
         board = Array(repeating: Array(repeating: nil, count: height), count: width)
+        boardWidth = width
+        boardHeight = height
     }
     
     // MARK: - Board manipulation
@@ -69,7 +73,19 @@ open class TetraVexBoardModel {
         return true
     }
     
-    func isCompleted() -> Bool {
+    open func removePieceFromBoard(_ piece: PieceModel) -> Bool {
+        for i in 0..<boardWidth {
+            for j in 0..<boardHeight {
+                if board[i][j] != nil && board[i][j]! == piece {
+                    board[i][j] = nil
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    open func isCompleted() -> Bool {
         for a in board {
             for p in a {
                 if p == nil {
