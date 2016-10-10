@@ -25,6 +25,10 @@ open class TetraVexBoardModel {
             return false
         }
         
+        if board[x][y] != nil {
+            return false
+        }
+        
         var leftP : PieceModel? = nil
         if 0 ... board.count-1 ~= x-1 && 0 ... board[0].count-1 ~= y {
             leftP = board[x-1][y]

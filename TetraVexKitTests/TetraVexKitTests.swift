@@ -59,6 +59,8 @@ class TetraVexKitTests: XCTestCase {
         let board = TetraVexBoardModel(width: 2, height: 2)
         var r = board.addPieceToBoard(a, x: 0, y: 1)
         XCTAssert(r == true)
+        r = board.addPieceToBoard(b, x: 0, y: 1)
+        XCTAssert(r == false)
         r = board.addPieceToBoard(b, x: 1, y: 1)
         XCTAssert(r == true)
         r = board.addPieceToBoard(c, x: 1, y: 0)
