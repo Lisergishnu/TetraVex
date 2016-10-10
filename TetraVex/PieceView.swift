@@ -17,13 +17,37 @@ class PieceView : NSView {
     // MARK: - Dragging operations
     override func mouseDown(with event: NSEvent) {
         isBeingDragged = true
-        lastDraggedPosition = self.convert(event.locationInWindow, to: nil)
+        lastDraggedPosition = self.convert(event.locationInWindow, to: self)
+        let i = superview?.subviews.index(of: self)
+        var svs = superview!.subviews
+        if (i != svs.count-1) {
+            swap(&svs[i!],&svs[svs.count-1])
+            superview?.subviews = svs
+        }
         NSCursor.closedHand().push()
+        self.needsDisplay = true
+    }
+    
+    func offsetLocation(by dx:CGFloat, dy:CGFloat) {
+        self.setNeedsDisplay(self.bounds);
+        let invertDeltaY : CGFloat = self.isFlipped ? -1.0 : 1.0;
+        self.frame = self.frame.offsetBy(dx: dx, dy: dy*invertDeltaY)
+        self.setNeedsDisplay(self.bounds)
+    }
+
+    override func mouseDragged(with event: NSEvent) {
+        if (isBeingDragged) {
+            let p : NSPoint = self.convert(event.locationInWindow, to: self)
+            offsetLocation(by: p.x - lastDraggedPosition.x, dy: p.y - lastDraggedPosition.y)
+            lastDraggedPosition = p
+            self.autoscroll(with: event)
+        }
     }
     
     override func mouseUp(with event: NSEvent) {
         isBeingDragged = false
         NSCursor.pop()
+        self.needsDisplay = true
     }
     
     // MARK: - Drawing operations
