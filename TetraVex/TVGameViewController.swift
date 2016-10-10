@@ -66,6 +66,14 @@ class TVGameViewController: NSViewController {
         }
     }
     
+    func removeFromBoard(piece p:PieceView) -> Bool {
+        if boardModel!.removePieceFromBoard(p.pieceModel!) {
+            p.pieceModel!.isOnBoard = false
+            return true
+        }
+        return false
+    }
+    
     func checkPiece(with pv:PieceView,at dropOffPosition:NSPoint) {
         /* Determine the position of view inside the grid */
         if boardAreaBox.frame.contains(dropOffPosition) {
@@ -75,6 +83,7 @@ class TVGameViewController: NSViewController {
             if boardModel!.addPieceToBoard(pv.pieceModel!, x: i, y: j) {
                 pv.frame.origin.x = CGFloat(i)*pv.frame.width + boardAreaBox.frame.origin.x
                 pv.frame.origin.y = CGFloat(j)*pv.frame.height + boardAreaBox.frame.origin.y
+                pv.pieceModel?.isOnBoard = true
             } else {
                 pv.frame.origin.x = templatePieceView.frame.origin.x + CGFloat(Int.random(0...100))
                 pv.frame.origin.y = templatePieceView.frame.origin.y - CGFloat(Int.random(0...100))

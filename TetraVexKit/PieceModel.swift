@@ -16,7 +16,7 @@ public struct PieceModel {
     public var bottomValue : Int
     public var rightValue : Int
     public var boltedInPlace : Bool = false
-    
+    public var isOnBoard : Bool = false
     
     // MARK: - Initializer
     public init(top: Int, left: Int, bottom: Int, right: Int) {

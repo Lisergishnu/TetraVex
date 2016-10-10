@@ -17,16 +17,21 @@ class PieceView : NSView {
     
     // MARK: - Dragging operations
     override func mouseDown(with event: NSEvent) {
-        isBeingDragged = true
-        lastDraggedPosition = self.convert(event.locationInWindow, to: self)
-        let i = superview?.subviews.index(of: self)
-        var svs = superview!.subviews
-        if (i != svs.count-1) {
-            swap(&svs[i!],&svs[svs.count-1])
-            superview?.subviews = svs
+        if (pieceModel?.boltedInPlace)! == false {
+            isBeingDragged = true
+            lastDraggedPosition = self.convert(event.locationInWindow, to: self)
+            let i = superview?.subviews.index(of: self)
+            var svs = superview!.subviews
+            if (i != svs.count-1) {
+                swap(&svs[i!],&svs[svs.count-1])
+                superview?.subviews = svs
+            }
+            if pieceModel!.isOnBoard {
+                controller?.removeFromBoard(piece: self)
+            }
+            NSCursor.closedHand().push()
+            self.needsDisplay = true
         }
-        NSCursor.closedHand().push()
-        self.needsDisplay = true
     }
     
     func offsetLocation(by dx:CGFloat, dy:CGFloat) {
@@ -35,7 +40,7 @@ class PieceView : NSView {
         self.frame = self.frame.offsetBy(dx: dx, dy: dy*invertDeltaY)
         self.setNeedsDisplay(self.bounds)
     }
-
+    
     override func mouseDragged(with event: NSEvent) {
         if (isBeingDragged) {
             let p : NSPoint = self.convert(event.locationInWindow, to: self)
@@ -46,11 +51,13 @@ class PieceView : NSView {
     }
     
     override func mouseUp(with event: NSEvent) {
-        let dropPosition : NSPoint = superview!.convert(event.locationInWindow, to: nil)
-        controller?.checkPiece(with: self, at: dropPosition)
-        isBeingDragged = false
-        NSCursor.pop()
-        self.needsDisplay = true
+        if isBeingDragged {
+            let dropPosition : NSPoint = superview!.convert(event.locationInWindow, to: nil)
+            controller?.checkPiece(with: self, at: dropPosition)
+            isBeingDragged = false
+            NSCursor.pop()
+            self.needsDisplay = true
+        }
     }
     
     // MARK: - Drawing operations
