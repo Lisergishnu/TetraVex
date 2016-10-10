@@ -13,6 +13,7 @@ class PieceView : NSView {
     var pieceModel : PieceModel?
     var isBeingDragged : Bool = false
     var lastDraggedPosition : NSPoint = NSPoint()
+    var controller : TVGameViewController?
     
     // MARK: - Dragging operations
     override func mouseDown(with event: NSEvent) {
@@ -45,6 +46,8 @@ class PieceView : NSView {
     }
     
     override func mouseUp(with event: NSEvent) {
+        let dropPosition : NSPoint = superview!.convert(event.locationInWindow, to: nil)
+        controller?.checkPiece(with: self, at: dropPosition)
         isBeingDragged = false
         NSCursor.pop()
         self.needsDisplay = true

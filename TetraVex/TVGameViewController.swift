@@ -12,13 +12,16 @@ import TetraVexKit
 class TVGameViewController: NSViewController {
     
     var solvedBoard : [[PieceModel]]? = nil
-    @IBOutlet weak var boardAreaBox: NSBox!
+    @IBOutlet weak var boardAreaBox: BoardView!
     @IBOutlet weak var templatePieceView: PieceView!
     var currentPiecesOnBoard : [PieceView] = []
+    var boardModel: TetraVexBoardModel?
+    var delegate : AppDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        delegate = NSApplication.shared().delegate as? AppDelegate
     }
     
     override var representedObject: Any? {
@@ -38,6 +41,9 @@ class TVGameViewController: NSViewController {
                             width: pw*CGFloat(width),
                             height: ph*CGFloat(height))
         boardAreaBox.frame = newBox
+        boardAreaBox.bounds = NSRect(x: 0, y: 0, width: boardAreaBox.frame.width, height: boardAreaBox.frame.height)
+        
+        boardModel = TetraVexBoardModel(width: width, height: height)
         
         /* Generate and shuffle new pieces */
         /* Also delete previous pieces */
@@ -52,10 +58,24 @@ class TVGameViewController: NSViewController {
                     pv.autoresizingMask = [.viewMaxXMargin, .viewMinYMargin]
                     currentPiecesOnBoard.append(pv)
                     pv.pieceModel = solvedBoard![i][j]
+                    pv.controller = self
                     self.view.addSubview(pv)
                 }
             }
             
+        }
+    }
+    
+    func checkPiece(with pv:PieceView,at dropOffPosition:NSPoint) {
+        /* Determine the position of view inside the grid */
+        if boardAreaBox.frame.contains(dropOffPosition) {
+            let i : Int = Int((dropOffPosition.x - boardAreaBox.frame.origin.x) / pv.frame.width)
+            let j : Int = Int((dropOffPosition.y - boardAreaBox.frame.origin.y) / pv.frame.height)
+            
+            if boardModel!.addPieceToBoard(pv.pieceModel!, x: i, y: j) {
+                pv.frame.origin.x = CGFloat(i)*pv.frame.width + boardAreaBox.frame.origin.x
+                pv.frame.origin.y = CGFloat(j)*pv.frame.height + boardAreaBox.frame.origin.y
+            }
         }
     }
 }
