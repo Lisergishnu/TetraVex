@@ -1,5 +1,5 @@
 //
-//  BoardView.swift
+//  TVBoardView.swift
 //  TetraVex
 //
 //  Created by Marco Benzi Tobar on 10-10-16.
@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class BoardView: NSBox {
+class TVBoardView: NSBox {
     
     override func mouseUp(with event: NSEvent) {
             

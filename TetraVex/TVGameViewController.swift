@@ -11,11 +11,11 @@ import TetraVexKit
 
 class TVGameViewController: NSViewController {
     
-    var solvedBoard : [[PieceModel]]? = nil
-    @IBOutlet weak var boardAreaBox: BoardView!
-    @IBOutlet weak var templatePieceView: PieceView!
-    var currentPiecesOnBoard : [PieceView] = []
-    var boardModel: TetraVexBoardModel?
+    var solvedBoard : [[TVPieceModel]]? = nil
+    @IBOutlet weak var boardAreaBox: TVBoardView!
+    @IBOutlet weak var templatePieceView: TVPieceView!
+    var currentPiecesOnBoard : [TVPieceView] = []
+    var boardModel: TVBoardModel?
     var delegate : AppDelegate?
     
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ class TVGameViewController: NSViewController {
         boardAreaBox.frame = newBox
         boardAreaBox.bounds = NSRect(x: 0, y: 0, width: boardAreaBox.frame.width, height: boardAreaBox.frame.height)
         
-        boardModel = TetraVexBoardModel(width: width, height: height)
+        boardModel = TVBoardModel(width: width, height: height)
         
         /* Generate and shuffle new pieces */
         /* Also delete previous pieces */
@@ -54,7 +54,7 @@ class TVGameViewController: NSViewController {
             for i in 0..<width {
                 for j in 0..<height {
                     let nfr = templatePieceView.frame.offsetBy(dx: pw*CGFloat(i), dy: -ph*CGFloat(j))
-                    let pv : PieceView = PieceView(frame: nfr)
+                    let pv : TVPieceView = TVPieceView(frame: nfr)
                     pv.autoresizingMask = [.viewMaxXMargin, .viewMinYMargin]
                     currentPiecesOnBoard.append(pv)
                     pv.pieceModel = solvedBoard![i][j]
@@ -66,7 +66,7 @@ class TVGameViewController: NSViewController {
         }
     }
     
-    func removeFromBoard(piece p:PieceView) -> Bool {
+    func removeFromBoard(piece p:TVPieceView) -> Bool {
         if boardModel!.removePieceFromBoard(p.pieceModel!) {
             p.pieceModel!.isOnBoard = false
             return true
@@ -74,7 +74,7 @@ class TVGameViewController: NSViewController {
         return false
     }
     
-    func checkPiece(with pv:PieceView,at dropOffPosition:NSPoint) {
+    func checkPiece(with pv:TVPieceView,at dropOffPosition:NSPoint) {
         /* Determine the position of view inside the grid */
         if boardAreaBox.frame.contains(dropOffPosition) {
             let i : Int = Int((dropOffPosition.x - boardAreaBox.frame.origin.x) / pv.frame.width)

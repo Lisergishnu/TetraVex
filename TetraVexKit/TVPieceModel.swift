@@ -1,5 +1,5 @@
 //
-//  PieceModel.swift
+// TVPieceModel.swift
 //  TetraVex
 //
 //  Created by Marco Benzi Tobar on 17-06-16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PieceModel {
+public struct TVPieceModel {
     
     // MARK: - Properties
     public var topValue : Int
@@ -27,14 +27,14 @@ public struct PieceModel {
     }
     
     // MARK: - Operations
-    public static func == (left: PieceModel, right: PieceModel) -> Bool {
+    public static func == (left: TVPieceModel, right: TVPieceModel) -> Bool {
         return  (left.topValue == right.topValue) &&
                 (left.bottomValue == right.bottomValue) &&
                 (left.leftValue == right.leftValue) &&
                 (left.rightValue == right.rightValue)
     }
     
-    public static func != (left: PieceModel, right: PieceModel) -> Bool {
+    public static func != (left: TVPieceModel, right: TVPieceModel) -> Bool {
         return !(left == right)
     }
 }

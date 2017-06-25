@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -220,7 +221,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-8B-qd3" customClass="BoardView" customModule="TetraVex" customModuleProvider="target">
+                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-8B-qd3" customClass="TVBoardView" customModule="TetraVex" customModuleProvider="target">
                                 <rect key="frame" x="20" y="160" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" ambiguous="YES" id="09x-xe-D5e">
@@ -229,7 +230,7 @@
                                 </view>
                                 <color key="fillColor" red="0.55676333109537768" green="0.55676333109537768" blue="0.55676333109537768" alpha="0.45943216463414632" colorSpace="calibratedRGB"/>
                             </box>
-                            <customView identifier="TemplatePieceView" hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="PieceView" customModule="TetraVex" customModuleProvider="target">
+                            <customView identifier="TemplatePieceView" hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="TVPieceView" customModule="TetraVex" customModuleProvider="target">
                                 <rect key="frame" x="265" y="160" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>

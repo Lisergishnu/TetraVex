@@ -13,7 +13,7 @@ import TetraVexKit
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var currentGameModel : TVGameModel = TVGameModel()
-    var currentGamePieces : [[PieceModel]]?
+    var currentGamePieces : [[TVPieceModel]]?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -152,7 +152,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * in the Interface Builder.
      */
     func newGame(sender: Any?) {
-        let pg = PuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
+        let pg = TVPuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
         currentGamePieces = pg.solvedBoard
         let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
         pv.solvedBoard = currentGamePieces

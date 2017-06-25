@@ -1,5 +1,5 @@
 //
-//  PieceView.swift
+//  TVPieceView.swift
 //  TetraVex
 //
 //  Created by Marco Benzi Tobar on 20-09-16.
@@ -9,8 +9,8 @@
 import Cocoa
 import TetraVexKit
 
-class PieceView : NSView {
-    var pieceModel : PieceModel?
+class TVPieceView : NSView {
+    var pieceModel :TVPieceModel?
     var isBeingDragged : Bool = false
     var lastDraggedPosition : NSPoint = NSPoint()
     var controller : TVGameViewController?
