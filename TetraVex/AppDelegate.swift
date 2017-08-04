@@ -154,9 +154,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func newGame(sender: Any?) {
         let pg = TVPuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
         currentGamePieces = pg.solvedBoard
-        let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
-        pv.solvedBoard = currentGamePieces
-        pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
+        if #available(OSX 10.10, *) {
+            let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
+            pv.solvedBoard = currentGamePieces
+            pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 
