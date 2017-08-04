@@ -19,7 +19,11 @@ class TVGameViewController: NSViewController {
     var delegate : AppDelegate?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        if #available(OSX 10.10, *) {
+            super.viewDidLoad()
+        } else {
+            // Fallback on earlier versions
+        }
         // Do any additional setup after loading the view.
         delegate = NSApplication.shared().delegate as? AppDelegate
     }
