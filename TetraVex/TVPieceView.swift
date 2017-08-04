@@ -127,23 +127,19 @@ class TVPieceView : NSView {
             let pright = NSPoint(x: pathRect.width*0.80 + pathRect.minX,
                                  y: pathRect.height*0.5 + pathRect.minY)
             
-            if #available(OSX 10.10, *) {
-                let attribs : [String:AnyObject] =
-                    [NSShadowAttributeName:shadow,
-                     NSFontAttributeName:font!,
-                     NSStrokeColorAttributeName:NSColor.labelColor,
-                     NSParagraphStyleAttributeName:paragraphStyle]
-                var s = NSString(format: "%d", pieceModel!.topValue)
-                drawStringCenteredAt(ptop, str: s, attribs: attribs)
-                s = NSString(format: "%d", pieceModel!.bottomValue)
-                drawStringCenteredAt(pbot, str: s, attribs: attribs)
-                s = NSString(format: "%d", pieceModel!.leftValue)
-                drawStringCenteredAt(pleft, str: s, attribs: attribs)
-                s = NSString(format: "%d", pieceModel!.rightValue)
-                drawStringCenteredAt(pright, str: s, attribs: attribs)
-            } else {
-                // Fallback on earlier versions
-            }
+            let attribs : [String:AnyObject] =
+                [NSShadowAttributeName:shadow,
+                 NSFontAttributeName:font!,
+                 NSStrokeColorAttributeName:NSColor.labelColor,
+                 NSParagraphStyleAttributeName:paragraphStyle]
+            var s = NSString(format: "%d", pieceModel!.topValue)
+            drawStringCenteredAt(ptop, str: s, attribs: attribs)
+            s = NSString(format: "%d", pieceModel!.bottomValue)
+            drawStringCenteredAt(pbot, str: s, attribs: attribs)
+            s = NSString(format: "%d", pieceModel!.leftValue)
+            drawStringCenteredAt(pleft, str: s, attribs: attribs)
+            s = NSString(format: "%d", pieceModel!.rightValue)
+            drawStringCenteredAt(pright, str: s, attribs: attribs)
         }
     }
 }
