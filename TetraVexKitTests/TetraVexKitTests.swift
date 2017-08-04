@@ -23,7 +23,7 @@ class TetraVexKitTests: XCTestCase {
     
     func testPuzzleGeneration() {
         let puzzle = TVPuzzleGenerator(width: 2, height: 2, rangeOfNumbers: 0...9)
-        let board =TVBoardModel(width: 2, height: 2)
+        let board = TVBoardModel(width: 2, height: 2)
         
         let a = puzzle.solvedBoard[0][0]
         let b = puzzle.solvedBoard[0][1]
@@ -51,13 +51,13 @@ class TetraVexKitTests: XCTestCase {
         /* A | B
            C | D */
         
-        let a =TVPieceModel(top: 1, left: 2, bottom: 3, right: 4)
-        let b =TVPieceModel(top: 3, left: 4, bottom: 2, right: 1)
-        let c =TVPieceModel(top: 3, left: 1, bottom: 4, right: 2)
-        let d =TVPieceModel(top: 2, left: 2, bottom: 1, right: 1)
+        let a = TVPieceModel(top: 1, left: 2, bottom: 3, right: 4)
+        let b = TVPieceModel(top: 3, left: 4, bottom: 2, right: 1)
+        let c = TVPieceModel(top: 3, left: 1, bottom: 4, right: 2)
+        let d = TVPieceModel(top: 2, left: 2, bottom: 1, right: 1)
         
         
-        let board =TVBoardModel(width: 2, height: 2)
+        let board = TVBoardModel(width: 2, height: 2)
         var r = board.removePieceFromBoard(a)
         XCTAssert(r == false)
         r = board.addPieceToBoard(a, x: 1, y: 1)
