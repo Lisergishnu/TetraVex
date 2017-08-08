@@ -23,8 +23,6 @@
 		FF57E94B1D1447F9004D2AE1 /* TVBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E94A1D1447F9004D2AE1 /* TVBoardModel.swift */; };
 		FF57E94D1D14B411004D2AE1 /* TVPuzzleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E94C1D14B411004D2AE1 /* TVPuzzleGenerator.swift */; };
 		FFCEB9A71D91C19E00C3514D /* TVPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCEB9A61D91C19E00C3514D /* TVPieceView.swift */; };
-		FFE8A2EE1DAAB0E600D4EB95 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = FFE8A2ED1DAAB0E600D4EB95 /* README.md */; };
-		FFE8A2F01DAAB11F00D4EB95 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = FFE8A2EF1DAAB11F00D4EB95 /* CHANGELOG.md */; };
 		FFE8A2F21DAC1E4400D4EB95 /* TVBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8A2F11DAC1E4400D4EB95 /* TVBoardView.swift */; };
 		FFFBBB261D9983D70089C4EF /* TVGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFBBB251D9983D70089C4EF /* TVGameModel.swift */; };
 /* End PBXBuildFile section */
@@ -385,12 +383,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFCEB9A71D91C19E00C3514D /* TVPieceView.swift in Sources */,
-				FFE8A2F01DAAB11F00D4EB95 /* CHANGELOG.md in Sources */,
 				71AD93E41F39B17F005F009F /* HighScores.swift in Sources */,
 				71AD93E51F39B17F005F009F /* HighScoreViewController.swift in Sources */,
 				FF57E9091D13B5CB004D2AE1 /* TVGameViewController.swift in Sources */,
 				FFE8A2F21DAC1E4400D4EB95 /* TVBoardView.swift in Sources */,
-				FFE8A2EE1DAAB0E600D4EB95 /* README.md in Sources */,
 				FF57E9071D13B5CB004D2AE1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
