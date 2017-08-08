@@ -15,14 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var currentGameModel : TVGameModel = TVGameModel()
     var currentGamePieces : [[TVPieceModel]]?
     
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-    }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-    
     //MARK: - Resizing board
     func setBoardSize(width: Int, height: Int) {
         currentGameModel.boardWidth = width
@@ -159,5 +151,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
         
     }
+	
 }
-

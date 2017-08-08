@@ -23,10 +23,18 @@ class TVGameViewController: NSViewController {
 	var secondsPassed: Int = 0
 	@IBOutlet weak var timerLabel: NSTextField!
 
+	//scores
+	var scores: HighScores?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		delegate = NSApplication.shared().delegate as? AppDelegate
+		scores = HighScores.read()
+	}
+
+	override func viewWillDisappear() {
+		scores?.save()
 	}
 
 	override var representedObject: Any? {
@@ -101,6 +109,8 @@ class TVGameViewController: NSViewController {
 				if boardModel!.isCompleted() {
 					timer?.invalidate()
 					timer = nil
+
+					scores?.scores?[NSDate()] = secondsPassed
 				}
 			} else {
 				pv.frame.origin.x = templatePieceView.frame.origin.x + CGFloat(Int.random(0...100))
