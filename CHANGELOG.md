@@ -12,3 +12,10 @@ Here I will update any noteworthy changes to the TetraVex project.
 - You can play without timer or score, but the board will only let you place pieces
 correctly.
 
+## [0.1.0] - 2017-08-08
+### Added
+- Game timer
+- Persistent high scores (time)
+
+### Removed
+- Unnecessary auto-generated boilerplate code
