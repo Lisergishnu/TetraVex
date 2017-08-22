@@ -48,10 +48,6 @@ class TVGameViewController: NSViewController {
 		scores = HighScores.read()
 	}
 
-	override func viewWillDisappear() {
-		scores?.save()
-	}
-
 	override var representedObject: Any? {
 		didSet {
 			// Update the view, if already loaded.
@@ -126,6 +122,7 @@ class TVGameViewController: NSViewController {
 					timer = nil
 
 					scores?.scores?[NSDate()] = secondsPassed
+					scores?.save()
 				}
 			} else {
 				pv.frame.origin.x = templatePieceView.frame.origin.x + CGFloat(Int.random(0...100))

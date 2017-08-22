@@ -30,7 +30,9 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 
 	override func viewDidLoad() {
 		scores = HighScores.read()
-		dates = Array((scores?.scores?.keys)!)
+		dates = Array((scores?.scores?.keys)!).sorted(by: { date1, date2 in
+			return (scores?.scores![date1])! < (scores?.scores![date2])!
+		})
 
 		dateFmt = DateFormatter()
 		dateFmt?.timeZone = TimeZone.current
