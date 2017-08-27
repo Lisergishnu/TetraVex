@@ -65,13 +65,14 @@
                                                 <action selector="newGameWithSender:" target="Ady-hI-5gd" id="YOd-Hg-Uqi"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Pause" keyEquivalent="p" id="V4n-Pa-RQO"/>
+                                        <menuItem isSeparatorItem="YES" id="wil-ig-c5m"/>
                                         <menuItem title="High Scores..." id="d7n-2w-6N8">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <segue destination="aBp-oP-ER7" kind="show" id="xPf-Sy-ngb"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Pause" keyEquivalent="p" id="V4n-Pa-RQO"/>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                                         <menuItem title="Hint" keyEquivalent="h" id="aRk-4x-Ffr"/>
                                         <menuItem title="Solve" keyEquivalent="s" id="cpb-Rz-0E4"/>
@@ -243,14 +244,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhe-BS-703">
-                                <rect key="frame" x="0.0" y="-1" width="480" height="271"/>
+                                <rect key="frame" x="0.0" y="-1" width="480" height="214"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="GUb-3W-pdT">
-                                    <rect key="frame" x="1" y="0.0" width="478" height="270"/>
+                                    <rect key="frame" x="1" y="0.0" width="478" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="rRN-z8-7Vg" id="7Lv-3h-rvZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="247"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -287,11 +288,11 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ZT5-Eg-Svn">
-                                    <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                    <rect key="frame" x="-7" y="8" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="99s-Q4-aS0">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <rect key="frame" x="-14" y="16" width="15" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" identifier="Date-Time" id="rRN-z8-7Vg">
@@ -299,6 +300,41 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjb-3C-YHn">
+                                <rect key="frame" x="18" y="226" width="329" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="2x2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Fjq-ZC-9iq" id="2RD-51-zmj">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="yGI-7Q-fOd">
+                                        <items>
+                                            <menuItem title="2x2" state="on" id="Fjq-ZC-9iq"/>
+                                            <menuItem title="3x3" id="QkB-2K-iSV"/>
+                                            <menuItem title="4x4" id="yl6-Tq-vG3"/>
+                                            <menuItem title="5x5" id="HeM-O4-YgE">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="6x6" id="cqC-wv-WIC">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="sizeChooser:" target="baI-So-v3f" id="1pc-xH-IN2"/>
+                                </connections>
+                            </popUpButton>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LJD-3E-sWh">
+                                <rect key="frame" x="346" y="222" width="120" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Reset Scores" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oiO-Lt-zAL">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="deleteScores:" target="baI-So-v3f" id="5Px-HN-VlY"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>

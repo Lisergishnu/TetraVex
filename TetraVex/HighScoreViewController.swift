@@ -23,6 +23,8 @@ import Cocoa
 class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 	
 	@IBOutlet weak var tableView: NSTableView!
+
+	var selectedSize: String = "2x2"
 	var scores: HighScores?
 	var dates: [NSDate]?
 
@@ -30,9 +32,6 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 
 	override func viewDidLoad() {
 		scores = HighScores.read()
-		dates = Array((scores?.scores?.keys)!).sorted(by: { date1, date2 in
-			return (scores?.scores![date1])! < (scores?.scores![date2])!
-		})
 
 		dateFmt = DateFormatter()
 		dateFmt?.timeZone = TimeZone.current
@@ -40,6 +39,14 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 
 		tableView.delegate = self
 		tableView.dataSource = self
+
+		reload()
+	}
+
+	func reload() {
+		dates = Array((scores?.scores![selectedSize]!.keys)!).sorted(by: { date1, date2 in
+			return scores!.scores![selectedSize]![date1]! < scores!.scores![selectedSize]![date2]!
+		})
 		tableView.reloadData()
 	}
 
@@ -51,8 +58,25 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 		if tableColumn?.identifier == "Date-Time" {
 			return dateFmt?.string(from: dates![row] as Date)
 		} else {
-			return "\((scores?.scores?[dates![row]])!)"
+			return "\((scores?.scores![selectedSize]![dates![row]])!)"
 		}
+	}
+
+	@IBAction func deleteScores(_ sender: Any) {
+		let alert = NSAlert()
+		alert.messageText = "Are you sure you want to delete your high scores? This cannot be undone."
+		alert.addButton(withTitle: "No")
+		alert.addButton(withTitle: "Yes")
+		if alert.runModal() == NSAlertSecondButtonReturn {
+			scores?.scores = HighScores.emptyScores
+			scores?.save()
+			reload()
+		}
+	}
+
+	@IBAction func sizeChooser(_ sender: NSPopUpButton) {
+		selectedSize = sender.titleOfSelectedItem!
+		reload()
 	}
 
 }

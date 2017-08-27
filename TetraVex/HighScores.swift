@@ -22,9 +22,16 @@ import Foundation
 
 class HighScores: NSObject, NSCoding {
 
-	var scores: [NSDate : Int]?
+	static let emptyScores: [String: [NSDate : Int]] = [
+		"2x2":[:],
+		"3x3":[:],
+		"4x4":[:],
+		"5x5":[:],
+		"6x6":[:]
+	]
+	var scores: [String: [NSDate : Int]]?
 
-	init(_ scores: [NSDate : Int]) {
+	init(_ scores: [String: [NSDate : Int]]) {
 		self.scores = scores
 	}
 
@@ -34,7 +41,7 @@ class HighScores: NSObject, NSCoding {
 	}
 
 	required convenience init?(coder aDecoder: NSCoder) {
-		guard let scores = aDecoder.decodeObject() as? [NSDate:Int] else {
+		guard let scores = aDecoder.decodeObject() as? [String: [NSDate : Int]] else {
 			return nil
 		}
 		self.init(scores)
@@ -48,7 +55,7 @@ class HighScores: NSObject, NSCoding {
 
 	static func read() -> HighScores {
 		guard let data = UserDefaults.standard.object(forKey: "HighScore") as? Data else {
-			return HighScores([:])
+			return HighScores(HighScores.emptyScores)
 		}
 		return NSKeyedUnarchiver.unarchiveObject(with: data) as! HighScores
 	}

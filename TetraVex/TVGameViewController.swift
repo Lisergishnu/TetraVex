@@ -90,6 +90,10 @@ class TVGameViewController: NSViewController {
 		}
 
 		//start timing the game
+		if timer != nil {
+			timer?.invalidate()
+			timer = nil
+		}
 		secondsPassed = 0
 		timer = Timer.scheduledTimer(
 			timeInterval: 1,
@@ -121,7 +125,8 @@ class TVGameViewController: NSViewController {
 					timer?.invalidate()
 					timer = nil
 
-					scores?.scores?[NSDate()] = secondsPassed
+					let size = "\(boardModel!.boardWidth)x\(boardModel!.boardHeight)"
+					scores?.scores?[size]?[NSDate()] = secondsPassed
 					scores?.save()
 				}
 			} else {
