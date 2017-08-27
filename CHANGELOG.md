@@ -19,3 +19,9 @@ correctly.
 
 ### Removed
 - Unnecessary auto-generated boilerplate code
+
+## [0.1.0] - 2017-08-27
+### Added
+- High scores in ascending order (slowest to fastest)
+- Ability to delete high scores
+- Best times organized by board size
