@@ -139,10 +139,7 @@ class TVGameViewController: NSViewController {
 	//MARK: - Timing
 	@objc func tick() {
 		secondsPassed += 1
-		let minutes = secondsPassed / 60
-		let seconds: String = "00\(secondsPassed - minutes * 60)"
-		timerLabel.stringValue =
-			"\(minutes):\(seconds.substring(from: seconds.index(seconds.endIndex, offsetBy: -2)))"
+		timerLabel.stringValue = HighScores.timeToString(secondsPassed)
 	}
 
 }

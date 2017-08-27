@@ -35,6 +35,12 @@ class HighScores: NSObject, NSCoding {
 		self.scores = scores
 	}
 
+	static func timeToString(_ secondsPassed: Int) -> String {
+		let minutes = secondsPassed / 60
+		let seconds: String = "00\(secondsPassed - minutes * 60)"
+		return "\(minutes):\(seconds.substring(from: seconds.index(seconds.endIndex, offsetBy: -2)))"
+	}
+
 	//MARK: - En/Decoding
 	func encode(with aCoder: NSCoder) {
 		aCoder.encode(scores)

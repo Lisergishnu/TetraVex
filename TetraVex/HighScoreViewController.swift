@@ -32,6 +32,7 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 
 	override func viewDidLoad() {
 		scores = HighScores.read()
+		reload()
 
 		dateFmt = DateFormatter()
 		dateFmt?.timeZone = TimeZone.current
@@ -39,8 +40,6 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 
 		tableView.delegate = self
 		tableView.dataSource = self
-
-		reload()
 	}
 
 	func reload() {
@@ -58,7 +57,7 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 		if tableColumn?.identifier == "Date-Time" {
 			return dateFmt?.string(from: dates![row] as Date)
 		} else {
-			return "\((scores?.scores![selectedSize]![dates![row]])!)"
+			return HighScores.timeToString(scores!.scores![selectedSize]![dates![row]]!)
 		}
 	}
 
