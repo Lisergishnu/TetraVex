@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71AD93E41F39B17F005F009F /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD93E21F39B17F005F009F /* HighScores.swift */; };
+		71AD93E51F39B17F005F009F /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD93E31F39B17F005F009F /* HighScoreViewController.swift */; };
 		FF57E9071D13B5CB004D2AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */; };
 		FF57E9091D13B5CB004D2AE1 /* TVGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */; };
 		FF57E90B1D13B5CB004D2AE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */; };
@@ -21,8 +23,6 @@
 		FF57E94B1D1447F9004D2AE1 /* TVBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E94A1D1447F9004D2AE1 /* TVBoardModel.swift */; };
 		FF57E94D1D14B411004D2AE1 /* TVPuzzleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E94C1D14B411004D2AE1 /* TVPuzzleGenerator.swift */; };
 		FFCEB9A71D91C19E00C3514D /* TVPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCEB9A61D91C19E00C3514D /* TVPieceView.swift */; };
-		FFE8A2EE1DAAB0E600D4EB95 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = FFE8A2ED1DAAB0E600D4EB95 /* README.md */; };
-		FFE8A2F01DAAB11F00D4EB95 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = FFE8A2EF1DAAB11F00D4EB95 /* CHANGELOG.md */; };
 		FFE8A2F21DAC1E4400D4EB95 /* TVBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8A2F11DAC1E4400D4EB95 /* TVBoardView.swift */; };
 		FFFBBB261D9983D70089C4EF /* TVGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFBBB251D9983D70089C4EF /* TVGameModel.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		71AD93E21F39B17F005F009F /* HighScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScores.swift; sourceTree = "<group>"; };
+		71AD93E31F39B17F005F009F /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FF57E9031D13B5CB004D2AE1 /* TetraVex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TetraVex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TVGameViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -159,6 +161,8 @@
 		FF57E9051D13B5CB004D2AE1 /* TetraVex */ = {
 			isa = PBXGroup;
 			children = (
+				71AD93E21F39B17F005F009F /* HighScores.swift */,
+				71AD93E31F39B17F005F009F /* HighScoreViewController.swift */,
 				FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */,
 				FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */,
 				FFCEB9A61D91C19E00C3514D /* TVPieceView.swift */,
@@ -379,10 +383,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFCEB9A71D91C19E00C3514D /* TVPieceView.swift in Sources */,
-				FFE8A2F01DAAB11F00D4EB95 /* CHANGELOG.md in Sources */,
+				71AD93E41F39B17F005F009F /* HighScores.swift in Sources */,
+				71AD93E51F39B17F005F009F /* HighScoreViewController.swift in Sources */,
 				FF57E9091D13B5CB004D2AE1 /* TVGameViewController.swift in Sources */,
 				FFE8A2F21DAC1E4400D4EB95 /* TVBoardView.swift in Sources */,
-				FFE8A2EE1DAAB0E600D4EB95 /* README.md in Sources */,
 				FF57E9071D13B5CB004D2AE1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +494,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -531,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -546,6 +550,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TetraVex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -560,6 +565,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TetraVex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = lisergishnu.TetraVex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

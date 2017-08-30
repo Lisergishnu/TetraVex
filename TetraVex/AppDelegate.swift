@@ -15,14 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var currentGameModel : TVGameModel = TVGameModel()
     var currentGamePieces : [[TVPieceModel]]?
     
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-    }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-    
     //MARK: - Resizing board
     func setBoardSize(width: Int, height: Int) {
         currentGameModel.boardWidth = width
@@ -154,13 +146,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func newGame(sender: Any?) {
         let pg = TVPuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
         currentGamePieces = pg.solvedBoard
-        if #available(OSX 10.10, *) {
-            let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
-            pv.solvedBoard = currentGamePieces
-            pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
-        } else {
-            // Fallback on earlier versions
-        }
+        let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
+        pv.solvedBoard = currentGamePieces
+        pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
+        
     }
+	
 }
-
