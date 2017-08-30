@@ -12,7 +12,12 @@ but still this seems like a fun thing to do.
 Target
 ------
 
-This project is written in Swift 3, so the app. target is macOS 10.12. 
+This project is written in Swift 3, so the app. target is macOS 10.12.
+
+Contribute
+----------
+
+Please do pull request from the *develop* branch.
 
 License
 -------

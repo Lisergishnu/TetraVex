@@ -2,6 +2,8 @@
 Here I will update any noteworthy changes to the TetraVex project.
 
 ## [Unreleased]
+
+## [0.1.2] - 2017-08-30
 ### Added
 - Game timer.
 - Persistent high scores (time).
