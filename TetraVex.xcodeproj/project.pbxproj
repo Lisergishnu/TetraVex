@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71AD93E41F39B17F005F009F /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD93E21F39B17F005F009F /* HighScores.swift */; };
 		71AD93E51F39B17F005F009F /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD93E31F39B17F005F009F /* HighScoreViewController.swift */; };
 		B63C3CDD1C4A5FA50CDBA0B4 /* Pods_TetraVex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 793CB3FE200D88AB7C2DE7AB /* Pods_TetraVex.framework */; };
+		FF19DA2F20E00945000BA72E /* TVHighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF19DA2E20E00945000BA72E /* TVHighScores.swift */; };
 		FF57E9071D13B5CB004D2AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */; };
 		FF57E9091D13B5CB004D2AE1 /* TVGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */; };
 		FF57E90B1D13B5CB004D2AE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */; };
@@ -75,10 +75,10 @@
 
 /* Begin PBXFileReference section */
 		62C8FA656BD72B20F4C098A1 /* Pods-TetraVex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TetraVex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TetraVex/Pods-TetraVex.debug.xcconfig"; sourceTree = "<group>"; };
-		71AD93E21F39B17F005F009F /* HighScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScores.swift; sourceTree = "<group>"; };
 		71AD93E31F39B17F005F009F /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		793CB3FE200D88AB7C2DE7AB /* Pods_TetraVex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TetraVex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A293B03C03439EF66EB292D6 /* Pods-TetraVex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TetraVex.release.xcconfig"; path = "Pods/Target Support Files/Pods-TetraVex/Pods-TetraVex.release.xcconfig"; sourceTree = "<group>"; };
+		FF19DA2E20E00945000BA72E /* TVHighScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVHighScores.swift; sourceTree = "<group>"; };
 		FF57E9031D13B5CB004D2AE1 /* TetraVex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TetraVex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TVGameViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -156,15 +156,108 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FF19DA2720E006AD000BA72E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E90F1D13B5CB004D2AE1 /* Info.plist */,
+				FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		FF19DA2920E006EB000BA72E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */,
+				FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */,
+				71AD93E31F39B17F005F009F /* HighScoreViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FF19DA2A20E0070C000BA72E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FF19DA2E20E00945000BA72E /* TVHighScores.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		FF19DA2B20E00740000BA72E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FF19DA2C20E0075E000BA72E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		FF19DA2D20E00772000BA72E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E90C1D13B5CB004D2AE1 /* Main.storyboard */,
+				FFE8A2F11DAC1E4400D4EB95 /* TVBoardView.swift */,
+				FFCEB9A61D91C19E00C3514D /* TVPieceView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FF19DA3020E00996000BA72E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E9461D13B943004D2AE1 /* TVPieceModel.swift */,
+				FF57E94A1D1447F9004D2AE1 /* TVBoardModel.swift */,
+				FFFBBB251D9983D70089C4EF /* TVGameModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FF19DA3120E009A7000BA72E /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E92A1D13B5E0004D2AE1 /* TetraVexKit.h */,
+			);
+			name = Includes;
+			sourceTree = "<group>";
+		};
+		FF19DA3220E009B4000BA72E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E92C1D13B5E0004D2AE1 /* Info.plist */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		FF19DA3320E009BB000BA72E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E94C1D14B411004D2AE1 /* TVPuzzleGenerator.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		FF19DA3520E009F7000BA72E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FF57E9171D13B5CB004D2AE1 /* TetraVexUITests */,
+				FF57E9371D13B5E0004D2AE1 /* TetraVexKitTests */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		FF57E8FA1D13B5CB004D2AE1 = {
 			isa = PBXGroup;
 			children = (
 				FFE8A2EF1DAAB11F00D4EB95 /* CHANGELOG.md */,
 				FFE8A2ED1DAAB0E600D4EB95 /* README.md */,
 				FF57E9051D13B5CB004D2AE1 /* TetraVex */,
-				FF57E9171D13B5CB004D2AE1 /* TetraVexUITests */,
 				FF57E9291D13B5E0004D2AE1 /* TetraVexKit */,
-				FF57E9371D13B5E0004D2AE1 /* TetraVexKitTests */,
+				FF19DA3520E009F7000BA72E /* Tests */,
 				FF57E9041D13B5CB004D2AE1 /* Products */,
 				D5B4CEE5D0FC1F487E2BFB9B /* Pods */,
 				3B0B9714F530243BBAB200A0 /* Frameworks */,
@@ -185,18 +278,15 @@
 		FF57E9051D13B5CB004D2AE1 /* TetraVex */ = {
 			isa = PBXGroup;
 			children = (
-				71AD93E21F39B17F005F009F /* HighScores.swift */,
-				71AD93E31F39B17F005F009F /* HighScoreViewController.swift */,
-				FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */,
-				FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */,
-				FFCEB9A61D91C19E00C3514D /* TVPieceView.swift */,
-				FFE8A2F11DAC1E4400D4EB95 /* TVBoardView.swift */,
-				FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */,
-				FF57E90C1D13B5CB004D2AE1 /* Main.storyboard */,
-				FF57E90F1D13B5CB004D2AE1 /* Info.plist */,
+				FF19DA2720E006AD000BA72E /* Assets */,
+				FF19DA2920E006EB000BA72E /* Controllers */,
+				FF19DA2A20E0070C000BA72E /* Data */,
+				FF19DA2B20E00740000BA72E /* Models */,
+				FF19DA2C20E0075E000BA72E /* Menu */,
+				FF19DA2D20E00772000BA72E /* Views */,
 			);
 			path = TetraVex;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		FF57E9171D13B5CB004D2AE1 /* TetraVexUITests */ = {
 			isa = PBXGroup;
@@ -210,12 +300,10 @@
 		FF57E9291D13B5E0004D2AE1 /* TetraVexKit */ = {
 			isa = PBXGroup;
 			children = (
-				FF57E92A1D13B5E0004D2AE1 /* TetraVexKit.h */,
-				FF57E9461D13B943004D2AE1 /* TVPieceModel.swift */,
-				FF57E94A1D1447F9004D2AE1 /* TVBoardModel.swift */,
-				FFFBBB251D9983D70089C4EF /* TVGameModel.swift */,
-				FF57E94C1D14B411004D2AE1 /* TVPuzzleGenerator.swift */,
-				FF57E92C1D13B5E0004D2AE1 /* Info.plist */,
+				FF19DA3220E009B4000BA72E /* Assets */,
+				FF19DA3120E009A7000BA72E /* Includes */,
+				FF19DA3020E00996000BA72E /* Models */,
+				FF19DA3320E009BB000BA72E /* Utils */,
 			);
 			path = TetraVexKit;
 			sourceTree = "<group>";
@@ -431,7 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFCEB9A71D91C19E00C3514D /* TVPieceView.swift in Sources */,
-				71AD93E41F39B17F005F009F /* HighScores.swift in Sources */,
+				FF19DA2F20E00945000BA72E /* TVHighScores.swift in Sources */,
 				71AD93E51F39B17F005F009F /* HighScoreViewController.swift in Sources */,
 				FF57E9091D13B5CB004D2AE1 /* TVGameViewController.swift in Sources */,
 				FFE8A2F21DAC1E4400D4EB95 /* TVBoardView.swift in Sources */,

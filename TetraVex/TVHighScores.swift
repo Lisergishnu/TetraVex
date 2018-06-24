@@ -20,7 +20,7 @@
 
 import Foundation
 
-class HighScores: NSObject, NSCoding {
+class TVHighScores: NSObject, NSCoding {
 
 	static let emptyScores: [String: [NSDate : Int]] = [
 		"2x2":[:],
@@ -59,11 +59,11 @@ class HighScores: NSObject, NSCoding {
 		UserDefaults.standard.set(data, forKey: "HighScore")
 	}
 
-	static func read() -> HighScores {
+	static func read() -> TVHighScores {
 		guard let data = UserDefaults.standard.object(forKey: "HighScore") as? Data else {
-			return HighScores(HighScores.emptyScores)
+			return TVHighScores(TVHighScores.emptyScores)
 		}
-		return NSKeyedUnarchiver.unarchiveObject(with: data) as! HighScores
+		return NSKeyedUnarchiver.unarchiveObject(with: data) as! TVHighScores
 	}
 
 }

@@ -39,13 +39,13 @@ class TVGameViewController: NSViewController {
 	@IBOutlet weak var timerLabel: NSTextField!
 
 	//scores
-	var scores: HighScores?
+	var scores: TVHighScores?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		delegate = NSApplication.shared.delegate as? AppDelegate
-		scores = HighScores.read()
+		scores = TVHighScores.read()
 	}
 
 	override var representedObject: Any? {
@@ -139,7 +139,7 @@ class TVGameViewController: NSViewController {
 	//MARK: - Timing
 	@objc func tick() {
 		secondsPassed += 1
-		timerLabel.stringValue = HighScores.timeToString(secondsPassed)
+		timerLabel.stringValue = TVHighScores.timeToString(secondsPassed)
 	}
 
 }
