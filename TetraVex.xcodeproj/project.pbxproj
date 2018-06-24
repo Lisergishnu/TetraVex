@@ -79,6 +79,7 @@
 		793CB3FE200D88AB7C2DE7AB /* Pods_TetraVex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TetraVex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A293B03C03439EF66EB292D6 /* Pods-TetraVex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TetraVex.release.xcconfig"; path = "Pods/Target Support Files/Pods-TetraVex/Pods-TetraVex.release.xcconfig"; sourceTree = "<group>"; };
 		FF19DA2E20E00945000BA72E /* TVHighScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVHighScores.swift; sourceTree = "<group>"; };
+		FF19DA3620E0111C000BA72E /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		FF57E9031D13B5CB004D2AE1 /* TetraVex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TetraVex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TVGameViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -255,6 +256,7 @@
 			children = (
 				FFE8A2EF1DAAB11F00D4EB95 /* CHANGELOG.md */,
 				FFE8A2ED1DAAB0E600D4EB95 /* README.md */,
+				FF19DA3620E0111C000BA72E /* CONTRIBUTING.md */,
 				FF57E9051D13B5CB004D2AE1 /* TetraVex */,
 				FF57E9291D13B5E0004D2AE1 /* TetraVexKit */,
 				FF19DA3520E009F7000BA72E /* Tests */,

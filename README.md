@@ -30,7 +30,7 @@ pod install
 💭 Contribute
 ----------
 
-Please do pull request from the *develop* branch.
+Please check the [CONTRIBUTING](CONTRIBUTING.md) file.
 
 📔 License
 -------
