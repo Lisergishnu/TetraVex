@@ -1,0 +1,6 @@
+framework module Pods_TetraVex {
+  umbrella header "Pods-TetraVex-umbrella.h"
+
+  export *
+  module * { export * }
+}

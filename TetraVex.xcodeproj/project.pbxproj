@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		71AD93E41F39B17F005F009F /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD93E21F39B17F005F009F /* HighScores.swift */; };
 		71AD93E51F39B17F005F009F /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD93E31F39B17F005F009F /* HighScoreViewController.swift */; };
+		B63C3CDD1C4A5FA50CDBA0B4 /* Pods_TetraVex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 793CB3FE200D88AB7C2DE7AB /* Pods_TetraVex.framework */; };
 		FF57E9071D13B5CB004D2AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */; };
 		FF57E9091D13B5CB004D2AE1 /* TVGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */; };
 		FF57E90B1D13B5CB004D2AE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF57E90A1D13B5CB004D2AE1 /* Assets.xcassets */; };
@@ -73,8 +74,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		62C8FA656BD72B20F4C098A1 /* Pods-TetraVex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TetraVex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TetraVex/Pods-TetraVex.debug.xcconfig"; sourceTree = "<group>"; };
 		71AD93E21F39B17F005F009F /* HighScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScores.swift; sourceTree = "<group>"; };
 		71AD93E31F39B17F005F009F /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		793CB3FE200D88AB7C2DE7AB /* Pods_TetraVex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TetraVex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A293B03C03439EF66EB292D6 /* Pods-TetraVex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TetraVex.release.xcconfig"; path = "Pods/Target Support Files/Pods-TetraVex/Pods-TetraVex.release.xcconfig"; sourceTree = "<group>"; };
 		FF57E9031D13B5CB004D2AE1 /* TetraVex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TetraVex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF57E9061D13B5CB004D2AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF57E9081D13B5CB004D2AE1 /* TVGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TVGameViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -106,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF57E93D1D13B5E0004D2AE1 /* TetraVexKit.framework in Frameworks */,
+				B63C3CDD1C4A5FA50CDBA0B4 /* Pods_TetraVex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +139,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0B9714F530243BBAB200A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				793CB3FE200D88AB7C2DE7AB /* Pods_TetraVex.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5B4CEE5D0FC1F487E2BFB9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62C8FA656BD72B20F4C098A1 /* Pods-TetraVex.debug.xcconfig */,
+				A293B03C03439EF66EB292D6 /* Pods-TetraVex.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FF57E8FA1D13B5CB004D2AE1 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +166,8 @@
 				FF57E9291D13B5E0004D2AE1 /* TetraVexKit */,
 				FF57E9371D13B5E0004D2AE1 /* TetraVexKitTests */,
 				FF57E9041D13B5CB004D2AE1 /* Products */,
+				D5B4CEE5D0FC1F487E2BFB9B /* Pods */,
+				3B0B9714F530243BBAB200A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +247,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF57E91D1D13B5CB004D2AE1 /* Build configuration list for PBXNativeTarget "TetraVex" */;
 			buildPhases = (
+				B1FE67E522F7AF3AADD5076C /* [CP] Check Pods Manifest.lock */,
 				FF57E8FF1D13B5CB004D2AE1 /* Sources */,
 				FF57E9001D13B5CB004D2AE1 /* Frameworks */,
 				FF57E9011D13B5CB004D2AE1 /* Resources */,
@@ -376,6 +401,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B1FE67E522F7AF3AADD5076C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TetraVex-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FF57E8FF1D13B5CB004D2AE1 /* Sources */ = {
@@ -544,6 +590,7 @@
 		};
 		FF57E91E1D13B5CB004D2AE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62C8FA656BD72B20F4C098A1 /* Pods-TetraVex.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -559,6 +606,7 @@
 		};
 		FF57E91F1D13B5CB004D2AE1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A293B03C03439EF66EB292D6 /* Pods-TetraVex.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
