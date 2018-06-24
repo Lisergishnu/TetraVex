@@ -4,6 +4,7 @@ Here I will update any noteworthy changes to the TetraVex project.
 ## [Unreleased]
 ### Added
 - CocoaPods support.
+- Icon for app.
 
 ### Changed
 - Using Swift 4.
