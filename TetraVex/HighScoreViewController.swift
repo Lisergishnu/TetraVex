@@ -66,7 +66,7 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 		alert.messageText = "Are you sure you want to delete your high scores? This cannot be undone."
 		alert.addButton(withTitle: "No")
 		alert.addButton(withTitle: "Yes")
-		if alert.runModal() == NSAlertSecondButtonReturn {
+		if alert.runModal() == NSApplication.ModalResponse.alertSecondButtonReturn {
 			scores?.scores = HighScores.emptyScores
 			scores?.save()
 			reload()

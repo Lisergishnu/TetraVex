@@ -29,7 +29,7 @@ class TVPieceView : NSView {
             if pieceModel!.isOnBoard {
                 controller?.removeFromBoard(piece: self)
             }
-            NSCursor.closedHand().push()
+            NSCursor.closedHand.push()
             self.needsDisplay = true
         }
     }
@@ -63,7 +63,7 @@ class TVPieceView : NSView {
     // MARK: - Drawing operations
     
     func drawStringCenteredAt(_ center: NSPoint, str: NSString, attribs: [String: AnyObject]?) {
-        let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSStringDrawingOptions.oneShot, attributes: attribs)
+        let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSString.DrawingOptions.oneShot, attributes: attribs)
         var dCenter = center
         dCenter.x = center.x - b.width/2
         dCenter.y = center.y - b.height/2
@@ -128,10 +128,10 @@ class TVPieceView : NSView {
                                  y: pathRect.height*0.5 + pathRect.minY)
             
             let attribs : [String:AnyObject] =
-                [NSShadowAttributeName:shadow,
-                 NSFontAttributeName:font!,
-                 NSStrokeColorAttributeName:NSColor.labelColor,
-                 NSParagraphStyleAttributeName:paragraphStyle]
+                [NSAttributedStringKey.shadow.rawValue:shadow,
+                 NSAttributedStringKey.font.rawValue:font!,
+                 NSAttributedStringKey.strokeColor.rawValue:NSColor.labelColor,
+                 NSAttributedStringKey.paragraphStyle.rawValue:paragraphStyle]
             var s = NSString(format: "%d", pieceModel!.topValue)
             drawStringCenteredAt(ptop, str: s, attribs: attribs)
             s = NSString(format: "%d", pieceModel!.bottomValue)

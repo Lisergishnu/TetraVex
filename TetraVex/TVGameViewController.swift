@@ -44,7 +44,7 @@ class TVGameViewController: NSViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
-		delegate = NSApplication.shared().delegate as? AppDelegate
+		delegate = NSApplication.shared.delegate as? AppDelegate
 		scores = HighScores.read()
 	}
 
@@ -79,7 +79,7 @@ class TVGameViewController: NSViewController {
 				for j in 0..<height {
 					let nfr = templatePieceView.frame.offsetBy(dx: pw*CGFloat(i), dy: -ph*CGFloat(j))
 					let pv : TVPieceView = TVPieceView(frame: nfr)
-					pv.autoresizingMask = [.viewMaxXMargin, .viewMinYMargin]
+					pv.autoresizingMask = [NSView.AutoresizingMask.maxXMargin, NSView.AutoresizingMask.minYMargin]
 					currentPiecesOnBoard.append(pv)
 					pv.pieceModel = solvedBoard![i][j]
 					pv.controller = self
