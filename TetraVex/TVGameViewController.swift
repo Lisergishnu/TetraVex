@@ -39,13 +39,13 @@ class TVGameViewController: NSViewController {
 	@IBOutlet weak var timerLabel: NSTextField!
 
 	//scores
-	var scores: HighScores?
+	var scores: TVHighScores?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
-		delegate = NSApplication.shared().delegate as? AppDelegate
-		scores = HighScores.read()
+		delegate = NSApplication.shared.delegate as? AppDelegate
+		scores = TVHighScores.read()
 	}
 
 	override var representedObject: Any? {
@@ -79,7 +79,7 @@ class TVGameViewController: NSViewController {
 				for j in 0..<height {
 					let nfr = templatePieceView.frame.offsetBy(dx: pw*CGFloat(i), dy: -ph*CGFloat(j))
 					let pv : TVPieceView = TVPieceView(frame: nfr)
-					pv.autoresizingMask = [.viewMaxXMargin, .viewMinYMargin]
+					pv.autoresizingMask = [NSView.AutoresizingMask.maxXMargin, NSView.AutoresizingMask.minYMargin]
 					currentPiecesOnBoard.append(pv)
 					pv.pieceModel = solvedBoard![i][j]
 					pv.controller = self
@@ -139,7 +139,7 @@ class TVGameViewController: NSViewController {
 	//MARK: - Timing
 	@objc func tick() {
 		secondsPassed += 1
-		timerLabel.stringValue = HighScores.timeToString(secondsPassed)
+		timerLabel.stringValue = TVHighScores.timeToString(secondsPassed)
 	}
 
 }

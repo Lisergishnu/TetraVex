@@ -25,13 +25,13 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 	@IBOutlet weak var tableView: NSTableView!
 
 	var selectedSize: String = "2x2"
-	var scores: HighScores?
+	var scores: TVHighScores?
 	var dates: [NSDate]?
 
 	var dateFmt: DateFormatter?
 
 	override func viewDidLoad() {
-		scores = HighScores.read()
+		scores = TVHighScores.read()
 		reload()
 
 		dateFmt = DateFormatter()
@@ -54,10 +54,10 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 	}
 
 	func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-		if tableColumn?.identifier == "Date-Time" {
+        if (tableColumn?.identifier)!.rawValue == "Date-Time" {
 			return dateFmt?.string(from: dates![row] as Date)
 		} else {
-			return HighScores.timeToString(scores!.scores![selectedSize]![dates![row]]!)
+			return TVHighScores.timeToString(scores!.scores![selectedSize]![dates![row]]!)
 		}
 	}
 
@@ -66,8 +66,8 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 		alert.messageText = "Are you sure you want to delete your high scores? This cannot be undone."
 		alert.addButton(withTitle: "No")
 		alert.addButton(withTitle: "Yes")
-		if alert.runModal() == NSAlertSecondButtonReturn {
-			scores?.scores = HighScores.emptyScores
+		if alert.runModal() == NSApplication.ModalResponse.alertSecondButtonReturn {
+			scores?.scores = TVHighScores.emptyScores
 			scores?.save()
 			reload()
 		}

@@ -23,13 +23,13 @@ class TVPieceView : NSView {
             let i = superview?.subviews.index(of: self)
             var svs = superview!.subviews
             if (i != svs.count-1) {
-                swap(&svs[i!],&svs[svs.count-1])
+                svs.swapAt(i!, svs.count-1)
                 superview?.subviews = svs
             }
             if pieceModel!.isOnBoard {
                 controller?.removeFromBoard(piece: self)
             }
-            NSCursor.closedHand().push()
+            NSCursor.closedHand.push()
             self.needsDisplay = true
         }
     }
@@ -61,9 +61,9 @@ class TVPieceView : NSView {
     }
     
     // MARK: - Drawing operations
-    
-    func drawStringCenteredAt(_ center: NSPoint, str: NSString, attribs: [String: AnyObject]?) {
-        let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSStringDrawingOptions.oneShot, attributes: attribs)
+
+    func drawStringCenteredAt(_ center: NSPoint, str: NSString, attribs: [NSAttributedStringKey: Any]?) {
+        let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSString.DrawingOptions.oneShot, attributes: attribs)
         var dCenter = center
         dCenter.x = center.x - b.width/2
         dCenter.y = center.y - b.height/2
@@ -106,7 +106,7 @@ class TVPieceView : NSView {
             path.stroke()
             
             let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = NSCenterTextAlignment
+            paragraphStyle.alignment = NSTextAlignment.center
             
             if #available(OSX 10.10, *) {
                 shadow.shadowColor = NSColor.tertiaryLabelColor
@@ -127,11 +127,11 @@ class TVPieceView : NSView {
             let pright = NSPoint(x: pathRect.width*0.80 + pathRect.minX,
                                  y: pathRect.height*0.5 + pathRect.minY)
             
-            let attribs : [String:AnyObject] =
-                [NSShadowAttributeName:shadow,
-                 NSFontAttributeName:font!,
-                 NSStrokeColorAttributeName:NSColor.labelColor,
-                 NSParagraphStyleAttributeName:paragraphStyle]
+            let attribs : [NSAttributedStringKey:Any] =
+                [NSAttributedStringKey.shadow:shadow,
+                 NSAttributedStringKey.font:font!,
+                 NSAttributedStringKey.strokeColor:NSColor.labelColor,
+                 NSAttributedStringKey.paragraphStyle:paragraphStyle]
             var s = NSString(format: "%d", pieceModel!.topValue)
             drawStringCenteredAt(ptop, str: s, attribs: attribs)
             s = NSString(format: "%d", pieceModel!.bottomValue)
