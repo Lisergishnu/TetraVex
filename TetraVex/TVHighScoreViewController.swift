@@ -1,5 +1,5 @@
 //
-//  HighScoreViewController.swift
+//  TVHighScoreViewController.swift
 //  TetraVex
 //
 //  Created by Alessandro Vinciguerra on 08/08/2017.
@@ -20,7 +20,7 @@
 
 import Cocoa
 
-class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class TVHighScoreViewController : NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 	
 	@IBOutlet weak var tableView: NSTableView!
 

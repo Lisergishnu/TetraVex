@@ -1,5 +1,5 @@
 //
-//  HighScores.swift
+//  TVHighScores.swift
 //  TetraVex
 //
 //  Created by Alessandro Vinciguerra on 08/08/2017.
@@ -56,11 +56,11 @@ class TVHighScores: NSObject, NSCoding {
 	//MARK: - Saving/Reading
 	func save() {
 		let data = NSKeyedArchiver.archivedData(withRootObject: self)
-		UserDefaults.standard.set(data, forKey: "HighScore")
+		UserDefaults.standard.set(data, forKey: "TVHighScore")
 	}
 
 	static func read() -> TVHighScores {
-		guard let data = UserDefaults.standard.object(forKey: "HighScore") as? Data else {
+		guard let data = UserDefaults.standard.object(forKey: "TVHighScore") as? Data else {
 			return TVHighScores(TVHighScores.emptyScores)
 		}
 		return NSKeyedUnarchiver.unarchiveObject(with: data) as! TVHighScores

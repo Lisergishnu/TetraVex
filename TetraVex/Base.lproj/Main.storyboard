@@ -245,7 +245,7 @@
         <!--High Score View Controller-->
         <scene sceneID="nXk-eF-qNI">
             <objects>
-                <viewController id="baI-So-v3f" customClass="HighScoreViewController" customModule="TetraVex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="baI-So-v3f" customClass="TVHighScoreViewController" customModule="TetraVex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="GhZ-Am-Xhc">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
