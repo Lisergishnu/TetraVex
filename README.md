@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://raw.githubusercontent.com/Lisergishnu/TetraVex/develop/TetraVex/Assets.xcassets/AppIcon.appiconset/Icon-256.png" />
+</p>
+
 <h1 align="center">TetraVex</h1>
 <p align="center">A TetraVex port for macOS</p>
 
