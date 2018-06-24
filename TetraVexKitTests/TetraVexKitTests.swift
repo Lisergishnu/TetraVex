@@ -33,8 +33,9 @@ class TetraVexKitTests: XCTestCase {
         XCTAssert(board.startedPlaying == false)
         XCTAssert(a != b && a != c && a != d && b != c && b != d && c != d)
         
-        board.addPieceToBoard(a, x: 0, y: 0)
-        var r = board.addPieceToBoard(b, x: 0, y: 1)
+        var r = board.addPieceToBoard(a, x: 0, y: 0)
+        XCTAssert(r == true)
+        r = board.addPieceToBoard(b, x: 0, y: 1)
         XCTAssert(r == true)
         r = board.addPieceToBoard(c, x: 1, y: 0)
         XCTAssert(r == true)

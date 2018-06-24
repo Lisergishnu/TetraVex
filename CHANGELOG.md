@@ -5,6 +5,9 @@ Here I will update any noteworthy changes to the TetraVex project.
 ### Added
 - CocoaPods support.
 
+### Changed
+- Using Swift 4.
+
 ## [0.1.2] - 2017-08-30
 ### Added
 - Game timer.

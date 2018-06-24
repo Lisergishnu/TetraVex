@@ -54,7 +54,7 @@ class HighScoreViewController : NSViewController, NSTableViewDelegate, NSTableVi
 	}
 
 	func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-		if tableColumn?.identifier == "Date-Time" {
+        if (tableColumn?.identifier)!.rawValue == "Date-Time" {
 			return dateFmt?.string(from: dates![row] as Date)
 		} else {
 			return HighScores.timeToString(scores!.scores![selectedSize]![dates![row]]!)
