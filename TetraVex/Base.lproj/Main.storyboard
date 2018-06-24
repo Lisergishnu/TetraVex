@@ -63,7 +63,7 @@
                                     <items>
                                         <menuItem title="New Game" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
-                                                <action selector="newGameWithSender:" target="Ady-hI-5gd" id="YOd-Hg-Uqi"/>
+                                                <action selector="newGameWithSender:" target="Ady-hI-5gd" id="AaI-I6-DVb"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Pause" keyEquivalent="p" id="V4n-Pa-RQO"/>
@@ -75,7 +75,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Hint" keyEquivalent="h" id="aRk-4x-Ffr"/>
+                                        <menuItem title="Hint" keyEquivalent="h" id="aRk-4x-Ffr">
+                                            <connections>
+                                                <action selector="testActionsWithSender:" target="Ady-hI-5gd" id="amJ-a6-yze"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Solve" keyEquivalent="s" id="cpb-Rz-0E4"/>
                                         <menuItem title="Arrange" id="7qA-JZ-8vZ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -392,7 +396,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="691"/>
+            <point key="canvasLocation" x="82" y="691"/>
         </scene>
     </scenes>
 </document>

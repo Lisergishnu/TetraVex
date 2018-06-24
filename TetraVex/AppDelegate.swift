@@ -20,8 +20,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         currentGameModel.boardWidth = width
         currentGameModel.boardHeight = height
     }
-    
-    func setBoardTo2x2(sender: Any?) {
+    /*
+     * Reminder, First Responder actions have to marked with @IBAction
+     * to appear in the Interface Builder.
+     */
+    @IBAction func setBoardTo2x2(sender: Any?) {
         setBoardSize(width: 2, height: 2)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
@@ -32,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 0)
     }
     
-    func setBoardTo3x3(sender: Any?) {
+    @IBAction func setBoardTo3x3(sender: Any?) {
         setBoardSize(width: 3, height: 3)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
@@ -43,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 0)
     }
     
-    func setBoardTo4x4(sender: Any?) {
+    @IBAction func setBoardTo4x4(sender: Any?) {
         setBoardSize(width: 4, height: 4)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
@@ -54,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 0)
     }
     
-    func setBoardTo5x5(sender: Any?) {
+    @IBAction func setBoardTo5x5(sender: Any?) {
         setBoardSize(width: 5, height: 5)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
@@ -65,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 0)
     }
     
-    func setBoardTo6x6(sender: Any?) {
+    @IBAction func setBoardTo6x6(sender: Any?) {
         setBoardSize(width: 6, height: 6)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
@@ -81,7 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         currentGameModel.currentNumberDigits = num
     }
     
-    func setNumberOfDigitsTo6(sender: Any?) {
+    @IBAction func setNumberOfDigitsTo6(sender: Any?) {
         setNumberOfDigits(num: 5)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
@@ -92,7 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
     }
     
-    func setNumberOfDigitsTo7(sender: Any?) {
+    @IBAction func setNumberOfDigitsTo7(sender: Any?) {
         setNumberOfDigits(num: 6)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
@@ -103,7 +106,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
     }
     
-    func setNumberOfDigitsTo8(sender: Any?) {
+    @IBAction func setNumberOfDigitsTo8(sender: Any?) {
         setNumberOfDigits(num: 7)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
@@ -114,7 +117,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
     }
     
-    func setNumberOfDigitsTo9(sender: Any?) {
+    @IBAction func setNumberOfDigitsTo9(sender: Any?) {
         setNumberOfDigits(num: 8)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
@@ -125,7 +128,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
     }
     
-    func setNumberOfDigitsTo10(sender: Any?) {
+    @IBAction func setNumberOfDigitsTo10(sender: Any?) {
         setNumberOfDigits(num: 9)
         let sm = NSApplication.shared.mainMenu?
             .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
@@ -137,13 +140,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     //MARK: - Game actions
-    /*
-     * Friendly reminder, First Responder actions in Xcode 8, Swift 3
-     * have to be described as:
-     *      functionNameWithSender:
-     * in the Interface Builder.
-     */
-    func newGame(sender: Any?) {
+    @IBAction func newGame(sender: Any?) {
         let pg = TVPuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
         currentGamePieces = pg.solvedBoard
         let pv : TVGameViewController = NSApplication.shared.mainWindow?.contentViewController as! TVGameViewController
