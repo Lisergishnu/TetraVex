@@ -62,6 +62,7 @@
                                 <menu key="submenu" title="Game" id="bib-Uj-vzu">
                                     <items>
                                         <menuItem title="New Game" keyEquivalent="n" id="Was-JA-tGl">
+                                            <accessibility description="New Game"/>
                                             <connections>
                                                 <action selector="newGameWithSender:" target="Ady-hI-5gd" id="AaI-I6-DVb"/>
                                             </connections>
@@ -376,6 +377,11 @@
                             <customView identifier="TemplatePieceView" hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="TVPieceView" customModule="TetraVex" customModuleProvider="target">
                                 <rect key="frame" x="265" y="160" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow">
+                                    <size key="offset" width="1" height="1"/>
+                                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </shadow>
+                                <accessibility description="TetraVexPiece"/>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eGK-La-Z1J">
                                 <rect key="frame" x="18" y="253" width="204" height="17"/>

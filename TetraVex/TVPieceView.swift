@@ -9,7 +9,7 @@
 import Cocoa
 import TetraVexKit
 
-class TVPieceView : NSView {
+class TVPieceView : NSView, NSAccessibilityButton {
     var pieceModel :TVPieceModel?
     var isBeingDragged : Bool = false
     var lastDraggedPosition : NSPoint = NSPoint()
@@ -58,6 +58,11 @@ class TVPieceView : NSView {
             NSCursor.pop()
             self.needsDisplay = true
         }
+    }
+    
+    // MARK: - Accessibility functions
+    override func accessibilityLabel() -> String? {
+        return "TetraVex Piece"
     }
     
     // MARK: - Drawing operations

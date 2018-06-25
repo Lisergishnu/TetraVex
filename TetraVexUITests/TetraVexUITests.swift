@@ -32,21 +32,20 @@ class TetraVexUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    /// Tests the proper creation of a board from scratch
+    func testNewGame() {
         
         let app = XCUIApplication()
-        app.menuBars.menuBarItems["Game"].click()
+        let menuBarsQuery = app.menuBars
+        menuBarsQuery.menuBarItems["Game"].click()
+        menuBarsQuery/*@START_MENU_TOKEN@*/.menuItems["New Game"]/*[[".menuBarItems[\"Game\"]",".menus.menuItems[\"New Game\"]",".menuItems[\"New Game\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
         
         let tetravexWindow = app.windows["TetraVex"]
-        tetravexWindow.click()
-        tetravexWindow.click()
-        tetravexWindow.click()
-        tetravexWindow.click()
-        tetravexWindow.click()
-        tetravexWindow.typeKey("q", modifierFlags:.command)
-        
-    }
+        let tetravexPieceButton = tetravexWindow.children(matching: .button).matching(identifier: "TetraVex Piece").element(boundBy: 0)
+        tetravexPieceButton.click()
+        tetravexWindow.children(matching: .button).matching(identifier: "TetraVex Piece").element(boundBy: 2).click()
+        tetravexWindow.children(matching: .button).matching(identifier: "TetraVex Piece").element(boundBy: 1).click()
+        tetravexWindow.children(matching: .button).matching(identifier: "TetraVex Piece").element(boundBy: 3).click()
     
+    }
 }
