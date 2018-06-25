@@ -35,6 +35,18 @@ class TetraVexUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        app.menuBars.menuBarItems["Game"].click()
+        
+        let tetravexWindow = app.windows["TetraVex"]
+        tetravexWindow.click()
+        tetravexWindow.click()
+        tetravexWindow.click()
+        tetravexWindow.click()
+        tetravexWindow.click()
+        tetravexWindow.typeKey("q", modifierFlags:.command)
+        
     }
     
 }
