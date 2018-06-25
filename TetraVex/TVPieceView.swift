@@ -63,7 +63,7 @@ class TVPieceView : NSView {
     // MARK: - Drawing operations
 
     func drawStringCenteredAt(_ center: NSPoint, str: NSString, attribs: [NSAttributedStringKey: Any]?) {
-        let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSString.DrawingOptions.oneShot, attributes: attribs)
+        let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSString.DrawingOptions.usesFontLeading, attributes: attribs)
         var dCenter = center
         dCenter.x = center.x - b.width/2
         dCenter.y = center.y - b.height/2
