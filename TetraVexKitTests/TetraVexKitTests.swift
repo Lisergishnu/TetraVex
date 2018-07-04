@@ -90,7 +90,9 @@ class TetraVexKitTests: XCTestCase {
     }
     
     func testBoardSeed() {
-        var seed = 0
-        let puzzle = TVPuzzleGenerator(width: 2, height: 2, rangeOfNumbers: 0..9, seed: seed)
+        let seed = Data(repeating: 1, count: 1)
+        let puzzle = TVPuzzleGenerator(width: 2, height: 2, rangeOfNumbers: 0...9, seed: seed)
+        
+        
     }
 }
