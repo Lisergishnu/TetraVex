@@ -50,7 +50,7 @@ class TetraVexKitTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         /* A | B
-           C | D */
+         C | D */
         
         let a = TVPieceModel(top: 1, left: 2, bottom: 3, right: 4)
         let b = TVPieceModel(top: 3, left: 4, bottom: 2, right: 1)
@@ -89,4 +89,22 @@ class TetraVexKitTests: XCTestCase {
         }
     }
     
+    func testBoardSeed() {
+        let seed = Data(repeating: 1, count: 1)
+        let puzzle = TVPuzzleGenerator(width: 2, height: 2, rangeOfNumbers: 0...9, seed: seed)
+        
+        /* Check consistency */
+        let expectedA = TVPieceModel(top: 6, left: 3, bottom: 6, right: 1)
+        let a = puzzle.solvedBoard[0][0]
+        XCTAssert(expectedA == a)
+        let expectedB = TVPieceModel(top: 5, left: 3, bottom: 6, right: 1)
+        let b = puzzle.solvedBoard[0][1]
+        XCTAssert(expectedB == b)
+        let expectedC = TVPieceModel(top: 1, left: 1, bottom: 8, right: 0)
+        let c = puzzle.solvedBoard[1][0]
+        XCTAssert(expectedC == c)
+        let expectedD = TVPieceModel(top: 3, left: 1, bottom: 1, right: 8)
+        let d = puzzle.solvedBoard[1][1]
+        XCTAssert(expectedD == d)
+    }
 }

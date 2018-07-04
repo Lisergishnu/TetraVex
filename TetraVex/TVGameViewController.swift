@@ -23,6 +23,7 @@
 
 import Cocoa
 import TetraVexKit
+import GameplayKit
 
 class TVGameViewController: NSViewController {
 
@@ -130,8 +131,9 @@ class TVGameViewController: NSViewController {
 					scores?.save()
 				}
 			} else {
-				pv.frame.origin.x = templatePieceView.frame.origin.x + CGFloat(Int.random(0...100))
-				pv.frame.origin.y = templatePieceView.frame.origin.y - CGFloat(Int.random(0...100))
+                let randomSource = GKARC4RandomSource()
+                pv.frame.origin.x = templatePieceView.frame.origin.x + CGFloat(Int.random(0...100,randomSource: randomSource))
+                pv.frame.origin.y = templatePieceView.frame.origin.y - CGFloat(Int.random(0...100,randomSource: randomSource))
 			}
 		}
 	}
