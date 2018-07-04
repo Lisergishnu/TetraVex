@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameplayKit
 
 extension Int
 {
@@ -32,6 +33,11 @@ open class TVPuzzleGenerator {
     open var solvedBoard : [[TVPieceModel]]
     
     // MARK: - Initialization
+    public convenience init(width: Int, height: Int, rangeOfNumbers: ClosedRange<Int>, seed:Int) {
+        // TODO: Use GKARC4RANDOMSOURCE
+        self.init(width: width, height: height, rangeOfNumbers: rangeOfNumbers)
+    }
+    
     public init(width: Int, height: Int, rangeOfNumbers: ClosedRange<Int>) {
         solvedBoard = Array(repeating: Array(repeating:TVPieceModel(top: 0, left: 0, bottom: 0, right: 0), count: width), count: width)
         for i in 0..<width {
