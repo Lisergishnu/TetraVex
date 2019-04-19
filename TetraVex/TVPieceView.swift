@@ -16,10 +16,10 @@ class TVPieceView : NSView, NSAccessibilityButton {
     var lastDraggedPosition : NSPoint = NSPoint()
     var controller : TVGameViewController?
     
-    @IBInspectable var shadowColor : NSColor = NSColor.secondarySelectedControlColor
-    @IBInspectable var backgroundColor : NSColor = NSColor(named: "Board Background Color")!
-    @IBInspectable var outerStrokeColor : NSColor =  NSColor.windowFrameTextColor
-    @IBInspectable var innerStrokeColor : NSColor = NSColor.windowFrameTextColor
+    @IBInspectable var shadowColor : NSColor = NSColor.black
+    @IBInspectable var backgroundColor : NSColor = NSColor.black
+    @IBInspectable var outerStrokeColor : NSColor =  NSColor.black
+    @IBInspectable var innerStrokeColor : NSColor = NSColor.white
     @IBInspectable var textColor : NSColor = NSColor.labelColor
     @IBInspectable var roundedRectRadius : CGFloat = 2
     
