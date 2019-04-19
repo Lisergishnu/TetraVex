@@ -9,6 +9,7 @@
 import Cocoa
 import TetraVexKit
 
+@IBDesignable
 class TVPieceView : NSView, NSAccessibilityButton {
     var pieceModel :TVPieceModel?
     var isBeingDragged : Bool = false
@@ -146,5 +147,9 @@ class TVPieceView : NSView, NSAccessibilityButton {
             s = NSString(format: "%d", pieceModel!.rightValue)
             drawStringCenteredAt(pright, str: s, attribs: attribs)
         }
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        pieceModel = TVPieceModel(top: 1, left: 2, bottom: 3, right: 4)
     }
 }

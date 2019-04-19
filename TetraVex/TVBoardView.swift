@@ -9,6 +9,7 @@
 import Foundation
 import Cocoa
 
+@IBDesignable
 class TVBoardView: NSBox {
     
     override func mouseUp(with event: NSEvent) {
