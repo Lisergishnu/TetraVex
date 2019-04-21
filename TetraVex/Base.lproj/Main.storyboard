@@ -377,10 +377,6 @@
                             <customView identifier="TemplatePieceView" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="TVPieceView" customModule="TetraVex" customModuleProvider="target">
                                 <rect key="frame" x="265" y="160" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <shadow key="shadow">
-                                    <size key="offset" width="1" height="1"/>
-                                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </shadow>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="roundedRectRadius">
                                         <real key="value" value="0.0"/>

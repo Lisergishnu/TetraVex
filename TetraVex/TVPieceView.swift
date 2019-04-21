@@ -25,7 +25,11 @@ class TVPieceView : NSView, NSAccessibilityButton {
     
     // MARK: - Dragging operations
     override func mouseDown(with event: NSEvent) {
-        if (pieceModel?.boltedInPlace)! == false {
+        guard let pieceModel = pieceModel else {
+            return
+        }
+        
+        if pieceModel.boltedInPlace == false {
             isBeingDragged = true
             lastDraggedPosition = self.convert(event.locationInWindow, to: self)
             let i = superview?.subviews.firstIndex(of: self)
@@ -34,7 +38,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
                 svs.swapAt(i!, svs.count-1)
                 superview?.subviews = svs
             }
-            if pieceModel!.isOnBoard {
+            if pieceModel.isOnBoard {
                 controller?.removeFromBoard(piece: self)
             }
             NSCursor.closedHand.push()
