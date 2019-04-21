@@ -9,6 +9,11 @@
 import Cocoa
 import TetraVexKit
 
+protocol TVPieceViewDelegate {
+    func wasLiftedFromBoard(piece:TVPieceView)
+    func wasDropped(piece:TVPieceView, at: NSPoint)
+}
+
 @IBDesignable
 class TVPieceView : NSView, NSAccessibilityButton {
     var pieceModel :TVPieceModel? {
@@ -21,7 +26,6 @@ class TVPieceView : NSView, NSAccessibilityButton {
     }
     var isBeingDragged : Bool = false
     var lastDraggedPosition : NSPoint = NSPoint()
-    var controller : TVGameViewController?
     
     @IBInspectable var backgroundColor : NSColor = #colorLiteral(red: 0.7480000257, green: 0.7480000257, blue: 0.7480000257, alpha: 1)
     @IBInspectable var roundedRectRadius : CGFloat = 2
@@ -35,6 +39,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
     @IBInspectable var fontSize : CGFloat = 24
     
     var bufferImage : NSImage? = nil
+    var delegate : TVPieceViewDelegate? = nil
     
     // MARK: - Dragging operations
     override func mouseDown(with event: NSEvent) {
@@ -52,7 +57,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
                 superview?.subviews = svs
             }
             if pieceModel.isOnBoard {
-                controller?.removeFromBoard(piece: self)
+                delegate?.wasLiftedFromBoard(piece: self)
             }
             NSCursor.closedHand.push()
             self.needsDisplay = true
@@ -78,7 +83,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
     override func mouseUp(with event: NSEvent) {
         if isBeingDragged {
             let dropPosition : NSPoint = superview!.convert(event.locationInWindow, to: nil)
-            controller?.checkPiece(with: self, at: dropPosition)
+            delegate?.wasDropped(piece: self, at: dropPosition)
             isBeingDragged = false
             NSCursor.pop()
             self.needsDisplay = true

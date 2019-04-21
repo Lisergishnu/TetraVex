@@ -25,8 +25,8 @@ import Cocoa
 import TetraVexKit
 import GameplayKit
 
-class TVGameViewController: NSViewController {
-
+class TVGameViewController: NSViewController
+{
 	var solvedBoard : [[TVPieceModel]]? = nil
 	@IBOutlet weak var boardAreaBox: TVBoardView!
 	@IBOutlet weak var templatePieceView: TVPieceView!
@@ -89,7 +89,7 @@ class TVGameViewController: NSViewController {
 					pv.autoresizingMask = [NSView.AutoresizingMask.maxXMargin, NSView.AutoresizingMask.minYMargin]
 					currentPiecesOnBoard.append(pv)
 					pv.pieceModel = solvedBoard![i][j]
-					pv.controller = self
+                    pv.delegate = self
 					self.view.addSubview(pv)
 				}
 			}
@@ -150,4 +150,14 @@ class TVGameViewController: NSViewController {
 		timerLabel.stringValue = TVHighScores.timeToString(secondsPassed)
 	}
 
+}
+
+extension TVGameViewController : TVPieceViewDelegate {
+    func wasLiftedFromBoard(piece: TVPieceView) {
+        removeFromBoard(piece: piece)
+    }
+    
+    func wasDropped(piece: TVPieceView, at: NSPoint) {
+        checkPiece(with: piece, at: at)
+    }
 }
