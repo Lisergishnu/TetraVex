@@ -11,7 +11,14 @@ import TetraVexKit
 
 @IBDesignable
 class TVPieceView : NSView, NSAccessibilityButton {
-    var pieceModel :TVPieceModel?
+    var pieceModel :TVPieceModel? {
+        didSet{
+            guard let model = pieceModel else {
+                return
+            }
+            bufferImage = drawTetraVex(with: model)
+        }
+    }
     var isBeingDragged : Bool = false
     var lastDraggedPosition : NSPoint = NSPoint()
     var controller : TVGameViewController?
@@ -25,8 +32,9 @@ class TVPieceView : NSView, NSAccessibilityButton {
     @IBInspectable var outerStrokeColor : NSColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 
     @IBInspectable var textColor : NSColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    @IBInspectable var fontSize : CGFloat = 18
+    @IBInspectable var fontSize : CGFloat = 24
     
+    var bufferImage : NSImage? = nil
     
     // MARK: - Dragging operations
     override func mouseDown(with event: NSEvent) {
@@ -94,10 +102,15 @@ class TVPieceView : NSView, NSAccessibilityButton {
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        guard let pieceModel = pieceModel else {
+        guard let image = bufferImage else {
             return
         }
-        
+        image.draw(in: self.bounds)
+    }
+    
+    func drawTetraVex(with pieceModel: TVPieceModel) -> NSImage {
+        let image = NSImage(size: self.bounds.size)
+        image.lockFocus()
         let pathRect = self.bounds
         let path = NSBezierPath(roundedRect: pathRect,
                                 xRadius: roundedRectRadius,
@@ -198,6 +211,8 @@ class TVPieceView : NSView, NSAccessibilityButton {
         drawStringCenteredAt(pbot, str: "\(pieceModel.bottomValue)", attribs: attribs)
         drawStringCenteredAt(pleft, str: "\(pieceModel.leftValue)", attribs: attribs)
         drawStringCenteredAt(pright, str: "\(pieceModel.rightValue)", attribs: attribs)
+        image.unlockFocus()
+        return image
     }
     
     func drawInsetLine(_ from: CGPoint, to: CGPoint, color: NSColor, lineWidth:CGFloat = 1) {
