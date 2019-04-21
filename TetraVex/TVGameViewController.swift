@@ -33,7 +33,9 @@ class TVGameViewController: NSViewController {
 	var currentPiecesOnBoard : [TVPieceView] = []
 	var boardModel: TVBoardModel?
 	var delegate : AppDelegate?
-
+    @IBOutlet weak var boardHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var boardWidthConstraint: NSLayoutConstraint!
+    
 	//timing
 	var timer: Timer?
 	var secondsPassed: Int = 0
@@ -70,6 +72,10 @@ class TVGameViewController: NSViewController {
 
 		boardModel = TVBoardModel(width: width, height: height)
 
+        // Refresh autolayout
+        boardWidthConstraint.constant = pw*CGFloat(width)
+        boardHeightConstraint.constant = ph*CGFloat(height)
+        
 		/* Generate and shuffle new pieces */
 		/* Also delete previous pieces */
 		for pv in currentPiecesOnBoard {

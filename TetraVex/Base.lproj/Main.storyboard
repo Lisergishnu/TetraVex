@@ -365,17 +365,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-8B-qd3" customClass="TVBoardView" customModule="TetraVex" customModuleProvider="target">
-                                <rect key="frame" x="20" y="160" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="09x-xe-D5e">
+                            <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-8B-qd3" customClass="TVBoardView" customModule="TetraVex" customModuleProvider="target">
+                                <rect key="frame" x="20" y="122" width="90" height="90"/>
+                                <view key="contentView" id="09x-xe-D5e">
                                     <rect key="frame" x="1" y="1" width="88" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="riO-BU-CSw"/>
+                                    <constraint firstAttribute="height" constant="90" id="uKU-d8-dWd"/>
+                                </constraints>
                                 <color key="fillColor" name="Board Background Color"/>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eGK-La-Z1J">
+                                <rect key="frame" x="21" y="228" width="88" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="0:00" bezelStyle="round" id="ih5-Cc-xK8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <customView identifier="TemplatePieceView" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="TVPieceView" customModule="TetraVex" customModuleProvider="target">
-                                <rect key="frame" x="265" y="160" width="90" height="90"/>
+                                <rect key="frame" x="275" y="122" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -399,19 +410,19 @@
                                 </userDefinedRuntimeAttributes>
                                 <accessibility description="TetraVexPiece"/>
                             </customView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eGK-La-Z1J">
-                                <rect key="frame" x="18" y="253" width="204" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0:00" id="ih5-Cc-xK8">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="eGK-La-Z1J" firstAttribute="leading" secondItem="09x-xe-D5e" secondAttribute="leading" id="Dhm-j1-UQe"/>
+                            <constraint firstItem="ea9-8B-qd3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="OdL-Mw-OyG"/>
+                            <constraint firstItem="ea9-8B-qd3" firstAttribute="top" secondItem="eGK-La-Z1J" secondAttribute="bottom" constant="16" symbolic="YES" id="bF8-Sv-VPy"/>
+                            <constraint firstItem="eGK-La-Z1J" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="mRc-Ur-EcA"/>
+                            <constraint firstItem="eGK-La-Z1J" firstAttribute="trailing" secondItem="09x-xe-D5e" secondAttribute="trailing" id="wkn-N0-nIb"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="boardAreaBox" destination="ea9-8B-qd3" id="PsU-m2-1Q4"/>
+                        <outlet property="boardHeightConstraint" destination="uKU-d8-dWd" id="sYE-TS-qIl"/>
+                        <outlet property="boardWidthConstraint" destination="riO-BU-CSw" id="Yao-eZ-Rjq"/>
                         <outlet property="templatePieceView" destination="s9g-zA-QnV" id="6oo-rw-sMC"/>
                         <outlet property="timerLabel" destination="eGK-La-Z1J" id="qRh-Xe-d7Y"/>
                     </connections>
