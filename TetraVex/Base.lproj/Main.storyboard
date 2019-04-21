@@ -365,20 +365,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box boxType="custom" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-8B-qd3" customClass="TVBoardView" customModule="TetraVex" customModuleProvider="target">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="aPf-q0-hLm" customClass="TVBoardView" customModule="TetraVex" customModuleProvider="target">
                                 <rect key="frame" x="20" y="122" width="90" height="90"/>
-                                <view key="contentView" id="09x-xe-D5e">
-                                    <rect key="frame" x="1" y="1" width="88" height="88"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="riO-BU-CSw"/>
-                                    <constraint firstAttribute="height" constant="90" id="uKU-d8-dWd"/>
+                                    <constraint firstAttribute="width" constant="90" id="mFf-sq-ktO"/>
+                                    <constraint firstAttribute="height" constant="90" id="wPv-KD-V0z"/>
                                 </constraints>
-                                <color key="fillColor" name="Board Background Color"/>
-                            </box>
+                            </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eGK-La-Z1J">
-                                <rect key="frame" x="21" y="228" width="88" height="22"/>
+                                <rect key="frame" x="20" y="228" width="90" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="0:00" bezelStyle="round" id="ih5-Cc-xK8">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -412,17 +407,15 @@
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="eGK-La-Z1J" firstAttribute="leading" secondItem="09x-xe-D5e" secondAttribute="leading" id="Dhm-j1-UQe"/>
-                            <constraint firstItem="ea9-8B-qd3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="OdL-Mw-OyG"/>
-                            <constraint firstItem="ea9-8B-qd3" firstAttribute="top" secondItem="eGK-La-Z1J" secondAttribute="bottom" constant="16" symbolic="YES" id="bF8-Sv-VPy"/>
+                            <constraint firstItem="aPf-q0-hLm" firstAttribute="top" secondItem="eGK-La-Z1J" secondAttribute="bottom" constant="16" id="T1Q-Gy-xjh"/>
+                            <constraint firstItem="eGK-La-Z1J" firstAttribute="leading" secondItem="aPf-q0-hLm" secondAttribute="leading" id="XRg-XP-Fjn"/>
                             <constraint firstItem="eGK-La-Z1J" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="mRc-Ur-EcA"/>
-                            <constraint firstItem="eGK-La-Z1J" firstAttribute="trailing" secondItem="09x-xe-D5e" secondAttribute="trailing" id="wkn-N0-nIb"/>
+                            <constraint firstItem="aPf-q0-hLm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="tFY-Cs-qbZ"/>
+                            <constraint firstItem="eGK-La-Z1J" firstAttribute="trailing" secondItem="aPf-q0-hLm" secondAttribute="trailing" id="wHK-LC-IU9"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="boardAreaBox" destination="ea9-8B-qd3" id="PsU-m2-1Q4"/>
-                        <outlet property="boardHeightConstraint" destination="uKU-d8-dWd" id="sYE-TS-qIl"/>
-                        <outlet property="boardWidthConstraint" destination="riO-BU-CSw" id="Yao-eZ-Rjq"/>
+                        <outlet property="boardAreaBox" destination="aPf-q0-hLm" id="hp0-c7-22F"/>
                         <outlet property="templatePieceView" destination="s9g-zA-QnV" id="6oo-rw-sMC"/>
                         <outlet property="timerLabel" destination="eGK-La-Z1J" id="qRh-Xe-d7Y"/>
                     </connections>

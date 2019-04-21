@@ -8,11 +8,24 @@
 
 import Foundation
 import Cocoa
+import TetraVexKit
 
 @IBDesignable
-class TVBoardView: NSBox {
+class TVBoardView: NSView {
+    
+    @IBInspectable var pieceWidth : CGFloat = 90
+    @IBInspectable var pieceHeight : CGFloat = 90
+    
+    var model : TVBoardModel? = nil
+
     
     override func mouseUp(with event: NSEvent) {
             
+    }
+    
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        
+        
     }
 }
