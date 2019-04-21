@@ -18,8 +18,10 @@ class TVPieceView : NSView, NSAccessibilityButton {
     
     @IBInspectable var backgroundColor : NSColor = #colorLiteral(red: 0.7480000257, green: 0.7480000257, blue: 0.7480000257, alpha: 1)
     @IBInspectable var roundedRectRadius : CGFloat = 2
-    @IBInspectable var innerStrokeColor : NSColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    @IBInspectable var innerStrokeLineWidth : CGFloat = 1
+    @IBInspectable var insetStrokeColor : NSColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    @IBInspectable var insetStrokeLineWidth : CGFloat = 1
+    @IBInspectable var insetOffset: CGFloat = 3
+    @IBInspectable var insetShadowColor: NSColor = .gray
     @IBInspectable var outerStrokeColor : NSColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 
     @IBInspectable var textColor : NSColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -107,43 +109,71 @@ class TVPieceView : NSView, NSAccessibilityButton {
         
         // Inner X lines
         NSGraphicsContext.saveGraphicsState()
-        let shadowColor: NSColor = .gray
-        let insetOffset: CGFloat = 3
         
         drawInsetLine(NSPoint(x:pathRect.origin.x,
                               y:pathRect.origin.y+insetOffset),
                       to: NSPoint(x: pathRect.maxX,
                                   y: pathRect.maxY+insetOffset),
-                      color: shadowColor,
-                      lineWidth: innerStrokeLineWidth)
+                      color: insetShadowColor,
+                      lineWidth: insetStrokeLineWidth)
         drawInsetLine(NSPoint(x:pathRect.minX - insetOffset,
                               y:pathRect.maxY),
                       to: NSPoint(x: pathRect.maxX - insetOffset,
                                   y: pathRect.minY),
-                      color: shadowColor,
-                      lineWidth: innerStrokeLineWidth)
+                      color: insetShadowColor,
+                      lineWidth: insetStrokeLineWidth)
         
         drawInsetLine(pathRect.origin,
                       to: NSPoint(x: pathRect.maxX, y: pathRect.maxY),
-                      color: innerStrokeColor,
-                      lineWidth: innerStrokeLineWidth)
+                      color: insetStrokeColor,
+                      lineWidth: insetStrokeLineWidth)
         drawInsetLine(NSPoint(x:pathRect.minX,y:pathRect.maxY),
                       to: NSPoint(x: pathRect.maxX, y: pathRect.minY),
-                      color: innerStrokeColor,
-                      lineWidth: innerStrokeLineWidth)
+                      color: insetStrokeColor,
+                      lineWidth: insetStrokeLineWidth)
         
         NSGraphicsContext.restoreGraphicsState()
         
         // Outer stroke
-        outerStrokeColor.setStroke();
+        let outerStrokeLineWidth : CGFloat = 10
+        let outerStrokeOffset : CGFloat = 2
+        
+        drawInsetLine(NSPoint(x:pathRect.maxX - outerStrokeOffset,
+                              y:pathRect.minY + outerStrokeOffset),
+                      to: NSPoint(x: pathRect.maxX - outerStrokeOffset,
+                                  y: pathRect.maxY + outerStrokeOffset),
+                      color: .gray,
+                      lineWidth: outerStrokeLineWidth)
+        drawInsetLine(NSPoint(x:pathRect.minX + outerStrokeOffset,
+                              y:pathRect.minY - outerStrokeOffset),
+                      to: NSPoint(x: pathRect.minX + outerStrokeOffset,
+                                  y: pathRect.maxY + outerStrokeOffset),
+                      color: .white,
+                      lineWidth: outerStrokeLineWidth)
+        drawInsetLine(NSPoint(x:pathRect.minX - outerStrokeOffset,
+                              y:pathRect.maxY - outerStrokeOffset),
+                      to: NSPoint(x: pathRect.maxX + outerStrokeOffset,
+                                  y: pathRect.maxY - outerStrokeOffset),
+                      color: .white,
+                      lineWidth: outerStrokeLineWidth)
+        drawInsetLine(NSPoint(x:pathRect.minX + outerStrokeOffset,
+                              y:pathRect.minY + outerStrokeOffset),
+                      to: NSPoint(x: pathRect.maxX - outerStrokeOffset,
+                                  y: pathRect.minY + outerStrokeOffset),
+                      color: .gray,
+                      lineWidth: outerStrokeLineWidth)
+        
+        
         path.lineWidth = 1
+        outerStrokeColor.setStroke()
         path.stroke()
+        
         
         // Text
         let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
         let font = NSFont(name: "Helvetica-Bold", size: fontSize*(pathRect.height/80.0)) ?? NSFont.systemFont(ofSize: fontSize*(pathRect.height/80.0))
-        var shadow = NSShadow()
+        let shadow = NSShadow()
         shadow.shadowColor = .white
         shadow.shadowOffset = NSSize(width: -1, height: 1)
         shadow.shadowBlurRadius = 1
@@ -172,7 +202,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
     
     func drawInsetLine(_ from: CGPoint, to: CGPoint, color: NSColor, lineWidth:CGFloat = 1) {
         let innerPath = NSBezierPath()
-        innerPath.lineWidth = innerStrokeLineWidth
+        innerPath.lineWidth = insetStrokeLineWidth
         innerPath.move(to: from)
         innerPath.line(to: to)
         color.setStroke()
