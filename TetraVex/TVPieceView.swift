@@ -82,12 +82,13 @@ class TVPieceView : NSView, NSAccessibilityButton {
     
     // MARK: - Drawing operations
     
-    func drawStringCenteredAt(_ center: NSPoint, str: NSString, attribs: [NSAttributedString.Key: Any]?) {
-        let b = str.boundingRect(with: NSSize(width: 300,height: 300), options: NSString.DrawingOptions.usesFontLeading, attributes: attribs)
+    func drawStringCenteredAt(_ center: NSPoint, str: String, attribs: [NSAttributedString.Key: Any]?) {
+        let nsstr = NSString(string: str)
+        let b = nsstr.boundingRect(with: NSSize(width: 300,height: 300), options: NSString.DrawingOptions.usesFontLeading, attributes: attribs)
         var dCenter = center
         dCenter.x = center.x - b.width/2
         dCenter.y = center.y - b.height/2
-        str.draw(at: dCenter, withAttributes: attribs)
+        nsstr.draw(at: dCenter, withAttributes: attribs)
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -95,7 +96,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
             return
         }
         
-        let pathRect = NSInsetRect(self.bounds, 5, 5)
+        let pathRect = self.bounds
         let path = NSBezierPath(roundedRect: pathRect,
                                 xRadius: roundedRectRadius,
                                 yRadius: roundedRectRadius)
@@ -106,21 +107,30 @@ class TVPieceView : NSView, NSAccessibilityButton {
         
         // Inner X lines
         NSGraphicsContext.saveGraphicsState()
-        var shadow = NSShadow()
-        shadow.shadowColor = .black
-        shadow.shadowOffset = NSSize(width: 0, height: 3)
-        shadow.shadowBlurRadius = 1
-
+        let shadowColor: NSColor = .gray
+        let insetOffset: CGFloat = 3
+        
+        drawInsetLine(NSPoint(x:pathRect.origin.x,
+                              y:pathRect.origin.y+insetOffset),
+                      to: NSPoint(x: pathRect.maxX,
+                                  y: pathRect.maxY+insetOffset),
+                      color: shadowColor,
+                      lineWidth: innerStrokeLineWidth)
+        drawInsetLine(NSPoint(x:pathRect.minX - insetOffset,
+                              y:pathRect.maxY),
+                      to: NSPoint(x: pathRect.maxX - insetOffset,
+                                  y: pathRect.minY),
+                      color: shadowColor,
+                      lineWidth: innerStrokeLineWidth)
+        
         drawInsetLine(pathRect.origin,
                       to: NSPoint(x: pathRect.maxX, y: pathRect.maxY),
                       color: innerStrokeColor,
-                      lineWidth: innerStrokeLineWidth,
-                      shadow: shadow)
+                      lineWidth: innerStrokeLineWidth)
         drawInsetLine(NSPoint(x:pathRect.minX,y:pathRect.maxY),
                       to: NSPoint(x: pathRect.maxX, y: pathRect.minY),
                       color: innerStrokeColor,
-                      lineWidth: innerStrokeLineWidth,
-                      shadow: shadow)
+                      lineWidth: innerStrokeLineWidth)
         
         NSGraphicsContext.restoreGraphicsState()
         
@@ -133,7 +143,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
         let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
         let font = NSFont(name: "Helvetica-Bold", size: fontSize*(pathRect.height/80.0)) ?? NSFont.systemFont(ofSize: fontSize*(pathRect.height/80.0))
-        shadow = NSShadow()
+        var shadow = NSShadow()
         shadow.shadowColor = .white
         shadow.shadowOffset = NSSize(width: -1, height: 1)
         shadow.shadowBlurRadius = 1
@@ -154,24 +164,19 @@ class TVPieceView : NSView, NSAccessibilityButton {
         let pright = NSPoint(x: pathRect.width*0.80 + pathRect.minX,
                              y: pathRect.height*0.5 + pathRect.minY)
         
-        var s = NSString(format: "%d", pieceModel.topValue)
-        drawStringCenteredAt(ptop, str: s, attribs: attribs)
-        s = NSString(format: "%d", pieceModel.bottomValue)
-        drawStringCenteredAt(pbot, str: s, attribs: attribs)
-        s = NSString(format: "%d", pieceModel.leftValue)
-        drawStringCenteredAt(pleft, str: s, attribs: attribs)
-        s = NSString(format: "%d", pieceModel.rightValue)
-        drawStringCenteredAt(pright, str: s, attribs: attribs)
+        drawStringCenteredAt(ptop, str: "\(pieceModel.topValue)", attribs: attribs)
+        drawStringCenteredAt(pbot, str: "\(pieceModel.bottomValue)", attribs: attribs)
+        drawStringCenteredAt(pleft, str: "\(pieceModel.leftValue)", attribs: attribs)
+        drawStringCenteredAt(pright, str: "\(pieceModel.rightValue)", attribs: attribs)
     }
     
-    func drawInsetLine(_ from: CGPoint, to: CGPoint, color: NSColor, lineWidth:CGFloat = 1, shadow: NSShadow? = nil) {
+    func drawInsetLine(_ from: CGPoint, to: CGPoint, color: NSColor, lineWidth:CGFloat = 1) {
         let innerPath = NSBezierPath()
         innerPath.lineWidth = innerStrokeLineWidth
         innerPath.move(to: from)
         innerPath.line(to: to)
         color.setStroke()
         innerPath.stroke()
-        shadow?.set()
     }
     
     override func prepareForInterfaceBuilder() {
