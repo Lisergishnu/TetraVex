@@ -16,10 +16,10 @@ class TVPieceView : NSView, NSAccessibilityButton {
     var lastDraggedPosition : NSPoint = NSPoint()
     var controller : TVGameViewController?
     
-    @IBInspectable var backgroundColor : NSColor = NSColor.black
-    @IBInspectable var outerStrokeColor : NSColor =  NSColor.black
-    @IBInspectable var innerStrokeColor : NSColor = NSColor.white
-    @IBInspectable var textColor : NSColor = NSColor.labelColor
+    @IBInspectable var backgroundColor : NSColor = #colorLiteral(red: 0.7480000257, green: 0.7480000257, blue: 0.7480000257, alpha: 1)
+    @IBInspectable var innerStrokeColor : NSColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    @IBInspectable var outerStrokeColor : NSColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    @IBInspectable var textColor : NSColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     @IBInspectable var roundedRectRadius : CGFloat = 2
     
     // MARK: - Dragging operations
@@ -111,6 +111,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
             from: NSPoint(x:pathRect.minX,y:pathRect.maxY),
             to: NSPoint(x: pathRect.maxX, y: pathRect.minY)
         )
+        NSGraphicsContext.current?.cgContext.setShadow(offset: .zero, blur: 12, color: CGColor.white)
         NSGraphicsContext.restoreGraphicsState()
         
         // Outer stroke
