@@ -16,7 +16,6 @@ class TVPieceView : NSView, NSAccessibilityButton {
     var lastDraggedPosition : NSPoint = NSPoint()
     var controller : TVGameViewController?
     
-    @IBInspectable var shadowColor : NSColor = NSColor.black
     @IBInspectable var backgroundColor : NSColor = NSColor.black
     @IBInspectable var outerStrokeColor : NSColor =  NSColor.black
     @IBInspectable var innerStrokeColor : NSColor = NSColor.white
@@ -144,17 +143,6 @@ class TVPieceView : NSView, NSAccessibilityButton {
         drawStringCenteredAt(pleft, str: s, attribs: attribs)
         s = NSString(format: "%d", pieceModel.rightValue)
         drawStringCenteredAt(pright, str: s, attribs: attribs)
-        
-        // Shadow
-        let shadow = NSShadow()
-        shadow.shadowBlurRadius = 1
-        shadow.shadowColor = shadowColor
-        if isBeingDragged {
-            shadow.shadowOffset = NSSize(width: 5, height: -5)
-        } else {
-            shadow.shadowOffset = NSSize(width: 1.5, height: -1.5)
-        }
-        shadow.set()
     }
     
     override func prepareForInterfaceBuilder() {
