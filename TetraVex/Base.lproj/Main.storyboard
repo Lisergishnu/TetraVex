@@ -416,6 +416,8 @@
                     </view>
                     <connections>
                         <outlet property="boardAreaBox" destination="aPf-q0-hLm" id="hp0-c7-22F"/>
+                        <outlet property="boardHeightConstraint" destination="wPv-KD-V0z" id="coT-la-IlL"/>
+                        <outlet property="boardWidthConstraint" destination="mFf-sq-ktO" id="Hmq-3p-Fi2"/>
                         <outlet property="templatePieceView" destination="s9g-zA-QnV" id="6oo-rw-sMC"/>
                         <outlet property="timerLabel" destination="eGK-La-Z1J" id="qRh-Xe-d7Y"/>
                     </connections>
