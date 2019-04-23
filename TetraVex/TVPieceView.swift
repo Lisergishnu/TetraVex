@@ -160,7 +160,7 @@ class TVPieceView : NSView, NSAccessibilityButton {
                               y:pathRect.minY + outerStrokeOffset),
                       to: NSPoint(x: pathRect.maxX - outerStrokeOffset,
                                   y: pathRect.maxY + outerStrokeOffset),
-                      color: .gray,
+                      color: .gray,s
                       lineWidth: outerStrokeLineWidth)
         drawInsetLine(NSPoint(x:pathRect.minX + outerStrokeOffset,
                               y:pathRect.minY - outerStrokeOffset),

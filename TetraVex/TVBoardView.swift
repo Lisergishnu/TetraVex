@@ -36,45 +36,60 @@ class TVBoardView: NSView {
         
         let path = NSBezierPath(roundedRect: self.bounds, xRadius: 3, yRadius: 3)
         
-        NSColor.gray.setFill()
+        NSColor.lightGray.setFill()
         NSColor.black.setStroke()
         
         path.fill()
-        path.stroke()
+        
         
         guard let model = model else {
             return
         }
         
-        let pathSquare = NSBezierPath(
-            rect: NSRect(
+        let pathSquare = NSRect(
                 x: 0,
                 y: 0,
                 width: pieceWidth,
                 height: pieceHeight)
-        )
         
         for i in 0..<model.boardWidth {
             for j in 0..<model.boardHeight {
-                drawInsetLine(
-                    CGPoint(x: CGFloat(i+1)*pieceWidth, y: CGFloat(j)*pieceHeight),
-                    to: CGPoint(x: CGFloat(i+1)*pieceWidth, y: CGFloat(j+1)*pieceHeight),
-                    color: .white)
-                drawInsetLine(
-                    CGPoint(x: CGFloat(i)*pieceWidth, y: CGFloat(j)*pieceHeight),
-                    to: CGPoint(x: CGFloat(i+1)*pieceWidth, y: CGFloat(j)*pieceHeight),
-                    color: .white)
-                
-                drawInsetLine(
-                    CGPoint(x: CGFloat(i)*pieceWidth, y: CGFloat(j)*pieceHeight),
-                    to: CGPoint(x: CGFloat(i)*pieceWidth, y: CGFloat(j+1)*pieceHeight),
-                    color: .gray)
-                drawInsetLine(
-                    CGPoint(x: CGFloat(i)*pieceWidth, y: CGFloat(j+1)*pieceHeight),
-                    to: CGPoint(x: CGFloat(i+1)*pieceWidth, y: CGFloat(j+1)*pieceHeight),
-                    color: .gray)
+                let sqr = pathSquare.offsetBy(dx: CGFloat(i)*pieceWidth,
+                                              dy: CGFloat(j)*pieceHeight)
+                drawPieceBezel(in: sqr)
             }
         }
+        
+        path.stroke()
+    }
+    
+    func drawPieceBezel(in pathRect:NSRect, outerStrokeLineWidth : CGFloat = 10,
+                        outerStrokeOffset : CGFloat = 2) {
+        
+        drawInsetLine(NSPoint(x:pathRect.maxX - outerStrokeOffset,
+                              y:pathRect.minY + outerStrokeOffset),
+                      to: NSPoint(x: pathRect.maxX - outerStrokeOffset,
+                                  y: pathRect.maxY + outerStrokeOffset),
+                      color: .white,
+                      lineWidth: outerStrokeLineWidth)
+        drawInsetLine(NSPoint(x:pathRect.minX + outerStrokeOffset,
+                              y:pathRect.minY - outerStrokeOffset),
+                      to: NSPoint(x: pathRect.minX + outerStrokeOffset,
+                                  y: pathRect.maxY + outerStrokeOffset),
+                      color: .gray,
+                      lineWidth: outerStrokeLineWidth)
+        drawInsetLine(NSPoint(x:pathRect.minX - outerStrokeOffset,
+                              y:pathRect.maxY - outerStrokeOffset),
+                      to: NSPoint(x: pathRect.maxX + outerStrokeOffset,
+                                  y: pathRect.maxY - outerStrokeOffset),
+                      color: .gray,
+                      lineWidth: outerStrokeLineWidth)
+        drawInsetLine(NSPoint(x:pathRect.minX + outerStrokeOffset,
+                              y:pathRect.minY + outerStrokeOffset),
+                      to: NSPoint(x: pathRect.maxX - outerStrokeOffset,
+                                  y: pathRect.minY + outerStrokeOffset),
+                      color: .white,
+                      lineWidth: outerStrokeLineWidth)
     }
     
     func drawInsetLine(_ from: CGPoint, to: CGPoint, color: NSColor, lineWidth:CGFloat = 1) {
@@ -87,7 +102,7 @@ class TVBoardView: NSView {
     }
     
     override func prepareForInterfaceBuilder() {
-        model = TVBoardModel(width: 2, height: 2)
+        model = TVBoardModel(width: 1, height: 1)
     }
     
     func prepareBoard(with model:TVBoardModel) {
