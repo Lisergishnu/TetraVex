@@ -383,6 +383,37 @@
                             <customView identifier="TemplatePieceView" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="TVPieceView" customModule="TetraVex" customModuleProvider="target">
                                 <rect key="frame" x="275" y="122" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow" blurRadius="3">
+                                    <size key="offset" width="5" height="-5"/>
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </shadow>
+                                <contentFilters>
+                                    <ciFilter name="CIToneCurve">
+                                        <configuration>
+                                            <null key="inputImage"/>
+                                            <ciVector key="inputPoint0">
+                                                <real value="0.0"/>
+                                                <real value="0.0"/>
+                                            </ciVector>
+                                            <ciVector key="inputPoint1">
+                                                <real value="0.25"/>
+                                                <real value="0.25"/>
+                                            </ciVector>
+                                            <ciVector key="inputPoint2">
+                                                <real value="0.5"/>
+                                                <real value="0.5"/>
+                                            </ciVector>
+                                            <ciVector key="inputPoint3">
+                                                <real value="0.75"/>
+                                                <real value="0.75"/>
+                                            </ciVector>
+                                            <ciVector key="inputPoint4">
+                                                <real value="1"/>
+                                                <real value="1"/>
+                                            </ciVector>
+                                        </configuration>
+                                    </ciFilter>
+                                </contentFilters>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
                                         <color key="value" name="Board Background Color"/>

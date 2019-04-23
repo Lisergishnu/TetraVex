@@ -17,7 +17,14 @@ class TVBoardView: NSView {
     @IBInspectable var pieceHeight : CGFloat = 90
     @IBInspectable var insetStrokeLineWidth : CGFloat = 3
     
-    var model : TVBoardModel? = nil
+    var model : TVBoardModel? = nil {
+        didSet {
+            guard let model = model else {
+                return
+            }
+            prepareBoard(with: model)
+        }
+    }
 
     
     override func mouseUp(with event: NSEvent) {
@@ -35,10 +42,10 @@ class TVBoardView: NSView {
         path.fill()
         path.stroke()
         
-        
         guard let model = model else {
             return
         }
+        
         let pathSquare = NSBezierPath(
             rect: NSRect(
                 x: 0,
@@ -57,6 +64,15 @@ class TVBoardView: NSView {
                     CGPoint(x: CGFloat(i)*pieceWidth, y: CGFloat(j)*pieceHeight),
                     to: CGPoint(x: CGFloat(i+1)*pieceWidth, y: CGFloat(j)*pieceHeight),
                     color: .white)
+                
+                drawInsetLine(
+                    CGPoint(x: CGFloat(i)*pieceWidth, y: CGFloat(j)*pieceHeight),
+                    to: CGPoint(x: CGFloat(i)*pieceWidth, y: CGFloat(j+1)*pieceHeight),
+                    color: .gray)
+                drawInsetLine(
+                    CGPoint(x: CGFloat(i)*pieceWidth, y: CGFloat(j+1)*pieceHeight),
+                    to: CGPoint(x: CGFloat(i+1)*pieceWidth, y: CGFloat(j+1)*pieceHeight),
+                    color: .gray)
             }
         }
     }
@@ -74,4 +90,17 @@ class TVBoardView: NSView {
         model = TVBoardModel(width: 2, height: 2)
     }
     
+    func prepareBoard(with model:TVBoardModel) {
+        let topY = self.frame.origin.y + self.frame.height
+        let newBox = CGRect(x: self.frame.origin.x,
+                            y: topY - (pieceHeight)*CGFloat(model.boardHeight),
+                            width: pieceWidth*CGFloat(model.boardWidth),
+                            height: pieceHeight*CGFloat(model.boardHeight))
+        self.frame = newBox
+        self.bounds = NSRect(x: 0,
+                             y: 0,
+                             width: frame.width,
+                             height: frame.height)
+        
+    }
 }

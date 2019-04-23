@@ -28,9 +28,9 @@ class TVPieceView : NSView, NSAccessibilityButton {
     var lastDraggedPosition : NSPoint = NSPoint()
     
     @IBInspectable var backgroundColor : NSColor = #colorLiteral(red: 0.7480000257, green: 0.7480000257, blue: 0.7480000257, alpha: 1)
-    @IBInspectable var roundedRectRadius : CGFloat = 2
+    @IBInspectable var roundedRectRadius : CGFloat = 0
     @IBInspectable var insetStrokeColor : NSColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    @IBInspectable var insetStrokeLineWidth : CGFloat = 1
+    @IBInspectable var insetStrokeLineWidth : CGFloat = 3
     @IBInspectable var insetOffset: CGFloat = 3
     @IBInspectable var insetShadowColor: NSColor = .gray
     @IBInspectable var outerStrokeColor : NSColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)

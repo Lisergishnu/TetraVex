@@ -58,21 +58,12 @@ class TVGameViewController: NSViewController
 	}
 
 	func newBoard(_ width: Int, height: Int) {
-		/* Resize board outline */
-		let pw  = templatePieceView.frame.width
-		let ph  = templatePieceView.frame.height
-		let topY = boardAreaBox.frame.origin.y + boardAreaBox.frame.height
-
-		let newBox = CGRect(x: boardAreaBox.frame.origin.x,
-		                    y: topY - (ph)*CGFloat(height),
-		                    width: pw*CGFloat(width),
-		                    height: ph*CGFloat(height))
-		boardAreaBox.frame = newBox
-		boardAreaBox.bounds = NSRect(x: 0, y: 0, width: boardAreaBox.frame.width, height: boardAreaBox.frame.height)
-
 		boardModel = TVBoardModel(width: width, height: height)
 
         // Refresh autolayout
+        let pw  = templatePieceView.frame.width
+        let ph  = templatePieceView.frame.height
+
         boardWidthConstraint.constant = pw*CGFloat(width)
         boardHeightConstraint.constant = ph*CGFloat(height)
         
@@ -151,16 +142,26 @@ class TVGameViewController: NSViewController
 		secondsPassed += 1
 		timerLabel.stringValue = TVHighScores.timeToString(secondsPassed)
 	}
-
+    
 }
 
 extension TVGameViewController : TVPieceViewDelegate {
     func wasLiftedFromBoard(piece: TVPieceView) {
         removeFromBoard(piece: piece)
-        
+        guard let layer = piece.layer else {
+            return
+        }
+        layer.shadowColor = NSColor.black.cgColor
+        layer.shadowOpacity = 0.75
+        layer.shadowOffset = CGSize(width: 5,height: 10)
+        layer.shadowRadius = 10
     }
     
     func wasDropped(piece: TVPieceView, at: NSPoint) {
         checkPiece(with: piece, at: at)
+        guard let layer = piece.layer else {
+            return
+        }
+        layer.shadowOpacity = 0.0
     }
 }
