@@ -138,8 +138,10 @@ class TVGameViewController: NSViewController
 				}
 			} else {
                 let randomSource = GKARC4RandomSource()
-                pv.frame.origin.x = templatePieceView.frame.origin.x + CGFloat(Int.random(0...100,randomSource: randomSource))
-                pv.frame.origin.y = templatePieceView.frame.origin.y - CGFloat(Int.random(0...100,randomSource: randomSource))
+                var newOrigin = templatePieceView.frame.origin
+                newOrigin.x +=  CGFloat(Int.random(0...100,randomSource: randomSource))
+                newOrigin.y -=  CGFloat(Int.random(0...100,randomSource: randomSource))
+                pv.animator().setFrameOrigin(newOrigin)
 			}
 		}
 	}
@@ -155,6 +157,7 @@ class TVGameViewController: NSViewController
 extension TVGameViewController : TVPieceViewDelegate {
     func wasLiftedFromBoard(piece: TVPieceView) {
         removeFromBoard(piece: piece)
+        
     }
     
     func wasDropped(piece: TVPieceView, at: NSPoint) {
