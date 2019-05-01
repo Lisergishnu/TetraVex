@@ -9,7 +9,8 @@ Here I will update any noteworthy changes to the TetraVex project.
 
 ### Changed
 - Using Swift 4.
-- Upgraded project to target macOS 10.11+
+- Upgraded project to target macOS 10.13+
+- Refactored views.
 
 ## [0.1.2] - 2017-08-30
 ### Added
