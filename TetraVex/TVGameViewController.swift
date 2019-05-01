@@ -25,15 +25,17 @@ import Cocoa
 import TetraVexKit
 import GameplayKit
 
-class TVGameViewController: NSViewController {
-
+class TVGameViewController: NSViewController
+{
 	var solvedBoard : [[TVPieceModel]]? = nil
 	@IBOutlet weak var boardAreaBox: TVBoardView!
 	@IBOutlet weak var templatePieceView: TVPieceView!
 	var currentPiecesOnBoard : [TVPieceView] = []
 	var boardModel: TVBoardModel?
 	var delegate : AppDelegate?
-
+    @IBOutlet weak var boardHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var boardWidthConstraint: NSLayoutConstraint!
+    
 	//timing
 	var timer: Timer?
 	var secondsPassed: Int = 0
@@ -56,20 +58,15 @@ class TVGameViewController: NSViewController {
 	}
 
 	func newBoard(_ width: Int, height: Int) {
-		/* Resize board outline */
-		let pw  = templatePieceView.frame.width
-		let ph  = templatePieceView.frame.height
-		let topY = boardAreaBox.frame.origin.y + boardAreaBox.frame.height
-
-		let newBox = CGRect(x: boardAreaBox.frame.origin.x,
-		                    y: topY - (ph)*CGFloat(height),
-		                    width: pw*CGFloat(width),
-		                    height: ph*CGFloat(height))
-		boardAreaBox.frame = newBox
-		boardAreaBox.bounds = NSRect(x: 0, y: 0, width: boardAreaBox.frame.width, height: boardAreaBox.frame.height)
-
 		boardModel = TVBoardModel(width: width, height: height)
 
+        // Refresh autolayout
+        let pw  = templatePieceView.frame.width
+        let ph  = templatePieceView.frame.height
+
+        boardWidthConstraint.constant = pw*CGFloat(width)
+        boardHeightConstraint.constant = ph*CGFloat(height)
+        
 		/* Generate and shuffle new pieces */
 		/* Also delete previous pieces */
 		for pv in currentPiecesOnBoard {
@@ -83,7 +80,7 @@ class TVGameViewController: NSViewController {
 					pv.autoresizingMask = [NSView.AutoresizingMask.maxXMargin, NSView.AutoresizingMask.minYMargin]
 					currentPiecesOnBoard.append(pv)
 					pv.pieceModel = solvedBoard![i][j]
-					pv.controller = self
+                    pv.delegate = self
 					self.view.addSubview(pv)
 				}
 			}
@@ -132,8 +129,10 @@ class TVGameViewController: NSViewController {
 				}
 			} else {
                 let randomSource = GKARC4RandomSource()
-                pv.frame.origin.x = templatePieceView.frame.origin.x + CGFloat(Int.random(0...100,randomSource: randomSource))
-                pv.frame.origin.y = templatePieceView.frame.origin.y - CGFloat(Int.random(0...100,randomSource: randomSource))
+                var newOrigin = templatePieceView.frame.origin
+                newOrigin.x +=  CGFloat(Int.random(0...100,randomSource: randomSource))
+                newOrigin.y -=  CGFloat(Int.random(0...100,randomSource: randomSource))
+                pv.animator().setFrameOrigin(newOrigin)
 			}
 		}
 	}
@@ -143,5 +142,26 @@ class TVGameViewController: NSViewController {
 		secondsPassed += 1
 		timerLabel.stringValue = TVHighScores.timeToString(secondsPassed)
 	}
+    
+}
 
+extension TVGameViewController : TVPieceViewDelegate {
+    func wasLiftedFromBoard(piece: TVPieceView) {
+        removeFromBoard(piece: piece)
+        guard let layer = piece.layer else {
+            return
+        }
+        layer.shadowColor = NSColor.black.cgColor
+        layer.shadowOpacity = 0.75
+        layer.shadowOffset = CGSize(width: 5,height: 10)
+        layer.shadowRadius = 10
+    }
+    
+    func wasDropped(piece: TVPieceView, at: NSPoint) {
+        checkPiece(with: piece, at: at)
+        guard let layer = piece.layer else {
+            return
+        }
+        layer.shadowOpacity = 0.0
+    }
 }
