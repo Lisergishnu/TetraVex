@@ -11,6 +11,13 @@ import TetraVexKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+
+  // MARK: - Setting a different letter view
+  enum TextStyle {
+    case digits
+    case letters
+    case greekSymbols
+  }
     
     var currentGameModel : TVGameModel = TVGameModel()
     var currentGamePieces : [[TVPieceModel]]?
