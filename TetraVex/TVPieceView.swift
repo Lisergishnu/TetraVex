@@ -107,7 +107,32 @@ class TVPieceView : NSView, NSAccessibilityButton {
     case .greekSymbols:
       return NSString(string: str)
     case .letters:
-      return NSString(string: str)
+      let nstr: String
+      switch (str) {
+      case "0":
+        nstr = "A"
+      case "1":
+        nstr = "B"
+      case "2":
+        nstr = "C"
+      case "3":
+        nstr = "D"
+      case "4":
+        nstr = "E"
+      case "5":
+        nstr = "F"
+      case "6":
+        nstr = "G"
+      case "7":
+        nstr = "H"
+      case "8":
+        nstr = "I"
+      case "9":
+        nstr = "J"
+      default:
+        nstr = "X"
+      }
+      return NSString(string: nstr)
     }
   }
     
