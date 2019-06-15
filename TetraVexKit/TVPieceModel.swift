@@ -17,6 +17,15 @@ public struct TVPieceModel {
     public var rightValue : Int
     public var boltedInPlace : Bool = false
     public var isOnBoard : Bool = false
+
+  // MARK: - Setting a different piece letter style
+  public enum TextStyle {
+    case digits
+    case letters
+    case greekSymbols
+  }
+
+  public var textStyle : TextStyle = .digits
     
     // MARK: - Initializer
     public init(top: Int, left: Int, bottom: Int, right: Int) {

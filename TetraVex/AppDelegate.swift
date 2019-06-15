@@ -11,13 +11,6 @@ import TetraVexKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-  // MARK: - Setting a different letter view
-  enum TextStyle {
-    case digits
-    case letters
-    case greekSymbols
-  }
     
     var currentGameModel : TVGameModel = TVGameModel()
     var currentGamePieces : [[TVPieceModel]]?
@@ -123,7 +116,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
     }
-    
+
     @IBAction func setNumberOfDigitsTo9(sender: Any?) {
         setNumberOfDigits(num: 8)
         let sm = NSApplication.shared.mainMenu?
@@ -145,6 +138,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 1)
     }
+
+  // MARK: Changing the piece text style
+  @IBAction func setTextStyleToDigits(sender: Any?) {
+    guard let pieces = currentGamePieces else {
+      return
+    }
+    textStyle(for: pieces, .digits)
+  }
+
+  @IBAction func setTextStyleToLetters(sender: Any?) {
+    guard let pieces = currentGamePieces else {
+      return
+    }
+    textStyle(for: pieces, .letters)
+  }
+  @IBAction func setTextStyleToGreekSymbols(sender: Any?) {
+    guard let pieces = currentGamePieces else {
+      return
+    }
+    textStyle(for: pieces, .greekSymbols)
+  }
+
+  func textStyle(for pieces:[[TVPieceModel]],_ style: TVPieceModel.TextStyle) {
+    for row in pieces {
+      for piece in row {
+        piece.textStyle = style
+      }
+    }
+  }
     
     //MARK: - Game actions
     @IBAction func newGame(sender: Any?) {
