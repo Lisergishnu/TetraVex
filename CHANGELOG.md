@@ -6,6 +6,7 @@ Here I will update any noteworthy changes to the TetraVex project.
 - CocoaPods support.
 - Icon for app.
 - Basic test for UI.
+- Greek and latin characters
 
 ### Changed
 - Better graphics
