@@ -172,12 +172,21 @@
                                         <menuItem isSeparatorItem="YES" id="aOC-h8-jqT"/>
                                         <menuItem title="Numbers" state="on" id="fH6-js-PJf">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="setTextStyleToDigitsWithSender:" target="Ady-hI-5gd" id="q4r-JI-SnB"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="Letters" id="img-Li-R8j">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="setTextStyleToLettersWithSender:" target="Ady-hI-5gd" id="8zP-1m-hKT"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="Greek" id="EUB-SS-9iA">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="setTextStyleToGreekSymbolsWithSender:" target="Ady-hI-5gd" id="GWB-Mm-nSh"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>

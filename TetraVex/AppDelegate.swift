@@ -24,10 +24,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * Reminder, First Responder actions have to marked with @IBAction
      * to appear in the Interface Builder.
      */
+
+  var optionMenu: NSMenuItem? {
+    return NSApplication.shared.mainMenu?
+      .item(withTitle: "Options")
+  }
     @IBAction func setBoardTo2x2(sender: Any?) {
         setBoardSize(width: 2, height: 2)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
@@ -37,8 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setBoardTo3x3(sender: Any?) {
         setBoardSize(width: 3, height: 3)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
@@ -48,8 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setBoardTo4x4(sender: Any?) {
         setBoardSize(width: 4, height: 4)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 1)
@@ -59,8 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setBoardTo5x5(sender: Any?) {
         setBoardSize(width: 5, height: 5)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
@@ -70,8 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setBoardTo6x6(sender: Any?) {
         setBoardSize(width: 6, height: 6)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
@@ -86,8 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setNumberOfDigitsTo6(sender: Any?) {
         setNumberOfDigits(num: 5)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
@@ -97,8 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setNumberOfDigitsTo7(sender: Any?) {
         setNumberOfDigits(num: 6)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
@@ -108,19 +106,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setNumberOfDigitsTo8(sender: Any?) {
         setNumberOfDigits(num: 7)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
     }
-    
+
     @IBAction func setNumberOfDigitsTo9(sender: Any?) {
         setNumberOfDigits(num: 8)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
@@ -130,14 +126,49 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setNumberOfDigitsTo10(sender: Any?) {
         setNumberOfDigits(num: 9)
-        let sm = NSApplication.shared.mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 1)
     }
+
+
+  @IBAction func setTextStyleToDigits(sender: Any?) {
+    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
+      return
+    }
+
+    optionMenu?.submenu?.item(withTitle: "Numbers")?.state = .on
+    optionMenu?.submenu?.item(withTitle: "Letters")?.state = .off
+    optionMenu?.submenu?.item(withTitle: "Greek")?.state = .off
+
+    controller.setTextStyle(to: .digits)
+  }
+
+  @IBAction func setTextStyleToLetters(sender: Any?) {
+    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
+      return
+    }
+
+    optionMenu?.submenu?.item(withTitle: "Numbers")?.state = .off
+    optionMenu?.submenu?.item(withTitle: "Letters")?.state = .on
+    optionMenu?.submenu?.item(withTitle: "Greek")?.state = .off
+
+    controller.setTextStyle(to: .letters)
+  }
+  @IBAction func setTextStyleToGreekSymbols(sender: Any?) {
+    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
+      return
+    }
+
+    optionMenu?.submenu?.item(withTitle: "Numbers")?.state = .off
+    optionMenu?.submenu?.item(withTitle: "Letters")?.state = .off
+    optionMenu?.submenu?.item(withTitle: "Greek")?.state = .on
+
+    controller.setTextStyle(to: .greekSymbols)
+  }
     
     //MARK: - Game actions
     @IBAction func newGame(sender: Any?) {

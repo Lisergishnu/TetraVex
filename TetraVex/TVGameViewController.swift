@@ -73,6 +73,7 @@ class TVGameViewController: NSViewController
 			pv.removeFromSuperview()
 		}
 		if ((solvedBoard) != nil) {
+      visiblePieces = [TVPieceView]()
 			for i in 0..<width {
 				for j in 0..<height {
 					let nfr = templatePieceView.frame.offsetBy(dx: pw*CGFloat(i), dy: -ph*CGFloat(j))
@@ -82,6 +83,7 @@ class TVGameViewController: NSViewController
 					pv.pieceModel = solvedBoard![i][j]
                     pv.delegate = self
 					self.view.addSubview(pv)
+          visiblePieces?.append(pv)
 				}
 			}
 
@@ -142,6 +144,27 @@ class TVGameViewController: NSViewController
 		secondsPassed += 1
 		timerLabel.stringValue = TVHighScores.timeToString(secondsPassed)
 	}
+
+  // MARK: Changing the piece text style
+  var visiblePieces : [TVPieceView]?
+
+  func setTextStyle(to style:TVPieceModel.TextStyle) {
+    guard let pieces = visiblePieces else {
+      return
+    }
+    textStyle(for: pieces, style)
+  }
+
+  func textStyle(for pieces:[TVPieceView],_ style: TVPieceModel.TextStyle) {
+    for var piece in pieces {
+      guard var model = piece.pieceModel else {
+        continue
+      }
+        model.textStyle = style
+        piece.pieceModel = model
+        piece.needsDisplay = true
+    }
+  }
     
 }
 

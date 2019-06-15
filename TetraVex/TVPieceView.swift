@@ -96,9 +96,73 @@ class TVPieceView : NSView, NSAccessibilityButton {
     }
     
     // MARK: - Drawing operations
+  var textStyle: TVPieceModel.TextStyle {
+    return pieceModel?.textStyle ?? TVPieceModel.TextStyle.digits
+  }
+
+  func convert(_ str: String, with style:TVPieceModel.TextStyle) -> NSString {
+    switch style {
+    case .digits:
+      return NSString(string: str)
+    case .greekSymbols:
+      let nstr: String
+      switch (str) {
+    case "0":
+      nstr = "α"
+    case "1":
+      nstr = "β"
+    case "2":
+      nstr = "γ"
+    case "3":
+      nstr = "δ"
+    case "4":
+      nstr = "ϵ"
+    case "5":
+      nstr = "ζ"
+    case "6":
+      nstr = "η"
+    case "7":
+      nstr = "θ"
+    case "8":
+      nstr = "ι"
+    case "9":
+      nstr = "κ"
+    default:
+      nstr = "ω"
+    }
+      return NSString(string: nstr)
+    case .letters:
+      let nstr: String
+      switch (str) {
+      case "0":
+        nstr = "A"
+      case "1":
+        nstr = "B"
+      case "2":
+        nstr = "C"
+      case "3":
+        nstr = "D"
+      case "4":
+        nstr = "E"
+      case "5":
+        nstr = "F"
+      case "6":
+        nstr = "G"
+      case "7":
+        nstr = "H"
+      case "8":
+        nstr = "I"
+      case "9":
+        nstr = "J"
+      default:
+        nstr = "X"
+      }
+      return NSString(string: nstr)
+    }
+  }
     
     func drawStringCenteredAt(_ center: NSPoint, str: String, attribs: [NSAttributedString.Key: Any]?) {
-        let nsstr = NSString(string: str)
+        let nsstr = convert(str, with: textStyle)
         let b = nsstr.boundingRect(with: NSSize(width: 300,height: 300), options: NSString.DrawingOptions.usesFontLeading, attributes: attribs)
         var dCenter = center
         dCenter.x = center.x - b.width/2
