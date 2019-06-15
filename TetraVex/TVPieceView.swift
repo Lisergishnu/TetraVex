@@ -96,9 +96,23 @@ class TVPieceView : NSView, NSAccessibilityButton {
     }
     
     // MARK: - Drawing operations
+  var textStyle: TVPieceModel.TextStyle {
+    return pieceModel?.textStyle ?? TVPieceModel.TextStyle.digits
+  }
+
+  func convert(_ str: String, with style:TVPieceModel.TextStyle) -> NSString {
+    switch style {
+    case .digits:
+      return NSString(string: str)
+    case .greekSymbols:
+      return NSString(string: str)
+    case .letters:
+      return NSString(string: str)
+    }
+  }
     
     func drawStringCenteredAt(_ center: NSPoint, str: String, attribs: [NSAttributedString.Key: Any]?) {
-        let nsstr = NSString(string: str)
+        let nsstr = convert(str, with: textStyle)
         let b = nsstr.boundingRect(with: NSSize(width: 300,height: 300), options: NSString.DrawingOptions.usesFontLeading, attributes: attribs)
         var dCenter = center
         dCenter.x = center.x - b.width/2

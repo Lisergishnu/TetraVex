@@ -162,7 +162,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func textStyle(for pieces:[[TVPieceModel]],_ style: TVPieceModel.TextStyle) {
     for row in pieces {
-      for piece in row {
+      for var piece in row {
         piece.textStyle = style
       }
     }
