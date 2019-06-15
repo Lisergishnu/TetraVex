@@ -8,6 +8,7 @@ Here I will update any noteworthy changes to the TetraVex project.
 - Basic test for UI.
 
 ### Changed
+- Better graphics
 - Using Swift 4.
 - Upgraded project to target macOS 10.13+
 - Refactored views.
