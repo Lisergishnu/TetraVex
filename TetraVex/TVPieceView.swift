@@ -105,7 +105,32 @@ class TVPieceView : NSView, NSAccessibilityButton {
     case .digits:
       return NSString(string: str)
     case .greekSymbols:
-      return NSString(string: str)
+      let nstr: String
+      switch (str) {
+    case "0":
+      nstr = "α"
+    case "1":
+      nstr = "β"
+    case "2":
+      nstr = "γ"
+    case "3":
+      nstr = "δ"
+    case "4":
+      nstr = "ϵ"
+    case "5":
+      nstr = "ζ"
+    case "6":
+      nstr = "η"
+    case "7":
+      nstr = "θ"
+    case "8":
+      nstr = "ι"
+    case "9":
+      nstr = "κ"
+    default:
+      nstr = "ω"
+    }
+      return NSString(string: nstr)
     case .letters:
       let nstr: String
       switch (str) {
