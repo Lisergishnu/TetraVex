@@ -2,6 +2,8 @@
 Here I will update any noteworthy changes to the TetraVex project.
 
 ## [Unreleased]
+
+## [0.1.3] - 2019-07-17
 ### Added
 - CocoaPods support.
 - Icon for app.
