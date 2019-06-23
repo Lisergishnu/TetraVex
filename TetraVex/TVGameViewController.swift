@@ -5,7 +5,7 @@
 //  Created by Marco Benzi Tobar on 17-06-16.
 //  Modified by Alessandro Vinciguerra
 //
-//  Copyright © 2016 Marco Benzi Tobar. All rights reserved.
+//  Copyright © 2016 Marco Benzi Tobar
 //
 //  Copyright © 2017 Arc676/Alessandro Vinciguerra
 //
