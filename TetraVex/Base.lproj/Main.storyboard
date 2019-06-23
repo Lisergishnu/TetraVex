@@ -99,31 +99,31 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Size" id="VVl-Eb-5Ha">
                                                 <items>
-                                                    <menuItem title="2x2" state="on" id="9IC-7A-Dw3">
+                                                    <menuItem title="2x2" state="on" tag="20" id="9IC-7A-Dw3">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo2x2WithSender:" target="Ady-hI-5gd" id="CqI-EE-e6D"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="3x3" id="ATe-2X-gcT">
+                                                    <menuItem title="3x3" tag="21" id="ATe-2X-gcT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo3x3WithSender:" target="Ady-hI-5gd" id="HDl-18-LC0"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="4x4" id="yX0-ml-wJT">
+                                                    <menuItem title="4x4" tag="22" id="yX0-ml-wJT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo4x4WithSender:" target="Ady-hI-5gd" id="zX4-NT-lgA"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="5x5" id="EyW-xQ-58S">
+                                                    <menuItem title="5x5" tag="23" id="EyW-xQ-58S">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo5x5WithSender:" target="Ady-hI-5gd" id="hJP-Xn-5o0"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="6x6" id="PwG-Rp-dGx">
+                                                    <menuItem title="6x6" tag="24" id="PwG-Rp-dGx">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo6x6WithSender:" target="Ady-hI-5gd" id="sKy-Qw-RlH"/>
@@ -136,31 +136,31 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Digits" id="Of9-1x-peO">
                                                 <items>
-                                                    <menuItem title="6" id="aZ8-AV-EFH">
+                                                    <menuItem title="6" state="on" tag="30" id="aZ8-AV-EFH">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo6WithSender:" target="Ady-hI-5gd" id="lmp-k3-h6e"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="7" id="mgC-2O-8Qy">
+                                                    <menuItem title="7" tag="31" id="mgC-2O-8Qy">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo7WithSender:" target="Ady-hI-5gd" id="Pmc-iH-LlV"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="8" id="U10-NZ-p72">
+                                                    <menuItem title="8" tag="32" id="U10-NZ-p72">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo8WithSender:" target="Ady-hI-5gd" id="uto-Ab-DGv"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="9" id="XgI-Wp-zq1">
+                                                    <menuItem title="9" tag="33" id="XgI-Wp-zq1">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo9WithSender:" target="Ady-hI-5gd" id="DEN-BC-dTQ"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="10" state="on" id="d6n-Bm-fvg">
+                                                    <menuItem title="10" tag="34" id="d6n-Bm-fvg">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo10WithSender:" target="Ady-hI-5gd" id="9ef-ey-BLI"/>
@@ -170,19 +170,19 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aOC-h8-jqT"/>
-                                        <menuItem title="Numbers" state="on" id="fH6-js-PJf">
+                                        <menuItem title="Numbers" state="on" tag="10" id="fH6-js-PJf">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="setTextStyleToDigitsWithSender:" target="Ady-hI-5gd" id="q4r-JI-SnB"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Letters" id="img-Li-R8j">
+                                        <menuItem title="Letters" tag="11" id="img-Li-R8j">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="setTextStyleToLettersWithSender:" target="Ady-hI-5gd" id="8zP-1m-hKT"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Greek" id="EUB-SS-9iA">
+                                        <menuItem title="Greek" tag="12" id="EUB-SS-9iA">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="setTextStyleToGreekSymbolsWithSender:" target="Ady-hI-5gd" id="GWB-Mm-nSh"/>

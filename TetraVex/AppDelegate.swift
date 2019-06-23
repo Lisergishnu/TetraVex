@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   var currentGameModel : TVGameModel = TVGameModel()
   var currentGamePieces : [[TVPieceModel]]?
+  var gameStarted: Bool = false
 
   var optionMenu: NSMenuItem? {
     return NSApplication.shared.mainMenu?
@@ -185,6 +186,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     pv.solvedBoard = currentGamePieces
     pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
 
+    gameStarted = true
   }
+}
 
+//MARK: - Menu validation
+extension AppDelegate: NSMenuItemValidation {
+  func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    if !gameStarted {
+      if 10...36 ~= menuItem.tag {
+        return false
+      }
+    }
+    return true
+  }
 }
