@@ -9,32 +9,41 @@
 import Foundation
 
 public struct TVPieceModel {
-    
-    // MARK: - Properties
-    public var topValue : Int
-    public var leftValue : Int
-    public var bottomValue : Int
-    public var rightValue : Int
-    public var boltedInPlace : Bool = false
-    public var isOnBoard : Bool = false
-    
-    // MARK: - Initializer
-    public init(top: Int, left: Int, bottom: Int, right: Int) {
-        topValue = top
-        leftValue = left
-        bottomValue = bottom
-        rightValue = right
-    }
-    
-    // MARK: - Operations
-    public static func == (left: TVPieceModel, right: TVPieceModel) -> Bool {
-        return  (left.topValue == right.topValue) &&
-                (left.bottomValue == right.bottomValue) &&
-                (left.leftValue == right.leftValue) &&
-                (left.rightValue == right.rightValue)
-    }
-    
-    public static func != (left: TVPieceModel, right: TVPieceModel) -> Bool {
-        return !(left == right)
-    }
+  
+  // MARK: - Properties
+  public var topValue : Int
+  public var leftValue : Int
+  public var bottomValue : Int
+  public var rightValue : Int
+  public var boltedInPlace : Bool = false
+  public var isOnBoard : Bool = false
+  
+  // MARK: - Setting a different piece letter style
+  public enum TextStyle {
+    case digits
+    case letters
+    case greekSymbols
+  }
+  
+  public var textStyle : TextStyle = .digits
+  
+  // MARK: - Initializer
+  public init(top: Int, left: Int, bottom: Int, right: Int) {
+    topValue = top
+    leftValue = left
+    bottomValue = bottom
+    rightValue = right
+  }
+  
+  // MARK: - Operations
+  public static func == (left: TVPieceModel, right: TVPieceModel) -> Bool {
+    return  (left.topValue == right.topValue) &&
+      (left.bottomValue == right.bottomValue) &&
+      (left.leftValue == right.leftValue) &&
+      (left.rightValue == right.rightValue)
+  }
+  
+  public static func != (left: TVPieceModel, right: TVPieceModel) -> Bool {
+    return !(left == right)
+  }
 }

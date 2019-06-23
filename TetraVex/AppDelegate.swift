@@ -11,145 +11,193 @@ import TetraVexKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    var currentGameModel : TVGameModel = TVGameModel()
-    var currentGamePieces : [[TVPieceModel]]?
-    
-    //MARK: - Resizing board
-    func setBoardSize(width: Int, height: Int) {
-        currentGameModel.boardWidth = width
-        currentGameModel.boardHeight = height
+
+  var currentGameModel : TVGameModel = TVGameModel()
+  var currentGamePieces : [[TVPieceModel]]?
+  var gameStarted: Bool = false
+
+  var optionMenu: NSMenuItem? {
+    return NSApplication.shared.mainMenu?
+      .item(withTitle: "Options")
+  }
+
+  //MARK: - Resizing board
+  func setBoardSize(width: Int, height: Int) {
+    currentGameModel.boardWidth = width
+    currentGameModel.boardHeight = height
+  }
+
+  // MARK: Board size menu manipulation
+  var sizeSubMenu: NSMenuItem? {
+    return optionMenu?.submenu?.item(withTitle: "Size")
+  }
+
+  @IBAction func setBoardTo2x2(sender: Any?) {
+    setBoardSize(width: 2, height: 2)
+    let sm = sizeSubMenu?.submenu
+    sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 1)
+    sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "5x5")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 0)
+  }
+
+  @IBAction func setBoardTo3x3(sender: Any?) {
+    setBoardSize(width: 3, height: 3)
+    let sm = sizeSubMenu?.submenu
+    sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 1)
+    sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "5x5")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 0)
+  }
+
+  @IBAction func setBoardTo4x4(sender: Any?) {
+    setBoardSize(width: 4, height: 4)
+    let sm = sizeSubMenu?.submenu
+    sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 1)
+    sm?.item(withTitle: "5x5")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 0)
+  }
+
+  @IBAction func setBoardTo5x5(sender: Any?) {
+    setBoardSize(width: 5, height: 5)
+    let sm = sizeSubMenu?.submenu
+    sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "5x5")?.state = NSControl.StateValue(rawValue: 1)
+    sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 0)
+  }
+
+  @IBAction func setBoardTo6x6(sender: Any?) {
+    setBoardSize(width: 6, height: 6)
+    let sm = sizeSubMenu?.submenu
+    sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "5x5")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 1)
+  }
+
+
+  //MARK: - Changing range of digits
+  func setNumberOfDigits(num :Int) {
+    currentGameModel.currentNumberDigits = num
+  }
+
+  // MARK: Number of digits menu manipulation
+  var numberOfDigitsSubMenu: NSMenuItem? {
+    return optionMenu?.submenu?.item(withTitle: "Digits")
+  }
+  @IBAction func setNumberOfDigitsTo6(sender: Any?) {
+    setNumberOfDigits(num: 5)
+    let sm = numberOfDigitsSubMenu?.submenu
+    sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 1)
+    sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
+  }
+
+  @IBAction func setNumberOfDigitsTo7(sender: Any?) {
+    setNumberOfDigits(num: 6)
+    let sm = numberOfDigitsSubMenu?.submenu
+    sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 1)
+    sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
+  }
+
+  @IBAction func setNumberOfDigitsTo8(sender: Any?) {
+    setNumberOfDigits(num: 7)
+    let sm = numberOfDigitsSubMenu?.submenu
+    sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 1)
+    sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
+  }
+
+  @IBAction func setNumberOfDigitsTo9(sender: Any?) {
+    setNumberOfDigits(num: 8)
+    let sm = numberOfDigitsSubMenu?.submenu
+    sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 1)
+    sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 0)
+  }
+
+  @IBAction func setNumberOfDigitsTo10(sender: Any?) {
+    setNumberOfDigits(num: 9)
+    let sm = numberOfDigitsSubMenu?.submenu
+    sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "9")?.state = NSControl.StateValue(rawValue: 0)
+    sm?.item(withTitle: "10")?.state = NSControl.StateValue(rawValue: 1)
+  }
+
+
+  @IBAction func setTextStyleToDigits(sender: Any?) {
+    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
+      return
     }
-    
-    func setBoardTo2x2(sender: Any?) {
-        setBoardSize(width: 2, height: 2)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
-        sm?.item(withTitle: "2x2")?.state = 1
-        sm?.item(withTitle: "3x3")?.state = 0
-        sm?.item(withTitle: "4x4")?.state = 0
-        sm?.item(withTitle: "5x5")?.state = 0
-        sm?.item(withTitle: "6x6")?.state = 0
+
+    optionMenu?.submenu?.item(withTitle: "Numbers")?.state = .on
+    optionMenu?.submenu?.item(withTitle: "Letters")?.state = .off
+    optionMenu?.submenu?.item(withTitle: "Greek")?.state = .off
+
+    controller.setTextStyle(to: .digits)
+  }
+
+  @IBAction func setTextStyleToLetters(sender: Any?) {
+    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
+      return
     }
-    
-    func setBoardTo3x3(sender: Any?) {
-        setBoardSize(width: 3, height: 3)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
-        sm?.item(withTitle: "2x2")?.state = 0
-        sm?.item(withTitle: "3x3")?.state = 1
-        sm?.item(withTitle: "4x4")?.state = 0
-        sm?.item(withTitle: "5x5")?.state = 0
-        sm?.item(withTitle: "6x6")?.state = 0
+
+    optionMenu?.submenu?.item(withTitle: "Numbers")?.state = .off
+    optionMenu?.submenu?.item(withTitle: "Letters")?.state = .on
+    optionMenu?.submenu?.item(withTitle: "Greek")?.state = .off
+
+    controller.setTextStyle(to: .letters)
+  }
+  @IBAction func setTextStyleToGreekSymbols(sender: Any?) {
+    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
+      return
     }
-    
-    func setBoardTo4x4(sender: Any?) {
-        setBoardSize(width: 4, height: 4)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
-        sm?.item(withTitle: "2x2")?.state = 0
-        sm?.item(withTitle: "3x3")?.state = 0
-        sm?.item(withTitle: "4x4")?.state = 1
-        sm?.item(withTitle: "5x5")?.state = 0
-        sm?.item(withTitle: "6x6")?.state = 0
+
+    optionMenu?.submenu?.item(withTitle: "Numbers")?.state = .off
+    optionMenu?.submenu?.item(withTitle: "Letters")?.state = .off
+    optionMenu?.submenu?.item(withTitle: "Greek")?.state = .on
+
+    controller.setTextStyle(to: .greekSymbols)
+  }
+
+  //MARK: - Game actions
+  @IBAction func newGame(sender: Any?) {
+    let pg = TVPuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
+    currentGamePieces = pg.solvedBoard
+    let pv : TVGameViewController = NSApplication.shared.mainWindow?.contentViewController as! TVGameViewController
+    pv.solvedBoard = currentGamePieces
+    pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
+
+    gameStarted = true
+  }
+}
+
+//MARK: - Menu validation
+extension AppDelegate: NSMenuItemValidation {
+  func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    if !gameStarted {
+      if 10...36 ~= menuItem.tag {
+        return false
+      }
     }
-    
-    func setBoardTo5x5(sender: Any?) {
-        setBoardSize(width: 5, height: 5)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
-        sm?.item(withTitle: "2x2")?.state = 0
-        sm?.item(withTitle: "3x3")?.state = 0
-        sm?.item(withTitle: "4x4")?.state = 0
-        sm?.item(withTitle: "5x5")?.state = 1
-        sm?.item(withTitle: "6x6")?.state = 0
-    }
-    
-    func setBoardTo6x6(sender: Any?) {
-        setBoardSize(width: 6, height: 6)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Size")?.submenu
-        sm?.item(withTitle: "2x2")?.state = 0
-        sm?.item(withTitle: "3x3")?.state = 0
-        sm?.item(withTitle: "4x4")?.state = 0
-        sm?.item(withTitle: "5x5")?.state = 0
-        sm?.item(withTitle: "6x6")?.state = 1
-    }
-    
-    //MARK: - Changing range of digits
-    func setNumberOfDigits(num :Int) {
-        currentGameModel.currentNumberDigits = num
-    }
-    
-    func setNumberOfDigitsTo6(sender: Any?) {
-        setNumberOfDigits(num: 5)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
-        sm?.item(withTitle: "6")?.state = 1
-        sm?.item(withTitle: "7")?.state = 0
-        sm?.item(withTitle: "8")?.state = 0
-        sm?.item(withTitle: "9")?.state = 0
-        sm?.item(withTitle: "10")?.state = 0
-    }
-    
-    func setNumberOfDigitsTo7(sender: Any?) {
-        setNumberOfDigits(num: 6)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
-        sm?.item(withTitle: "6")?.state = 0
-        sm?.item(withTitle: "7")?.state = 1
-        sm?.item(withTitle: "8")?.state = 0
-        sm?.item(withTitle: "9")?.state = 0
-        sm?.item(withTitle: "10")?.state = 0
-    }
-    
-    func setNumberOfDigitsTo8(sender: Any?) {
-        setNumberOfDigits(num: 7)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
-        sm?.item(withTitle: "6")?.state = 0
-        sm?.item(withTitle: "7")?.state = 0
-        sm?.item(withTitle: "8")?.state = 1
-        sm?.item(withTitle: "9")?.state = 0
-        sm?.item(withTitle: "10")?.state = 0
-    }
-    
-    func setNumberOfDigitsTo9(sender: Any?) {
-        setNumberOfDigits(num: 8)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
-        sm?.item(withTitle: "6")?.state = 0
-        sm?.item(withTitle: "7")?.state = 0
-        sm?.item(withTitle: "8")?.state = 0
-        sm?.item(withTitle: "9")?.state = 1
-        sm?.item(withTitle: "10")?.state = 0
-    }
-    
-    func setNumberOfDigitsTo10(sender: Any?) {
-        setNumberOfDigits(num: 9)
-        let sm = NSApplication.shared().mainMenu?
-            .item(withTitle: "Options")?.submenu?.item(withTitle: "Digits")?.submenu
-        sm?.item(withTitle: "6")?.state = 0
-        sm?.item(withTitle: "7")?.state = 0
-        sm?.item(withTitle: "8")?.state = 0
-        sm?.item(withTitle: "9")?.state = 0
-        sm?.item(withTitle: "10")?.state = 1
-    }
-    
-    //MARK: - Game actions
-    /*
-     * Friendly reminder, First Responder actions in Xcode 8, Swift 3
-     * have to be described as:
-     *      functionNameWithSender:
-     * in the Interface Builder.
-     */
-    func newGame(sender: Any?) {
-        let pg = TVPuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
-        currentGamePieces = pg.solvedBoard
-        let pv : TVGameViewController = NSApplication.shared().mainWindow?.contentViewController as! TVGameViewController
-        pv.solvedBoard = currentGamePieces
-        pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
-        
-    }
-	
+    return true
+  }
 }

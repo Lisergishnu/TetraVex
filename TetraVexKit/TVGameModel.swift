@@ -9,13 +9,13 @@
 import Foundation
 
 public struct TVGameModel {
-    public var currentTime = 0
-    public var score = 0
-    public var currentNumberDigits = 10
-    public var boardWidth = 2
-    public var boardHeight = 2
+  public var currentTime = 0
+  public var score = 0
+  public var currentNumberDigits = 10
+  public var boardWidth = 2
+  public var boardHeight = 2
+  
+  public init() {
     
-    public init() {
-        
-    }
+  }
 }

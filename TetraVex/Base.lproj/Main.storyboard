@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,8 +62,9 @@
                                 <menu key="submenu" title="Game" id="bib-Uj-vzu">
                                     <items>
                                         <menuItem title="New Game" keyEquivalent="n" id="Was-JA-tGl">
+                                            <accessibility description="New Game"/>
                                             <connections>
-                                                <action selector="newGameWithSender:" target="Ady-hI-5gd" id="YOd-Hg-Uqi"/>
+                                                <action selector="newGameWithSender:" target="Ady-hI-5gd" id="AaI-I6-DVb"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Pause" keyEquivalent="p" id="V4n-Pa-RQO"/>
@@ -74,7 +76,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Hint" keyEquivalent="h" id="aRk-4x-Ffr"/>
+                                        <menuItem title="Hint" keyEquivalent="h" id="aRk-4x-Ffr">
+                                            <connections>
+                                                <action selector="testActionsWithSender:" target="Ady-hI-5gd" id="amJ-a6-yze"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Solve" keyEquivalent="s" id="cpb-Rz-0E4"/>
                                         <menuItem title="Arrange" id="7qA-JZ-8vZ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -93,31 +99,31 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Size" id="VVl-Eb-5Ha">
                                                 <items>
-                                                    <menuItem title="2x2" state="on" id="9IC-7A-Dw3">
+                                                    <menuItem title="2x2" state="on" tag="20" id="9IC-7A-Dw3">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo2x2WithSender:" target="Ady-hI-5gd" id="CqI-EE-e6D"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="3x3" id="ATe-2X-gcT">
+                                                    <menuItem title="3x3" tag="21" id="ATe-2X-gcT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo3x3WithSender:" target="Ady-hI-5gd" id="HDl-18-LC0"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="4x4" id="yX0-ml-wJT">
+                                                    <menuItem title="4x4" tag="22" id="yX0-ml-wJT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo4x4WithSender:" target="Ady-hI-5gd" id="zX4-NT-lgA"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="5x5" id="EyW-xQ-58S">
+                                                    <menuItem title="5x5" tag="23" id="EyW-xQ-58S">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo5x5WithSender:" target="Ady-hI-5gd" id="hJP-Xn-5o0"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="6x6" id="PwG-Rp-dGx">
+                                                    <menuItem title="6x6" tag="24" id="PwG-Rp-dGx">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setBoardTo6x6WithSender:" target="Ady-hI-5gd" id="sKy-Qw-RlH"/>
@@ -130,31 +136,31 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Digits" id="Of9-1x-peO">
                                                 <items>
-                                                    <menuItem title="6" id="aZ8-AV-EFH">
+                                                    <menuItem title="6" state="on" tag="30" id="aZ8-AV-EFH">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo6WithSender:" target="Ady-hI-5gd" id="lmp-k3-h6e"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="7" id="mgC-2O-8Qy">
+                                                    <menuItem title="7" tag="31" id="mgC-2O-8Qy">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo7WithSender:" target="Ady-hI-5gd" id="Pmc-iH-LlV"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="8" id="U10-NZ-p72">
+                                                    <menuItem title="8" tag="32" id="U10-NZ-p72">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo8WithSender:" target="Ady-hI-5gd" id="uto-Ab-DGv"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="9" id="XgI-Wp-zq1">
+                                                    <menuItem title="9" tag="33" id="XgI-Wp-zq1">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo9WithSender:" target="Ady-hI-5gd" id="DEN-BC-dTQ"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="10" state="on" id="d6n-Bm-fvg">
+                                                    <menuItem title="10" tag="34" id="d6n-Bm-fvg">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="setNumberOfDigitsTo10WithSender:" target="Ady-hI-5gd" id="9ef-ey-BLI"/>
@@ -164,14 +170,23 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aOC-h8-jqT"/>
-                                        <menuItem title="Numbers" state="on" id="fH6-js-PJf">
+                                        <menuItem title="Numbers" state="on" tag="10" id="fH6-js-PJf">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="setTextStyleToDigitsWithSender:" target="Ady-hI-5gd" id="q4r-JI-SnB"/>
+                                            </connections>
                                         </menuItem>
-                                        <menuItem title="Letters" id="img-Li-R8j">
+                                        <menuItem title="Letters" tag="11" id="img-Li-R8j">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="setTextStyleToLettersWithSender:" target="Ady-hI-5gd" id="8zP-1m-hKT"/>
+                                            </connections>
                                         </menuItem>
-                                        <menuItem title="Greek" id="EUB-SS-9iA">
+                                        <menuItem title="Greek" tag="12" id="EUB-SS-9iA">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="setTextStyleToGreekSymbolsWithSender:" target="Ady-hI-5gd" id="GWB-Mm-nSh"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -197,17 +212,20 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="TetraVex" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-363" y="425"/>
+            <point key="canvasLocation" x="557" y="-56"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="TetraVex" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="TetraVex" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="6wd-WI-s6h"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -221,11 +239,14 @@
         <scene sceneID="zgo-3h-L37">
             <objects>
                 <windowController id="aBp-oP-ER7" sceneMemberID="viewController">
-                    <window key="window" title="High Scores" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="cDn-tK-eEF">
+                    <window key="window" title="High Scores" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="cDn-tK-eEF">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="163" y="199" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+                        <connections>
+                            <outlet property="delegate" destination="aBp-oP-ER7" id="T0F-3b-bs0"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="baI-So-v3f" kind="relationship" relationship="window.shadowedContentViewController" id="FSn-hc-6Lr"/>
@@ -233,12 +254,12 @@
                 </windowController>
                 <customObject id="L3g-VM-XRl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="275"/>
+            <point key="canvasLocation" x="556" y="269"/>
         </scene>
         <!--High Score View Controller-->
         <scene sceneID="nXk-eF-qNI">
             <objects>
-                <viewController id="baI-So-v3f" customClass="HighScoreViewController" customModule="TetraVex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="baI-So-v3f" customClass="TVHighScoreViewController" customModule="TetraVex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="GhZ-Am-Xhc">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -287,12 +308,12 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ZT5-Eg-Svn">
-                                    <rect key="frame" x="-7" y="8" width="0.0" height="15"/>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ZT5-Eg-Svn">
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="99s-Q4-aS0">
-                                    <rect key="frame" x="-14" y="16" width="15" height="0.0"/>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="99s-Q4-aS0">
+                                    <rect key="frame" x="-15" y="23" width="16" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" identifier="Date-Time" id="rRN-z8-7Vg">
@@ -343,7 +364,7 @@
                 </viewController>
                 <customObject id="dbC-RS-qoa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397" y="250"/>
+            <point key="canvasLocation" x="556" y="696"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -353,39 +374,119 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-8B-qd3" customClass="TVBoardView" customModule="TetraVex" customModuleProvider="target">
-                                <rect key="frame" x="20" y="160" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="09x-xe-D5e">
-                                    <rect key="frame" x="1" y="1" width="88" height="88"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <color key="fillColor" red="0.55676333109537768" green="0.55676333109537768" blue="0.55676333109537768" alpha="0.45943216463414632" colorSpace="calibratedRGB"/>
-                            </box>
-                            <customView identifier="TemplatePieceView" hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="TVPieceView" customModule="TetraVex" customModuleProvider="target">
-                                <rect key="frame" x="265" y="160" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="aPf-q0-hLm" customClass="TVBoardView" customModule="TetraVex" customModuleProvider="target">
+                                <rect key="frame" x="20" y="122" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="mFf-sq-ktO"/>
+                                    <constraint firstAttribute="height" constant="90" id="wPv-KD-V0z"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pieceWidth">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pieceHeight">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="insetStrokeLineWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </customView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGK-La-Z1J">
-                                <rect key="frame" x="18" y="253" width="204" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="0:00" id="ih5-Cc-xK8">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eGK-La-Z1J">
+                                <rect key="frame" x="20" y="228" width="90" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="0:00" bezelStyle="round" id="ih5-Cc-xK8">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <customView identifier="TemplatePieceView" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-zA-QnV" customClass="TVPieceView" customModule="TetraVex" customModuleProvider="target">
+                                <rect key="frame" x="275" y="122" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow" blurRadius="3">
+                                    <size key="offset" width="5" height="-5"/>
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </shadow>
+                                <contentFilters>
+                                    <ciFilter name="CIToneCurve">
+                                        <configuration>
+                                            <null key="inputImage"/>
+                                            <ciVector key="inputPoint0">
+                                                <real value="0.0"/>
+                                                <real value="0.0"/>
+                                            </ciVector>
+                                            <ciVector key="inputPoint1">
+                                                <real value="0.25"/>
+                                                <real value="0.25"/>
+                                            </ciVector>
+                                            <ciVector key="inputPoint2">
+                                                <real value="0.5"/>
+                                                <real value="0.5"/>
+                                            </ciVector>
+                                            <ciVector key="inputPoint3">
+                                                <real value="0.75"/>
+                                                <real value="0.75"/>
+                                            </ciVector>
+                                            <ciVector key="inputPoint4">
+                                                <real value="1"/>
+                                                <real value="1"/>
+                                            </ciVector>
+                                        </configuration>
+                                    </ciFilter>
+                                </contentFilters>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" name="Board Background Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outerStrokeColor">
+                                        <color key="value" name="Piece Outer Stroke Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" name="Piece Text Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="roundedRectRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="insetStrokeLineWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <accessibility description="TetraVexPiece"/>
+                            </customView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="aPf-q0-hLm" firstAttribute="top" secondItem="eGK-La-Z1J" secondAttribute="bottom" constant="16" id="T1Q-Gy-xjh"/>
+                            <constraint firstItem="eGK-La-Z1J" firstAttribute="leading" secondItem="aPf-q0-hLm" secondAttribute="leading" id="XRg-XP-Fjn"/>
+                            <constraint firstItem="eGK-La-Z1J" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="mRc-Ur-EcA"/>
+                            <constraint firstItem="aPf-q0-hLm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="tFY-Cs-qbZ"/>
+                            <constraint firstItem="eGK-La-Z1J" firstAttribute="trailing" secondItem="aPf-q0-hLm" secondAttribute="trailing" id="wHK-LC-IU9"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="boardAreaBox" destination="ea9-8B-qd3" id="PsU-m2-1Q4"/>
+                        <outlet property="boardAreaBox" destination="aPf-q0-hLm" id="hp0-c7-22F"/>
+                        <outlet property="boardHeightConstraint" destination="wPv-KD-V0z" id="coT-la-IlL"/>
+                        <outlet property="boardWidthConstraint" destination="mFf-sq-ktO" id="Hmq-3p-Fi2"/>
                         <outlet property="templatePieceView" destination="s9g-zA-QnV" id="6oo-rw-sMC"/>
                         <outlet property="timerLabel" destination="eGK-La-Z1J" id="qRh-Xe-d7Y"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="691"/>
+            <point key="canvasLocation" x="-24" y="480"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="Board Background Color">
+            <color red="0.74800002574920654" green="0.74800002574920654" blue="0.74800002574920654" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Piece Outer Stroke Color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Piece Text Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

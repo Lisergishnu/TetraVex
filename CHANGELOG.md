@@ -3,6 +3,22 @@ Here I will update any noteworthy changes to the TetraVex project.
 
 ## [Unreleased]
 
+## [0.1.3] - 2019-07-23
+### Added
+- CocoaPods support.
+- Icon for app.
+- Basic test for UI.
+- Greek and latin characters.
+
+### Changed
+- Better graphics
+- Using Swift 4.
+- Upgraded project to target macOS 10.13+.
+- Refactored views.
+
+### Fixed
+- Menus get autodisabled when it is expected.
+
 ## [0.1.2] - 2017-08-30
 ### Added
 - Game timer.
