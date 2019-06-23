@@ -156,7 +156,7 @@ class TVGameViewController: NSViewController
   }
 
   func textStyle(for pieces:[TVPieceView],_ style: TVPieceModel.TextStyle) {
-    for var piece in pieces {
+    for piece in pieces {
       guard var model = piece.pieceModel else {
         continue
       }
