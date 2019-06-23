@@ -29,9 +29,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     return NSApplication.shared.mainMenu?
       .item(withTitle: "Options")
   }
+
+  // MARK: Board size menu manipulation
+  var sizeSubMenu: NSMenuItem? {
+    return optionMenu?.submenu?.item(withTitle: "Size")
+  }
+
     @IBAction func setBoardTo2x2(sender: Any?) {
         setBoardSize(width: 2, height: 2)
-        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = sizeSubMenu?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
@@ -41,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setBoardTo3x3(sender: Any?) {
         setBoardSize(width: 3, height: 3)
-        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = sizeSubMenu?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
@@ -51,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setBoardTo4x4(sender: Any?) {
         setBoardSize(width: 4, height: 4)
-        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = sizeSubMenu?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 1)
@@ -61,7 +67,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setBoardTo5x5(sender: Any?) {
         setBoardSize(width: 5, height: 5)
-        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = sizeSubMenu?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
@@ -71,22 +77,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setBoardTo6x6(sender: Any?) {
         setBoardSize(width: 6, height: 6)
-        let sm = optionMenu?.submenu?.item(withTitle: "Size")?.submenu
+        let sm = sizeSubMenu?.submenu
         sm?.item(withTitle: "2x2")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "3x3")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "4x4")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "5x5")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "6x6")?.state = NSControl.StateValue(rawValue: 1)
     }
-    
+
+
     //MARK: - Changing range of digits
     func setNumberOfDigits(num :Int) {
         currentGameModel.currentNumberDigits = num
     }
-    
+
+    // MARK: Number of digits menu manipulation
+  var numberOfDigitsSubMenu: NSMenuItem? {
+    return optionMenu?.submenu?.item(withTitle: "Digits")
+  }
     @IBAction func setNumberOfDigitsTo6(sender: Any?) {
         setNumberOfDigits(num: 5)
-        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = numberOfDigitsSubMenu?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
@@ -96,7 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setNumberOfDigitsTo7(sender: Any?) {
         setNumberOfDigits(num: 6)
-        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = numberOfDigitsSubMenu?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 1)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
@@ -106,7 +117,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setNumberOfDigitsTo8(sender: Any?) {
         setNumberOfDigits(num: 7)
-        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = numberOfDigitsSubMenu?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 1)
@@ -116,7 +127,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func setNumberOfDigitsTo9(sender: Any?) {
         setNumberOfDigits(num: 8)
-        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = numberOfDigitsSubMenu?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
@@ -126,7 +137,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func setNumberOfDigitsTo10(sender: Any?) {
         setNumberOfDigits(num: 9)
-        let sm = optionMenu?.submenu?.item(withTitle: "Digits")?.submenu
+        let sm = numberOfDigitsSubMenu?.submenu
         sm?.item(withTitle: "6")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "7")?.state = NSControl.StateValue(rawValue: 0)
         sm?.item(withTitle: "8")?.state = NSControl.StateValue(rawValue: 0)
