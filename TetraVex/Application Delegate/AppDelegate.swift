@@ -3,7 +3,7 @@
 //  TetraVex
 //
 //  Created by Marco Benzi Tobar on 17-06-16.
-//  Copyright © 2016 Marco Benzi Tobar
+//  Copyright © 2016-2021 Marco Benzi Tobar
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -22,16 +22,21 @@ import TetraVexKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-  var currentGameModel : TVGameModel = TVGameModel()
-  var currentGamePieces : [[TVPieceModel]]?
-  var gameStarted: Bool = false
+  
+  // MARK: - Properties
+  
+  var gameModel: TVGameModel = TVGameModel()
 
   // MARK: - Resizing board
   
   func setBoardSize(width: Int, height: Int) {
-    currentGameModel.boardWidth = width
-    currentGameModel.boardHeight = height
+    guard let controller = self.gameViewController  else {
+      return
+    }
+    
+    gameModel.boardWidth = width
+    gameModel.boardHeight = height
+    controller.viewModel = TVGameViewModel(with: gameModel)
   }
 
   // MARK: Board size menu manipulation
@@ -64,7 +69,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   // MARK: - Changing range of digits
   
   func setNumberOfDigits(num :Int) {
-    currentGameModel.currentNumberDigits = num
+    guard let controller = self.gameViewController  else {
+      return
+    }
+    
+    gameModel.currentNumberDigits = num
+    controller.viewModel = TVGameViewModel(with: gameModel)
   }
 
   // MARK: Number of digits menu manipulation
@@ -95,43 +105,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
   
   // MARK: - Text style
-
-  @IBAction func setTextStyleToDigits(sender: Any?) {
-    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
+  
+  fileprivate func setTextStyle(to style: TVPieceModel.TextStyle) {
+    guard let controller = self.gameViewController else {
       return
     }
+    
+    controller.setTextStyle(to: style)
+  }
+  
 
+  @IBAction func setTextStyleToDigits(sender: Any?) {
     markTextStyleSubMenu(to: [1,0,0])
-    controller.setTextStyle(to: .digits)
+    setTextStyle(to: .digits)
   }
 
   @IBAction func setTextStyleToLetters(sender: Any?) {
-    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
-      return
-    }
-
     markTextStyleSubMenu(to: [0,1,0])
-    controller.setTextStyle(to: .letters)
+    setTextStyle(to: .letters)
   }
   @IBAction func setTextStyleToGreekSymbols(sender: Any?) {
-    guard let controller = NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController else {
-      return
-    }
-
     markTextStyleSubMenu(to: [0,0,1])
-    controller.setTextStyle(to: .greekSymbols)
+    setTextStyle(to: .greekSymbols)
   }
 
   // MARK: - Game actions
   
   @IBAction func newGame(sender: Any?) {
-    let pg = TVPuzzleGenerator(width: currentGameModel.boardWidth, height: currentGameModel.boardHeight, rangeOfNumbers: 0...currentGameModel.currentNumberDigits)
-    currentGamePieces = pg.solvedBoard
-    let pv : TVGameViewController = NSApplication.shared.mainWindow?.contentViewController as! TVGameViewController
-    pv.solvedBoard = currentGamePieces
-    pv.newBoard(currentGameModel.boardWidth, height: currentGameModel.boardHeight)
-
-    gameStarted = true
+    guard let controller = self.gameViewController else {
+      return;
+    }
+    
+    controller.viewModel = TVGameViewModel(with: self.gameModel)
   }
   
   // MARK: - Helper functions
@@ -173,17 +178,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     sm?.item(withTitle: "Letters")?.state = NSControl.StateValue(rawValue: ticks[1])
     sm?.item(withTitle: "Greek")?.state = NSControl.StateValue(rawValue: ticks[2])
   }
+  
+  fileprivate var gameViewController: TVGameViewController? {
+    get {
+      return NSApplication.shared.mainWindow?.contentViewController as? TVGameViewController
+    }
+  }
 }
 
 // MARK: - Menu validation
 
 extension AppDelegate: NSMenuItemValidation {
   func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-    if !gameStarted {
-      if 10...36 ~= menuItem.tag {
-        return false
-      }
+    if self.gameViewController == nil || 10...36 ~= menuItem.tag {
+      return false
     }
+    
     return true
   }
 }

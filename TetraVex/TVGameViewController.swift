@@ -5,7 +5,7 @@
 //  Created by Marco Benzi Tobar on 17-06-16.
 //  Modified by Alessandro Vinciguerra
 //
-//  Copyright © 2016 Marco Benzi Tobar
+//  Copyright © 2016-2021 Marco Benzi Tobar
 //
 //  Copyright © 2017 Arc676/Alessandro Vinciguerra
 //
@@ -27,42 +27,36 @@ import GameplayKit
 
 class TVGameViewController: NSViewController
 {
-  var solvedBoard : [[TVPieceModel]]? = nil
-  @IBOutlet weak var boardAreaBox: TVBoardView!
-  @IBOutlet weak var templatePieceView: TVPieceView!
-  var currentPiecesOnBoard : [TVPieceView] = []
-  var boardModel: TVBoardModel?
-  var delegate : AppDelegate?
-  @IBOutlet weak var boardHeightConstraint: NSLayoutConstraint!
-  @IBOutlet weak var boardWidthConstraint: NSLayoutConstraint!
   
-  //timing
-  var timer: Timer?
-  var secondsPassed: Int = 0
-  @IBOutlet weak var timerLabel: NSTextField!
+  // MARK: - Properties
   
-  //scores
-  var scores: TVHighScores?
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view.
-    delegate = NSApplication.shared.delegate as? AppDelegate
-    scores = TVHighScores.read()
-  }
-  
-  override var representedObject: Any? {
+  public var viewModel: TVGameViewModel? {
     didSet {
-      // Update the view, if already loaded.
+      self.prepareBoard()
     }
   }
+  private var currentPiecesOnBoard : [TVPieceView] = []
+  private var timer: Timer?
+  private var visiblePieces : [TVPieceView]?
   
-  func newBoard(_ width: Int, height: Int) {
-    boardModel = TVBoardModel(width: width, height: height)
+  // MARK: - IB Outlets
+  
+  @IBOutlet weak var boardAreaBox: TVBoardView!
+  @IBOutlet weak var templatePieceView: TVPieceView!
+  @IBOutlet weak var boardHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var boardWidthConstraint: NSLayoutConstraint!
+  @IBOutlet weak var timerLabel: NSTextField!
+
+  // MARK: - Public API
+  
+  public func prepareBoard() {
+    guard let width = viewModel?.boardWidth, let height = viewModel?.boardHeight else {
+      return
+    }
     
     // Refresh autolayout
-    let pw  = templatePieceView.frame.width
-    let ph  = templatePieceView.frame.height
+    let pw = templatePieceView.frame.width
+    let ph = templatePieceView.frame.height
     
     boardWidthConstraint.constant = pw*CGFloat(width)
     boardHeightConstraint.constant = ph*CGFloat(height)
@@ -72,21 +66,19 @@ class TVGameViewController: NSViewController
     for pv in currentPiecesOnBoard {
       pv.removeFromSuperview()
     }
-    if ((solvedBoard) != nil) {
-      visiblePieces = [TVPieceView]()
-      for i in 0..<width {
-        for j in 0..<height {
-          let nfr = templatePieceView.frame.offsetBy(dx: pw*CGFloat(i), dy: -ph*CGFloat(j))
-          let pv : TVPieceView = TVPieceView(frame: nfr)
-          pv.autoresizingMask = [NSView.AutoresizingMask.maxXMargin, NSView.AutoresizingMask.minYMargin]
-          currentPiecesOnBoard.append(pv)
-          pv.pieceModel = solvedBoard![i][j]
-          pv.delegate = self
-          self.view.addSubview(pv)
-          visiblePieces?.append(pv)
-        }
+
+    visiblePieces = [TVPieceView]()
+    for i in 0..<width {
+      for j in 0..<height {
+        let nfr = templatePieceView.frame.offsetBy(dx: pw*CGFloat(i), dy: -ph*CGFloat(j))
+        let pv : TVPieceView = TVPieceView(frame: nfr)
+        pv.autoresizingMask = [NSView.AutoresizingMask.maxXMargin, NSView.AutoresizingMask.minYMargin]
+        currentPiecesOnBoard.append(pv)
+        pv.pieceModel = viewModel?.solvedBoardPiece(at: i, and: j)
+        pv.delegate = self
+        self.view.addSubview(pv)
+        visiblePieces?.append(pv)
       }
-      
     }
     
     //start timing the game
@@ -94,40 +86,35 @@ class TVGameViewController: NSViewController
       timer?.invalidate()
       timer = nil
     }
-    secondsPassed = 0
     timer = Timer.scheduledTimer(
       timeInterval: 1,
       target: self,
       selector: #selector(tick),
       userInfo: nil,
       repeats: true)
-  }
-  
-  func removeFromBoard(piece p:TVPieceView) -> Bool {
-    if boardModel!.removePieceFromBoard(p.pieceModel!) {
-      p.pieceModel!.isOnBoard = false
-      return true
-    }
-    return false
+    
+    viewModel?.resetTimer()
   }
   
   func checkPiece(with pv:TVPieceView,at dropOffPosition:NSPoint) {
+    guard let viewModel = self.viewModel else {
+      return
+    }
+    
     /* Determine the position of view inside the grid */
     if boardAreaBox.frame.contains(dropOffPosition) {
       let i : Int = Int((dropOffPosition.x - boardAreaBox.frame.origin.x) / pv.frame.width)
       let j : Int = Int((dropOffPosition.y - boardAreaBox.frame.origin.y) / pv.frame.height)
       
-      if boardModel!.addPieceToBoard(pv.pieceModel!, x: i, y: j) {
+      if viewModel.addToBoard(piece: pv.pieceModel!, at: i, and: j) {
         pv.frame.origin.x = CGFloat(i)*pv.frame.width + boardAreaBox.frame.origin.x
         pv.frame.origin.y = CGFloat(j)*pv.frame.height + boardAreaBox.frame.origin.y
         pv.pieceModel?.isOnBoard = true
-        if boardModel!.isCompleted() {
+        
+        if viewModel.isGameFinished {
           timer?.invalidate()
           timer = nil
-          
-          let size = "\(boardModel!.boardWidth)x\(boardModel!.boardHeight)"
-          scores?.scores?[size]?[NSDate()] = secondsPassed
-          scores?.save()
+          viewModel.saveScore()
         }
       } else {
         let randomSource = GKARC4RandomSource()
@@ -140,13 +127,14 @@ class TVGameViewController: NSViewController
   }
   
   //MARK: - Timing
+  
   @objc func tick() {
-    secondsPassed += 1
-    timerLabel.stringValue = TVHighScores.timeToString(secondsPassed)
+    if let secondsPassed = viewModel?.incrementTimer() {
+      timerLabel.stringValue = TVHighScores.timeToString(secondsPassed)
+    }
   }
   
   // MARK: Changing the piece text style
-  var visiblePieces : [TVPieceView]?
   
   func setTextStyle(to style:TVPieceModel.TextStyle) {
     guard let pieces = visiblePieces else {
@@ -170,7 +158,8 @@ class TVGameViewController: NSViewController
 
 extension TVGameViewController : TVPieceViewDelegate {
   func wasLiftedFromBoard(piece: TVPieceView) {
-    removeFromBoard(piece: piece)
+    viewModel?.removeFromBoard(piece: piece)
+    
     guard let layer = piece.layer else {
       return
     }
